@@ -18,6 +18,7 @@ function createCollapsible() {
     const isUniqueID = checkIfUniqueID(collapsibleID);
 
     if (!isUniqueID) {
+        // note: if an collapsible ID is not unique, then when one collapsible is toggled, all collapsibles with the same ID are also toggled, I believe 
         // notify in the console of an error
         console.error(`Collapsible with title: "${title}" and contents: "${content}" is the same across another collapsible in this page. Modify the title or contents to make the ID "${collapsibleID}" unique.`);
     }
