@@ -482,97 +482,45 @@ void loop()
 			<h3 class="mb-3" id="pj-heading-checkpoint1">Checkpoint 1</h3>
 			<ol class="mb-5 list-group list-group-numbered">
 				<li class="list-group-item">
-					Build the circuit in <strong>Schematic A</strong> on one breadboard.
-					<div class="alert alert-info mt-2" role="alert">
-						You will test the DHT11 and light sensor, outputting their data to the serial monitor.
-						<div>
+					Using the provided datasheet, find the <strong>forward voltage</strong> of the LED and the <strong>continuous forward current</strong> through the LED.
 				</li>
 				<li class="list-group-item">
-					Program the Arduino board to print the following information to the serial monitor <strong>every 10
-						seconds</strong>:
-					<ul>
-						<li>Temperature</li>
-						<li>Humidity</li>
-						<li>Whether it is day or night</li>
-					</ul>
+					Determine the voltage drop through the resistor by subtracting the battery's voltage from the forward voltage of the
+					LED.
 				</li>
 				<li class="list-group-item">
-					Upload your sketch to the board, and verify that the system executes as expected.
-					You should see an output similar to the following on the serial monitor:
-					<pre class="mt-3"><code class="pj-code language-plaintext">Temp: 34C
-Humidity: 80%
-Time: Day
-
-Temp: 35C
-Humidity: 81%
-Time: Day
-
-Temp: 36C
-Humidity: 79%
-Time: Night</code></pre>
-
-					<div class="alert alert-warning" role="alert">
-						<strong>Don’t expect the same exact values</strong>; any value within reason is acceptable.
-						The formatting doesn’t have to be exactly the same either.
-					</div>
+					Calculate the resistor value using its voltage drop and the maximum current with Ohm's Law.
+					<p>
+						<script src="./js/collapsible.js" title="Click to Reveal Answer" content="290Ω"></script>
+					</p>
 				</li>
 			</ol>
 
-
+			<h3 class="mb-3" id="pj-heading-checkpoint2">Checkpoint 2</h3>
+			<ol class="mb-5 list-group list-group-numbered">
+				<li class="list-group-item">
+					Now that you have the correct resistor value, build the circuit on the breadboard, using the schematic as reference.
+				</li>
+				<li class="list-group-item">
+					(Optional) Test the circuit with different valued resistors, and observe how the brightness of the LED changes. Keep in
+					mind that a low resistance will burn out the LED.
+					<p>
+						<script src="./js/collapsible.js" title="Click to Reveal Answer" content="You should observe that the LED brightness decreases as the resistor value increases. This is because LEDs are <strong>current-driven</strong>: as the current of the circuit decreases so does the LED brightness"></script>
+					</p>
+				</li>
+			</ol>
 
 			<h3 class="mb-3" id="pj-heading-checkpoint3">Checkpoint 3</h3>
 			<ol class="mb-5 list-group list-group-numbered">
 				<li class="list-group-item">
-					Build the circuit in <strong>Schematic C</strong>, which extends Schematic A (Checkpoint 1).
-					<div class="alert alert-warning mt-2" role="alert">
-						<strong>Do not disassemble anything. </strong>Just add to the existing breadboard.
-					</div>
+					Once you have successfully prototyped the circuit on your breadboard, build the same circuit on the protoboard. Solder
+					with care!
 					<div class="alert alert-info" role="alert">
-						You will design the weather station or transmitter, which will send weather reports to the
-						receiver board with the LCD.
+						<strong>Do not solder the 9V snap connector</strong> to the protoboard. Instead, solder the female 1x2 header to the board. The snap connector will be inserted into the
+						header’s pins.
 					</div>
-					<div class="alert alert-info" role="alert">
-						Connect the NRF24 radios to the breadboard using the dupont jumper wire.
-					</div>
-					<div class="alert alert-info" role="alert">
-						This circuit will be powered by the 9V battery. <strong>No USB power is required.</strong>
-					</div>
-				</li>
-				<li class="list-group-item">
-					Program the transmitter Arduino board to send a
-					<code class="pj-code language-arduino">WeatherReport</code> container over radio <strong>every 10
-						seconds</strong>.
-				</li>
-				<li class="list-group-item">
-					Build the circuit in <strong>Schematic D</strong>, which extends Schematic B (Checkpoint 2).
-					<div class="alert alert-warning mt-2" role="alert">
-						<strong>Do not disassemble anything. </strong>Just add to the existing breadboard.
-					</div>
-					<div class="alert alert-info" role="alert">
-						You will design the receiver board, which will display the weather report on the LCD.
-					</div>
-				</li>
-				<li class="list-group-item">
-					Program the receiver Arduino board to display a
-					<code class="pj-code language-arduino">WeatherReport</code>on the LCD upon receiving one.
-					<div class="alert alert-info mt-2" role="alert">
-						You may set a delay since you only expect a report to be sent every 10 seconds.
-					</div>
-				</li>
-				<li class="list-group-item">
-					Upload your transmitter and receiver sketches to the respective board, and verify that the system
-					executes as expected.
-					The receiver will display any newly received weather reports on its LCD, which should look like the
-					following (but not necessarily identical):
-					<div class="alert alert-info mt-2" role="alert">
-						Every 10 seconds, the transmitting weather station will send a new weather report to the
-						receiver.
-					</div>
-					<img class="img-fluid m-2 d-block" style="max-width: 400px;"
-						src=".\assets\images\ops_img_proj6_1.png">
 				</li>
 			</ol>
-
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-deliverables">Deliverables <span class="fw-light">(Enrolled Students
 					Only)</span></h2>
@@ -584,37 +532,9 @@ Time: Night</code></pre>
 			<ul class="mb-4 list-group">
 				<li class="list-group-item">
 					<i class="bi bi-check2-square me-2"></i>
-					Photo of the weather station/transmitter Arduino board
+					Submit a video of your soldered protoboard to the Project 1 Canvas assignment.
 					<div class="alert alert-info mt-2" role="alert">
-						This photo should include the DHT11, light sensor, NRF24 transceiver, and one Arduino correctly
-						wired together.
-					</div>
-				</li>
-				<li class="list-group-item">
-					<i class="bi bi-check2-square me-2"></i>
-					Photo of the receiver Arduino board
-					<div class="alert alert-info mt-2" role="alert">
-						This photo should include the NRF24 transceiver, LCD, and one Arduino correctly wired together.
-					</div>
-					<div class="alert alert-info mt-2" role="alert">
-						The LCD should clearly display the temperature, humidity, and time of day (day or night).
-					</div>
-				</li>
-				<li class="list-group-item">
-					<i class="bi bi-check2-square me-2"></i>
-					Transmitter Arduino sketch file
-					<div class="alert alert-info mt-2" role="alert">
-						This file should include all of the code you have written for the Arduino Nano acting as the
-						transmitter. Name it “<code class="pj-code language-plaintext">project6_transmitter.ino</code>”.
-
-					</div>
-				</li>
-				<li class="list-group-item">
-					<i class="bi bi-check2-square me-2"></i>
-					Receiver Arduino sketch file
-					<div class="alert alert-info mt-2" role="alert">
-						This file should include all of the code you have written for the Arduino Nano acting as the
-						transmitter. Name it “<code class="pj-code language-plaintext">project6_receiver.ino</code>”.
+						The video should demonstrate the switch in both states (ON and OFF)
 					</div>
 				</li>
 			</ul>
