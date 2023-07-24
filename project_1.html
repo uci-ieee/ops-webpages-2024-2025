@@ -115,45 +115,17 @@
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-introduction">Overview</h2>
 			<p class="mb-5">
-				This next project is a culmination of all that you have learned in communication.
-				You will transfer data between two Arduino boards and several embedded devices,
-				using a variety of communication protocols. The goal? Your system will be a full-fledged,
-				wireless weather station. An outdoor Arduino unit, connected to temperature, humidity,
-				and light sensors, will transmit its data over radio to the indoor Arduino unit,
-				which will print this information on a display. Read the primer (sections 2-7), and then proceed
-				to the procedure (section 9) when you are ready to build.
+				Just as the newborn programmer prints “Hello World” to the console, the novice electrical engineer
+				must light an LED. For your first project, you will prototype a basic LED circuit on a breadboard.
+				Then, you will solder it onto a perfboard.
 			</p>
 
 			<h2 class="mb-3 fw-bolder" id="pj-heading-requirements">Requirements</h2>
-			<p class="mb-3">
-				For readers who are enrolled in the course: In order to receive full marks on your project submission,
-				make sure it meets the following <strong>minimum requirements</strong>.
-			</p>
-			<ul class="mb-5 list-group">
-				<li class="list-group-item">
-					You must build a rover and a remote control.
-				</li>
-				<li class="list-group-item">
-					The rover must be controlled wirelessly via the remote control.
-				</li>
-				<li class="list-group-item">
-					The remote control should use a joystick for user input.
-				</li>
-				<li class="list-group-item">
-					A user should be able to intuitively use the joystick to control the rover. This means that pivoting
-					the joystick left should move the rover left, not backward.
-				</li>
-				<li class="list-group-item">
-					You must design a PCB for the remote control.
-				</li>
-				<li class="list-group-item">
-					The rover must be able to move forward, backward, left, and right in response to commands sent by
-					the remote.
-				</li>
-				<li class="list-group-item">
-					Lastly, the rover must be stable and reliable. There should be no spontaneous movement, no wireless
-					connection issues, and absolutely no sparks.
-				</li>
+			<ul class="mb-5">
+				<li>The circuit must work as implied by the schematic: A switch will toggle the LED ON and OFF.</li>
+				<li>The circuit must be soldered to the protoboard.</li>
+				<li>The LED must be brightly lit when toggled ON. A dim LED indicates poor soldering or an incorrect resistor value.</li>
+				<li>The LED must be completely dark when toggled OFF.</li>
 			</ul>
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-parts">Parts</h2>
@@ -168,80 +140,38 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>
-							<a class="pj-part"
-								data-bs-content="<img src='./assets/images/parts/ops_part_arduino_nano.png' height='150px' width='auto'>"
-								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
-								Arduino Nano
-							</a>
-						</td>
-						<td>2</td>
+						<td>Breadboard</td>
+						<td>1</td>
 					</tr>
 					<tr>
-						<td>Breadboard</td>
-						<td>2</td>
+						<td>Battery, 9V</td>
+						<td>1</td>
 					</tr>
 
 					<tr>
-						<td>Battery (9V)</td>
+						<td>9V Snap Connector</td>
 						<td>1</td>
 					</tr>
 					<tr>
-						<td>Dupont 9V Snap Connector</td>
-						<td>1</td>
-					</tr>
-					<tr>
-						<td>
-							<a class="pj-part"
-								data-bs-content="<img src='./assets/images/parts/ops_part_nrf24l01.png' height='150px' width='auto'>"
-								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
-								N4F24L01 Transceiver Module
-							</a>
-						</td>
+						<td>Header, 2.54mm, Female, 1x2</td>
 						<td>2</td>
 					</tr>
 					<tr>
-						<td>
-							<a class="pj-part"
-								data-bs-content="<img src='./assets/images/parts/ops_part_lcd_i2c_backpack.png' height='150px' width='auto'>"
-								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
-								LCD with I<sup>2</sup>C Backpack
-							</a>
-						</td>
-						<td>2</td>
-					</tr>
-					<tr>
-						<td>
-							<a class="pj-part"
-								data-bs-content="<img src='./assets/images/parts/ops_part_dht11.png' height='150px' width='auto'>"
-								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
-								DHT11
-							</a>
-						</td>
+						<td>LED, 3.2V</td>
 						<td>1</td>
 					</tr>
 					<tr>
-						<td>
-							<a class="pj-part"
-								data-bs-content="<img src='./assets/images/parts/ops_part_photoresistor.png' height='150px' width='auto'>"
-								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
-								Photoresistor
-							</a>
-						</td>
+						<td>Slide Switch</td>
 						<td>1</td>
 					</tr>
 					<tr>
-						<td>Resistor (10kΩ)</td>
+						<td>Resistor, ?Ω</td>
 						<td>1</td>
 					</tr>
 					<tr>
-						<td>Jumper Wire</td>
-						<td>~</td>
-					</tr>
-					<tr>
-						<td>Micro USB Cable</td>
+						<td>Protoboard</td>
 						<td>1</td>
-					</tr>
+					</tr>										
 				</tbody>
 			</table>
 			<!-- End Part Table -->
