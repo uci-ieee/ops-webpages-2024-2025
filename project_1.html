@@ -57,25 +57,13 @@
 						<a class="nav-link" href="#pj-heading-schematics">Schematics</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#pj-heading-arduino-libraries">Arduino Libraries</a>
+						<a class="nav-link" href="#pj-heading-concepts-breadboards">Concepts: Breadboards</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#pj-heading-concepts">Concepts</a>
-
-						<ul class="nav">
-							<li class="nav-item">
-								<a class="nav-link" href="#pj-heading-dht11">DHT11</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#pj-heading-lcd">LCD with I<sup>2</sup>C Backpack</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#pj-heading-nrf24l01">NRF24L01 Transceiver</a>
-							</li>
-						</ul>
+						<a class="nav-link" href="#pj-heading-concepts-ohms-law">Concepts: Ohm's Law</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#pj-heading-arduino-nano-pinout">Arduino Nano Pinout</a>
+						<a class="nav-link" href="#pj-heading-concepts-resistor">Concepts: Resistor</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-instructions">Instructions</a>
@@ -178,8 +166,10 @@
 
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-schematics">Schematics</h2>
-			<div class="mb-5">
-				<img src='./assets/images/project_1/ops_schem_proj1.png' class="pj-schem">
+
+			<div style= "text-align: center;" class="mb-5">
+				<img class="img-fluid my-3 me-5" style="max-width: 600px;"
+					src="./assets/images/project_1/ops_schem_proj1.png" class="pj-schem">
 			</div>
 			<!-- <div class="accordion mb-5" id="schemAccordian">
 				<div class="accordion-item">
@@ -196,78 +186,80 @@
 					</div>
 				</div> -->
 
-			<h2 class="mb-3 fw-bold" id="pj-heading-arduino-libraries">Installing Arduino Libraries</h2>
-			<p class="mb-3">
-				Here is a quick recap on how you can install Arduino libraries in the
-				<a class="link-primary" href="https://www.arduino.cc/en/software" target="_blank"
-					rel="noopener noreferrer">Arduino IDE 2.0.0+</a>
-			</p>
-			<ol class="mb-4 list-group list-group-numbered">
-				<li class="list-group-item">
-					Download the library as a <strong>.zip</strong>
-				</li>
-				<li class="list-group-item">
-					In the Arduino IDE, go to <strong>Sketch → Include Library → Add .ZIP Library…</strong>
-				</li>
-				<li class="list-group-item">
-					Select the <strong>.zip</strong> of the library and click <strong>Open</strong>.
-				</li>
-			</ol>
-			<img class="img-fluid mb-4" src=".\assets\images\ops_arduino_ide_zip_library.png">
-
-			<p class="mb-4">
-				Make sure to <code class="pj-code language-arduino">#include</code> the library header file so that your
-				code compiles correctly.
+			<h2 class="mb-3 fw-bold" id="pj-heading-concepts-breadboards">Concepts: Breadboards</h2>
+			<p>
+				<img class="img-fluid my-3 me-5 float-start" style="max-width: 350px;"
+					src="./assets/images/project_1/ops_breadboard_half.jpg">
+					You will use a <strong>breadboard</strong> to prototype your circuits. Inside the breadboard are
+					conductive metal strips.
+				<br><br>
+				When you insert components into holes of the same strip, current can flow between those components.
+				<br><br>
+				Closely follow the illustrations below to understand how current travels through the breadboard.
 			</p>
 
-			<table class="table pj-download-table mb-5">
-				<tbody>
-					<tr>
-						<td>DHT11 Library</td>
-						<td>
-							<a class="btn btn-outline-success mx-3"
-								href="https://drive.google.com/u/0/uc?id=13l0xBJkl7UiNxC3JY1AaUamEku6W_K77&export=download"
-								role="button"><i class="bi bi-download"></i> Download</a>
-						</td>
-					</tr>
-					<tr>
-						<td>LiquidCrystal I<sup>2</sup>C Library</td>
-						<td>
-							<a class="btn btn-outline-success mx-3"
-								href="https://drive.google.com/u/0/uc?id=1HyxZnboDG1AFusFtOMBhR6ogWcsgrf-6&export=download"
-								role="button"><i class="bi bi-download"></i> Download</a>
-						</td>
-					</tr>
-
-					<tr>
-						<td>NRF24L01_W Library</td>
-						<td>
-							<a class="btn btn-outline-success mx-3"
-								href="https://drive.google.com/u/0/uc?id=1NOQYAHhi2zEvs3LF03NmtVruFnfNxvSp&export=download"
-								role="button"><i class="bi bi-download"></i> Download</a>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-
-
-			<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Concepts</h2>
 			<p class="mb-5">
-				Before you begin assembling the project, give this section a skim. You will find code snippets,
-				explanations, and diagrams
-				of the major electronics compoenents you will use.
+			<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
+			src="./assets/images/project_1/ops_breadboard_explanation_1.png">
+			
+			<img class="img-fluid my-3 me-5 float-end" style="max-width: 400px;"
+			src="./assets/images/project_1/ops_breadboard_explanation_2.png">
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				<strong>Remember to place a component’s terminals on different strips.</strong> If both terminals sit on 
+				the same strip, current will not flow properly through the component.
 			</p>
+			
+			<style>
+			h6 {
+				font-size: 80px;
+			}
+			</style>
 
-			<h3 class="mb-3" id="pj-heading-dht11">DHT11</h3>
+			<h2 class="mb-5 fw-bold" id="pj-heading-concepts-ohms-law">Concepts: Ohm’s Law</h2>
+			<h6 class="mb-5" >V = IR</h6>
+
 			<p class="mb-5">
-				We will use the DHT11 sensor module to measure temperature and humidity. This component is rather
-				straightforward. The DHT11 uses the
-				<a class="link-primary" href="https://docs.arduino.cc/learn/communication/one-wire">1-Wire® protocol</a>
-				to communicate with the Arduino board over a single data line. We simply
-				need to accept the data at the Arduino and display it.
+				Ohm’s Law relates the <strong>voltage (V)</strong>, <strong>current (I)</strong>, and <strong>resistance (R)</strong>
+				in a circuit. Suppose we hold the voltage at a constant value: As the current increases, resistance in the circuit 
+				decreases. In the opposite case, as current decreases, resistance increases.
+				<br><br>
+				We will use the formula to calculate the proper resistor value for our circuit. With a resistance too low, the
+				components break under high current. However, a resistance too high limits the current so that no component is
+				sufficiently powered. 
+				<br><br>
+				Admittedly, there is plenty more nuance to this topic: we will eventually distinguish between current-driven and
+				voltage-driven electronics, which exhibit different characteristics under changing voltage and current conditions.
 			</p>
 
+			<h2 class="mb-3 fw-bold" id="pj-heading-concepts-resistor">Concepts: Resistor</h2>
+			<p class = "mb-3">
+				A <strong></strong>resistor</strong> is a component that reduces the current flow. It has no polarity, meaning that
+				its orientation in a circuit has no effect on the circuit. The ability of a resistor to limit current flow is measured
+				in ohms (Ω). The value of a resistor is determined by the color and number of bands appearing on it. Different resistors
+				have a different count of bands, so <strong>let’s take, for example, the four-band resistor:</strong>
+			</p>
 
+			<div style= "text-align: center;" class="mb-3">
+				<img class="img-fluid my-3 me-5" style="max-width: 200px;"
+					src="./assets/images/project_1/ops_resistor_band_4.jpg">
+			</div>
+
+			<p class="mb-5">
+				The first two bands (<span class="text-red">red</span> and black) represent the <strong>digits</strong> of the resistor
+				value (resistance). The value of each digit can be decoded on the chart below. In our case, we find the digits are
+				<span class="text-red">2</span><strong>0</strong>. The next band (<span class="text-yellow">yellow</span>) represents a
+				multiplier to be multiplied by the digits. Looking at the chart again, we can see that the multiplier is
+				<span class="text-yellow">10<sup>4</sup></span>. The last band represents the <strong>tolerance</strong>, the variance
+				of the true resistance compared to the one described by the bands. In our case, gold has a tolerance of
+				<span class="text-yellow">±5%</span>.
+				<br><br>
+				Putting it all together, we get the value <strong>20 x 104 ±5% Ω</strong>, which is identified as a <strong>200KΩ</strong> resistor.
+			</p>
+
+			<div style= "text-align: center;" class="mb-5">
+				<img class="img-fluid my-3 me-5" style="max-width: 500px;"
+					src="./assets/images/project_1/ops_resistor_chart.png">
+			</div>
 
 			<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">DHT11 Pinout</h4>
 			<p>
