@@ -66,6 +66,15 @@
 						<a class="nav-link" href="#pj-heading-concepts-resistor">Concepts: Resistor</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="#pj-heading-led">LED (Light Emitting Diode)</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#pj-heading-slide-switch">Slide Switch</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#pj-heading-soldering">Soldering</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-instructions">Instructions</a>
 						<ul class="nav">
 							<li class="nav-item">
@@ -165,7 +174,7 @@
 			<!-- End Part Table -->
 
 
-			<h2 class="mb-3 fw-bold" id="pj-heading-schematics">Schematics</h2>
+			<h2 class="mb-2 fw-bold" id="pj-heading-schematics">Schematics</h2>
 
 			<div style= "text-align: center;" class="mb-5">
 				<img class="img-fluid my-3 me-5" style="max-width: 600px;"
@@ -186,7 +195,7 @@
 					</div>
 				</div> -->
 
-			<h2 class="mb-3 fw-bold" id="pj-heading-concepts-breadboards">Concepts: Breadboards</h2>
+			<h2 class="mb-4 fw-bold" id="pj-heading-concepts-breadboards">Concepts: Breadboards</h2>
 			<p>
 				<img class="img-fluid my-3 me-5 float-start" style="max-width: 350px;"
 					src="./assets/images/project_1/ops_breadboard_half.jpg">
@@ -198,7 +207,7 @@
 				Closely follow the illustrations below to understand how current travels through the breadboard.
 			</p>
 
-			<p class="mb-5">
+			<p class = "mb-3">
 			<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
 			src="./assets/images/project_1/ops_breadboard_explanation_1.png">
 			
@@ -208,15 +217,20 @@
 				<strong>Remember to place a component’s terminals on different strips.</strong> If both terminals sit on 
 				the same strip, current will not flow properly through the component.
 			</p>
-			
+
+			<div style= "text-align: center;" class="mb-3">
+				<img class="mb-5 img-fluid my-3 me-5" style="max-width: 700px;"
+					src="./assets/images/project_1/ops_breadboard_explanation_3.png">
+			</div>
 			<style>
+
 			h6 {
 				font-size: 80px;
 			}
 			</style>
 
-			<h2 class="mb-5 fw-bold" id="pj-heading-concepts-ohms-law">Concepts: Ohm’s Law</h2>
-			<h6 class="mb-5" >V = IR</h6>
+			<h2 class="mb-4 fw-bold" id="pj-heading-concepts-ohms-law">Concepts: Ohm’s Law</h2>
+			<h6 class="mb-4" >V = IR</h6>
 
 			<p class="mb-5">
 				Ohm’s Law relates the <strong>voltage (V)</strong>, <strong>current (I)</strong>, and <strong>resistance (R)</strong>
@@ -227,13 +241,13 @@
 				components break under high current. However, a resistance too high limits the current so that no component is
 				sufficiently powered. 
 				<br><br>
-				Admittedly, there is plenty more nuance to this topic: we will eventually distinguish between current-driven and
-				voltage-driven electronics, which exhibit different characteristics under changing voltage and current conditions.
+				Admittedly, there is plenty more nuance to this topic: we will eventually distinguish between <strong>current-driven</strong> and
+				<strong>voltage-driven</strong> electronics, which exhibit different characteristics under changing voltage and current conditions.
 			</p>
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-concepts-resistor">Concepts: Resistor</h2>
 			<p class = "mb-3">
-				A <strong></strong>resistor</strong> is a component that reduces the current flow. It has no polarity, meaning that
+				A <strong>resistor</strong> is a component that reduces the current flow. It has no polarity, meaning that
 				its orientation in a circuit has no effect on the circuit. The ability of a resistor to limit current flow is measured
 				in ohms (Ω). The value of a resistor is determined by the color and number of bands appearing on it. Different resistors
 				have a different count of bands, so <strong>let’s take, for example, the four-band resistor:</strong>
@@ -261,100 +275,33 @@
 					src="./assets/images/project_1/ops_resistor_chart.png">
 			</div>
 
-			<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">DHT11 Pinout</h4>
-			<p>
-				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
-					src="./assets/images/pinouts/ops_pinout_dht11.png">
-				To the left is the pinout of the DHT11.
+			<h2 class="mb-3 fw-bold" id="pj-heading-led">LED (Light Emitting Diode)</h2>
+			<p class="mb-5">
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 400px;"
+					src="./assets/images/project_1/ops_led_annotated.png">
+					An <strong>LED</strong> is a component that emits light! Big surprise.
 				<br><br>
-				The <span class="text-gray">GND</span> and <span class="text-red">VCC</span> pins power the radio
-				module.
-				Note that the <span class="text-red">VCC</span> pin takes a voltage between 3.3 and 5V, but to keep it
-				simple, <strong>connect it to the VCC pin</strong> of
-				the Arduino board.
+				Like all diodes, LEDs exhibit a polarity, which means <strong>only travels through it in one direction</strong>.
+				Electricity flows from the <span class="text-red">anode</span> to the <span class="text-blue">cathode</span> terminal.
+				<br><br>
+				LEDs also have a consistent voltage drop between terminals, usually 2.2V or 3.2V. Be mindful of which is required for each project.
 			</p>
 
+			<h2 class="mb-3 fw-bold" id="pj-heading-slide-switch">Slide Switch</h2>
+
+			<p class="mb-4">
+				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
+					src="./assets/images/project_1/ops_switch_slide_annotated.png">
+				You will use a <strong>slide switch</strong> to control the current flow in the circuit. The sliding contact completes a connection with the middle
+				terminal (pin 2) and one of the two outer terminals (pins 1 and 3).
+				<br><br>
+				The slider points in the direction of the outer terminal connected to the middle terminal.
+			</p>
+
+			<h2 class="mb-3 fw-bold" id="pj-heading-soldering">Soldering</h2>
 			<p class="mb-5">
-				The third and final pin is <span class="text-green">S</span>. This line carries the communication
-				between the
-				Arduino and sensor. It should be connected to a digital pin of the Arduino board.
-			</p>
-
-			<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">Using the DHT11 Library</h4>
-			<p class="mb-3">
-				Writing the code for the DHT11 is almost as easy as wiring it! You can download the library
-				<a class="link-primary" href="#pj-heading-arduino-libraries">here</a>.
-				Make sure to include the header file:
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">#include &lt;dht11.h&gt;</code>
-			</p>
-			<p class="mb-3">
-				At the core of this library is the dht11 class, which you will instantiate as an object and use to read
-				data from the sensor.
-			</p>
-			<p class="mb-3">
-				Create an object as follows, declaring it in the global scope.
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">dht11 weatherSensor;</code>
-			</p>
-			<p class="mb-3">
-				To collect data from the sensor, call the <code class="pj-code language-arduino">read()</code> function
-				from the dht11 object.
-				Make sure to pass the digital pin of the <span class="text-green">S</span> line as the argument.
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">weatherSensor.read(int pin); </code>
-			</p>
-			<p class="mb-3">
-				After you call <code class="pj-code language-arduino">read()</code>, you may access the temperature and
-				humidity values using the following dht11 member variables. These values are the int type. Temperature
-				is Celsius.
-			</p>
-			<p class="mb-5">
-				<code class="pj-code language-arduino">weatherSensor.temperature</code>
-				<code class="pj-code language-arduino">weatherSensor.humidity</code>
-			</p>
-
-			<p class="mb-5">
-				At this point, you can print the values to the serial monitor or use it however else you please.
-				<br>
-				<span>Let’s see all of the code in action!</span>
-			</p>
-
-			<pre class="mb-5"><code class="pj-code language-arduino">#include &lt;LiquidCrystal_I2C.h&gt;
-LiquidCrystal_I2C lcd(0x27, 16, 2);
-
-void setup()
-{
-	lcd.init(); // initialize the lcd
-	lcd.backlight();
-}
-
-void loop()
-{
-	lcd.clear();                 // clear display
-	lcd.setCursor(0, 0);         // move cursor to   (0, 0)
-	lcd.print("Hello");          // print message at (0, 0)
-	lcd.setCursor(2, 1);         // move cursor to   (2, 1)
-	lcd.print("World");          // print message at (2, 1)
-	delay(1000);                 // delay between each print to LCD
-}</code></pre>
-
-
-
-			<h2 class="mb-3 fw-bold" id="pj-heading-arduino-nano-pinout">Arduino Nano Pinout</h2>
-			<p class="mb-5">
-				Thinking about using a pin but you don’t know what it does? Refer to the Arduino Nano pinout diagram, or
-				scroll further to find the full datasheet.
-				<br>
-				<span class="text-blue">~</span> represents pins that are PWM capable.
-				<img class="img-fluid my-4" src=".\assets\images\pinouts\ops-pinout-arduino-nano.png">
-			</p>
-
-
-
+				Woah woah! Soldering is a bit more complicated than a two paragraph discussion. 
+				Head over to the workshop material <span class="text-blue">here [Webpage Link]</span> to learn more.
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-instructions">Instructions</h2>
 			<h3 class="mb-3" id="pj-heading-checkpoint1">Checkpoint 1</h3>
@@ -410,7 +357,7 @@ void loop()
 			<ul class="mb-4 list-group">
 				<li class="list-group-item">
 					<i class="bi bi-check2-square me-2"></i>
-					Submit a video of your soldered protoboard to the Project 1 Canvas assignment.
+					Submit a <strong><u>video of your soldered protoboard</u></strong> to the Project 1 Canvas assignment.
 					<div class="alert alert-info mt-2" role="alert">
 						The video should demonstrate the switch in both states (ON and OFF)
 					</div>
