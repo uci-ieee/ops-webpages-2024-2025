@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-bs-theme="light">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <!--Title-->
+    <title>Open Project Space</title>
+    <!--Favicon-->
+    <link rel="icon" href="./assets/images/ops_logo_favicon.png">
+    <!--Roboto Font CDN-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,700&display=swap"
+        rel="stylesheet">
+    <!--Beckman Font CDN-->
+    <link href="https://fonts.cdnfonts.com/css/beckman" rel="stylesheet">
+    <!-- Custom Stylesheet "custom.css" used for Bootstrap 5.3.0 css-->
+    <link rel="stylesheet" href="./css/custom.css" type="text/css">
+    <!-- Popper JS v2.11.8 (Bootstrap Dependency) CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS v5.3.0 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap Icons CSS v1.10.0 CDN-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Highlight JS v11.7.0-->
+    <link rel="stylesheet" href="./css/highlight.js/default.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/highlight.js/arduino-light.min.css" type="text/css">
+    <script src="./js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+
+<body style="">
+	<!-- ======= Header ======= -->
+	<script src="./js/ops_header.js"></script>
+	<!-- End Header -->
+
+	<div class="container-xl pj-layout my-5">
+		<!-- ======= Sidebar ======= -->
+		<aside class="pj-sidebar ">
+			<nav id="project-toc" class="pj-toc d-flex flex-column px-2 pt-2 pb-4">
+				<ul class="nav flex-column">
+					<h5 class="mt-2 mb-2 mx-3">Contents</h5>
+					<li class="nav-item">
+						<a class="nav-link" href="#pj-heading-introduction">Overview</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#pj-heading-requirements">Requirements</a>
+						<ul class="nav">
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-555_Blinker">555 Blinker</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-555_Piano">555 Piano</a>
+							</li>
+							
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#pj-heading-parts">Parts</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#pj-heading-concepts">Concepts</a>
+						<ul class="nav">
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-ceramic_capacitors">Ceramic Capacitors</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-pushbutton">Pushbutton</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-piezoelectric_buzzer">Piezoelectric Buzzer</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-NE555P_IC">NE555P IC</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-pcb">Printed Circuit Board (PCB)</a>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#pj-heading-arduino-nano-pinout">Arduino Nano Pinout</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#pj-heading-schematics">Schematics</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#pj-heading-instructions">Instructions</a>
+						<ul class="nav">
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-checkpoint1">Checkpoint 1</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-checkpoint2">Checkpoint 2</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-checkpoint3">Checkpoint 3</a>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#pj-heading-deliverables">Deliverables</a>
+					</li>
+				</ul>
+			</nav>
+		</aside>
+		<!-- End Sidebar -->
+
+		<main class="pj-main p-3" data-bs-spy="scroll" data-bs-target="#project-toc" data-bs-root-margin="0px 0px -40%"
+			data-bs-smooth-scroll="true" tabindex="0">
+			<div class="d-flex flex-row justify-content-between mb-5">
+				<div class="">
+					<h4>Project 2</h4>
+					<h1 class="fw-bold">555 Piano</h1>
+				</div>
+				<div class="alert alert-light" role="alert">
+					<i class="bi bi-calendar-event me-1"></i>
+					Updated 2023.06.30 <br>
+					By Benjamen Bielecki
+				</div>
+			</div>
+
+			<h2 class="mb-3 fw-bold" id="pj-heading-introduction">Overview</h2>
+			<p class="mb-5">
+				Now that you have created a basic circuit and soldered with a protoboard,
+				let’s explore more advanced topics! You will build two circuits using a
+				555 Timer IC: (1) a blinking LED circuit, (2) a three-key electronic piano.
+			</p>
+
+			<h2 class="mb-3 fw-bolder" id="pj-heading-requirements">Requirements</h2>
+			<p class="mb-3">
+				For readers who are enrolled in the course: In order to receive full marks on your project submission,
+				make sure it meets the following <strong>minimum requirements</strong>.
+			</p>
+			<h3 class="mb-3" id="pj-heading-555_Blinker">555 Blinker</h3>
+			<ul class="mb-5 list-group">
+				<li class="list-group-item">
+					The LED in the circuit must blink at roughly a rate of once per second.
+				</li>
+				<li class="list-group-item">
+					The LED must be brightly lit when turned ON.
+				</li>
+				<li class="list-group-item">
+					The LED must be completely dark when turned OFF.
+				</li>
+				<li class="list-group-item">
+					The circuit must be built on a breadboard.
+				</li>
+			</ul>
+			<h3 class="mb-3" id="pj-heading-555_Piano">555 Piano</h3>
+			<ul class="mb-5 list-group">
+				<li class="list-group-item">
+					The circuit must emit a distinct tone for each of the three buttons pressed.
+				</li>
+				<li class="list-group-item">
+					When a button is pressed, the piezo should emit minimal static noise.
+				</li>
+				<li class="list-group-item">
+					The circuit must emit tones at a reasonable volume (not too low).
+				</li>
+				<li class="list-group-item">
+					The circuit must be soldered to the provided PCB.
+				</li>
+			</ul>
+
+			<h2 class="mb-3 fw-bold" id="pj-heading-parts">Parts</h2>
+
+			<!-- ======= Part Table ======= -->
+			<table class="table pj-part-table mb-5">
+				<thead>
+					<tr>
+						<th scope="col">Part Name</th>
+						<th scope="col">Qty</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Breadboard</td>
+						<td>1</td>
+					</tr>
+
+					<tr>
+						<td>Battery (9V)</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>Dupont 9V Snap Connector</td>
+						<td>1</td>
+					<tr>
+						<td>Header, 2.54mm, Female, 1x2</td>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td>NE555P IC</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>Resistor, 1kΩ</td>
+						<td>3</td>
+					</tr>
+					<tr>
+						<td>Resistor, 4.7kΩ</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>Resistor, 10kΩ</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>Resistor, 470kΩ</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>Switch, Tactile</td>
+						<td>3</td>
+					</tr>
+					<tr>
+						<td>Dip Socket, 8 pin</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>LED, 3.2V</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>Capacitor, 0.1µF</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>Capacitor, 1µF</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>Capacitor, 10µF</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>555 Piano PCB</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>Piezo Buzzer</td>
+						<td>1</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- End Part Table -->
+
+			<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Concepts</h2>
+			<br>
+			<h3 class="mb-3" id="pj-heading-ceramic_capacitors">Ceramic Capacitors</h3>
+			<p class="mb-5">
+				A <strong>capacitor</strong> is a component that briefly stores electrical energy, which it charges and discharges in bursts. 
+				It is not a battery. Batteries store energy at a high density and slowly charge and discharge that energy.
+			</p>
+
+
+
+			<h4 class="mb-3 fw-light" id="pj-heading-common_uses" style="display: inline;">Common Uses</h4>
+			<p>
+				Capacitors are often used to smooth the signal output of circuits. This is the case for our 555 Piano. 
+				A capacitor in series with the piezo buzzer reduces the noise the from the IC output.
+				<br><br>
+				We will also use a capacitor to configure the NE555P IC. The time it takes for the capacitor to charge and 
+				discharge determines the delay of the IC.
+			</p>
+
+			<h4 class="mb-3 fw-light" id="pj-heading-capacitor_markings" style="display: inline;">Capacitor Markings</h4>
+			<p>
+				You can determine the capacitance of a ceramic capacitor from its 3-digit markings. As shown below, the first two digits 
+				are multiplied by 10 raised to the power of the third digit. The product is the value of the capacitor measured in picofarads.
+				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
+					src="./assets/images/visuals/capacitor2.png">
+			</p>
+
+			<p class="mb-5">
+				The third and final pin is <span class="text-green">S</span>. This line carries the communication
+				between the
+				Arduino and sensor. It should be connected to a digital pin of the Arduino board.
+			</p>
+
+			<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">Using the DHT11 Library</h4>
+			<p class="mb-3">
+				Writing the code for the DHT11 is almost as easy as wiring it! You can download the library
+				<a class="link-primary" href="#pj-heading-arduino-libraries">here</a>.
+				Make sure to include the header file:
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">#include &lt;dht11.h&gt;</code>
+			</p>
+			<p class="mb-3">
+				At the core of this library is the dht11 class, which you will instantiate as an object and use to read
+				data from the sensor.
+			</p>
+			<p class="mb-3">
+				Create an object as follows, declaring it in the global scope.
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">dht11 weatherSensor;</code>
+			</p>
+			<p class="mb-3">
+				To collect data from the sensor, call the <code class="pj-code language-arduino">read()</code> function
+				from the dht11 object.
+				Make sure to pass the digital pin of the <span class="text-green">S</span> line as the argument.
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">weatherSensor.read(int pin); </code>
+			</p>
+			<p class="mb-3">
+				After you call <code class="pj-code language-arduino">read()</code>, you may access the temperature and
+				humidity values using the following dht11 member variables. These values are the int type. Temperature
+				is Celsius.
+			</p>
+			<p class="mb-5">
+				<code class="pj-code language-arduino">weatherSensor.temperature</code>
+				<code class="pj-code language-arduino">weatherSensor.humidity</code>
+			</p>
+
+			<p class="mb-5">
+				At this point, you can print the values to the serial monitor or use it however else you please.
+				<br>
+				<span>Let’s see all of the code in action!</span>
+			</p>
+
+			<pre class="mb-5"><code class="pj-code language-arduino">#include &lt;LiquidCrystal_I2C.h&gt;
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+void setup()
+{
+	lcd.init(); // initialize the lcd
+	lcd.backlight();
+}
+
+void loop()
+{
+	lcd.clear();                 // clear display
+	lcd.setCursor(0, 0);         // move cursor to   (0, 0)
+	lcd.print("Hello");          // print message at (0, 0)
+	lcd.setCursor(2, 1);         // move cursor to   (2, 1)
+	lcd.print("World");          // print message at (2, 1)
+	delay(1000);                 // delay between each print to LCD
+}</code></pre>
+
+
+
+			<h2 class="mb-3 fw-bold" id="pj-heading-arduino-nano-pinout">Arduino Nano Pinout</h2>
+			<p class="mb-5">
+				Thinking about using a pin but you don’t know what it does? Refer to the Arduino Nano pinout diagram, or
+				scroll further to find the full datasheet.
+				<br>
+				<span class="text-blue">~</span> represents pins that are PWM capable.
+				<img class="img-fluid my-4" src=".\assets\images\pinouts\ops-pinout-arduino-nano.png">
+			</p>
+
+			<h2 class="mb-3 fw-bold" id="pj-heading-schematics">Schematics</h2>
+			<div class="accordion mb-5" id="schemAccordian">
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button" type="button" data-bs-toggle="collapse"
+							data-bs-target="#schemCollapse1" aria-expanded="true" aria-controls="schemCollapse1">
+							Schematic A
+						</button>
+					</h2>
+					<!--Pin to page?-->
+					<div id="schemCollapse1" class="accordion-collapse collapse show" data-bs-parent="#schemAccordian">
+						<div class="accordion-body text-center">
+							<img src='./assets/images/schematics/ops_schem_proj2_a.png' class="pj-schem">
+						</div>
+					</div>
+				</div>
+
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+							data-bs-target="#schemCollapse2" aria-expanded="true" aria-controls="schemCollapse2">
+							Schematic B
+						</button>
+					</h2>
+					<!--Pin to page?-->
+					<div id="schemCollapse2" class="accordion-collapse collapse" data-bs-parent="#schemAccordian">
+						<div class="accordion-body text-center">
+							<img src='./assets/images/schematics/ops_schem_proj2_b.png' class="pj-schem">
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<h2 class="mb-3 fw-bold" id="pj-heading-instructions">Instructions</h2>
+			<h3 class="mb-3" id="pj-heading-checkpoint1">Checkpoint 1</h3>
+			<ol class="mb-5 list-group list-group-numbered">
+				<li class="list-group-item">
+					Build the circuit from <strong>Schematic A</strong> on your breadboard.
+					<div class="alert alert-info mt-2" role="alert">
+						Refer closely to the 555 Timer IC Pinout. The schematic does not show the true location of each pin on the IC, but the pinout does.
+						<div>
+					<div class="alert alert-info mt-2" role="alert">
+						Use the capacitor marking guide when looking for the right capacitors for this circuit.
+						<div>
+				</li>
+				<li class="list-group-item">
+					Verify that the circuit meets the design requirements. Before proceeding to the next checkpoint, 
+					make sure you have created the required deliverables.
+				</li>
+			</ol>
+
+			<h3 class="mb-3" id="pj-heading-checkpoint2">Checkpoint 2</h3>
+			<ol class="mb-5 list-group list-group-numbered">
+				<li class="list-group-item">
+					Deconstruct the circuit you built in Checkpoint 1, and reuse the components. 
+					Build the circuit from <strong>Schematic B</strong> (the piano) on the breadboard.
+				</li>
+				<li class="list-group-item">
+					Verify that the circuit meets the design requirements (no soldering required yet). 
+					Before proceeding to the next checkpoint, make sure you have created the required deliverables.
+				</li>
+			</ol>
+
+			<h3 class="mb-3" id="pj-heading-checkpoint3">Checkpoint 3</h3>
+			<ol class="mb-5 list-group list-group-numbered">
+				<li class="list-group-item">
+					Enrolled Students: Solder the circuit components from Schematic B to the provided PCB.
+					<br><br>
+					If you do not have a PCB you may use a protoboard/perfboard instead.
+					<div class="alert alert-info mt-2" role="alert">
+						<strong>Do not solder the 9V snap connector</strong> to the PCB. Instead, solder the female 1x2 header to the 
+						board. The snap connector will be inserted into the header’s pins.
+						<div>
+				</li>
+			</ol>
+
+
+			<h2 class="mb-3 fw-bold" id="pj-heading-deliverables">Deliverables <span class="fw-light">(Enrolled Students
+					Only)</span></h2>
+			<p class="mb-3">
+				Students enrolled in the course must submit the following deliverables to the corresponding Canvas
+				course assignment:
+			</p>
+
+			<ul class="mb-4 list-group">
+				<li class="list-group-item">
+					<i class="bi bi-check2-square me-2"></i>
+					Photo of the weather station/transmitter Arduino board
+					<div class="alert alert-info mt-2" role="alert">
+						This photo should include the DHT11, light sensor, NRF24 transceiver, and one Arduino correctly
+						wired together.
+					</div>
+				</li>
+				<li class="list-group-item">
+					<i class="bi bi-check2-square me-2"></i>
+					Photo of the receiver Arduino board
+					<div class="alert alert-info mt-2" role="alert">
+						This photo should include the NRF24 transceiver, LCD, and one Arduino correctly wired together.
+					</div>
+					<div class="alert alert-info mt-2" role="alert">
+						The LCD should clearly display the temperature, humidity, and time of day (day or night).
+					</div>
+				</li>
+				<li class="list-group-item">
+					<i class="bi bi-check2-square me-2"></i>
+					Transmitter Arduino sketch file
+					<div class="alert alert-info mt-2" role="alert">
+						This file should include all of the code you have written for the Arduino Nano acting as the
+						transmitter. Name it “<code class="pj-code language-plaintext">project6_transmitter.ino</code>”.
+
+					</div>
+				</li>
+				<li class="list-group-item">
+					<i class="bi bi-check2-square me-2"></i>
+					Receiver Arduino sketch file
+					<div class="alert alert-info mt-2" role="alert">
+						This file should include all of the code you have written for the Arduino Nano acting as the
+						transmitter. Name it “<code class="pj-code language-plaintext">project6_receiver.ino</code>”.
+					</div>
+				</li>
+			</ul>
+		</main>
+	</div>
+	<!-- ======= Footer ======= -->
+	<script src="./js/ops_footer.js"></script>
+	<!-- End Footer -->
+</body>
+
+</html>
