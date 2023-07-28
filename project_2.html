@@ -254,11 +254,12 @@
 				A <strong>capacitor</strong> is a component that briefly stores electrical energy, which it charges and discharges in bursts. 
 				It is not a battery. Batteries store energy at a high density and slowly charge and discharge that energy.
 				<br><br>
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 400px;"
+					src="./assets/images/visuals/ops_capacitor_ceramic.webp">
 				The ability of a capacitor to store energy is determined by its <strong>capacitance</strong>, measured in <strong>farads (F)</strong>.
 				<br><br>
 				The higher the capacitance, the longer it can store energy. Naturally, the capacitor will also take more time to charge and discharge.
-				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
-					src="./assets/images/visuals/capacitor1.png">
+				
 			</p>
 
 
@@ -277,47 +278,76 @@
 				You can determine the capacitance of a ceramic capacitor from its 3-digit markings. As shown below, the first two digits 
 				are multiplied by 10 raised to the power of the third digit. The product is the value of the capacitor measured in picofarads.
 				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
-					src="./assets/images/visuals/capacitor2.png">
+					src="./assets/images/visuals/ops_capacitor_ceramic_103_annotated.png">
 			</p>
 			
 			<h4 class="mb-3 fw-light" id="pj-heading-symbol" style="display: inline;">Symbol</h4>
 
 			<p class="mb-5">
-				Our projects make use of ceramic capacitors which exhibit no polarity. Non-polar capacitors are represented by the 
+				<img class="img-fluid my-3 me-5 float-start" style="max-width: 350px;"
+					src="./assets/images/visuals/ops_symbol_capacitor_unpolarized.jpg">
+				Our projects make use of <strong>ceramic capacitors</strong> which exhibit no polarity. Non-polar capacitors are represented by the 
 				schematic symbol on the right.
 			</p>
 
 
 			<h4 class="mb-3 fw-light" id="pj-heading-pushbutton" style="display: inline;">Pushbuttons</h4>
 			<p class="mb-3">
-				<img class="img-fluid my-3 me-5 float-end" style="max-width: 150px;"
-					src="./assets/images/project 2/ops_pushbutton.jpg">
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 170px;"
+					src="./assets/images/visuals/ops_pushbutton.jpg">
 				A <strong>pushbutton</strong> is a type of switch. It completes a circuit when pressed and disconnects the circuit when unpressed.
 			</p>
-			<h5 class="mb-3 fw-light" id="pj-heading-Pushbuttons-Legs" style="display: inline;">Pushbuttons Legs</h5>
+
+			<h4 class="mb-3 fw-light" id="pj-pushbutton-legs" style="display: inline;">Pushbutton Legs</h4>
 			<p class="mb-3">
-				<img class="img-fluid my-3 me-5 float-end" style="max-width: 200px;"
-					src="./assets/images/project 2/ops_pushbutton_annotated.png">
-					The figure to the right shows that the legs labeled 1 are internally connected. The same is true for the legs labeled 2.
-					<br><br>
-					Legs 1 and 2 are connected only when the button is pressed.	
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 400px;"
+					src="./assets/images/visuals/ops_pushbutton_annotated.png">
+				The figure to the right shows that the legs labeled 1 are internally connected. The same is true for the legs labeled 2.
+				<br><br>
+				Legs 1 and 2 are connected only when the button is pressed.
+					
 			</p>
 
 
 
-			<h5 class="mb-3 fw-light" id="pj-heading-pushbutton-symbol" style="display: inline;">Symbol</h5>
+			<h3 class="mb-3 fw-light" id="pj-heading-pushbutton-symbol" style="display: inline;">Symbol</h3>
 			<p class="mb-3">
 				<img class="img-fluid my-3 me-5 float-end" style="max-width: 200px;"
-					src="./assets/images/project 2/ops_symbol_pushbutton.png">
-					Though pushbuttons have four legs, their schematic symbol reduces the complexity to two terminals (as depicted in the figure to the right).
+					src="./assets/images/visuals/ops_symbol_pushbutton.png">
+				Though pushbuttons have four legs, their schematic symbol reduces the complexity to two terminals (as depicted in the figure to the right).
 			</p>
+
+			
+
+			<h3 class="mb-3" id="pj-piezoelectric_buzzer">Piezoelectric Buzzer</h3>
+			<p class="mb-3">
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 300px;"
+					src="./assets/images/visuals/ops_piezo.webp">
+				A <strong>piezoelectric buzzer</strong> is a component used to emit sound. 
+				<br><br>
+				Piezo buzzers come in two varieties: active and passive. 
+				<strong>Active</strong> buzzers have a built-in oscillator to control its frequency. 
+				<strong>Passive</strong> buzzers do not; they have to be fed an oscillating signal.
+				<br><br>
+				We will use a passive piezo buzzer, which is non-polar.
+			</p>
+			
+			<h4 class="mb-3 fw-light" id="pj-buzzer_symbol" style="display: inline;">Symbol</h4>
+			<p class="mb-3">
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 120px;"
+					src="./assets/images/visuals/ops_symbol_piezo.png">
+				The symbol on the right depicts a non-polar piezo buzzer. This differs from a speaker, 
+				which looks like the traditional volume symbol.
+			</p>
+
+			<!--Finished up to here-->
 
 			<h4 class="mb-3 fw-light" id="pj-heading-NE555P_IC" style="display: inline;">NE555P</h4>	
 			<p class="mb-3">
 				The <strong>555 Timer</strong> is one of the most popular integrated circuits for hobby projects. It outputs an <strong>oscillating digital waveform</strong> (see the image below), 
 				which we will use to create piezo buzzer sounds.
 				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
-					src="./assets/images/project 2/ops_waveform_digital.png">
+					src="assets/images/visuals/ops_waveform_digital.png">
 			</p>
 
 			<p class="mb-3">
@@ -329,7 +359,7 @@
 			<p class="mb-3">
 				We will use the <strong>NE555P</strong>, a variant of the 555 Timer. Its pinout is shown below. 
 				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
-					src="./assets/images/project 2/ops_pinout_ne555p.png">
+					src="assets/images/visuals/ops_pinout_ne555p.png">
 				    
 			</p>
 
@@ -348,7 +378,7 @@
 			<h4 class="mb-3 fw-light" id="pj-heading-pcb" style="display: inline;">Printed Circuit Board (PCB)</h4>	
 			<p class="mb-3">
 				<img class="img-fluid my-3 me-5 float-end" style="max-width: 400px;"
-					src="./assets/images/project 2/ops_proj2_pcb.png">
+					src="assets/images/visuals/ops_proj2_pcb.png">
 				Breadboards and protoboards are great for prototyping, but when electronics are ready for production, we use <strong>printed circuit boards </strong>
 				or <strong>PCB</strong>s. Nearly every device, from digital alarm clock to laptop computer, contains a PCB. It is an assembly, designed 
 				with CAD software, that connects individual components. 
@@ -357,22 +387,6 @@
 				complex circuit design. Above all, they are easy to mass produce.	
 				
 			</p>
-
-		
-
-			<p class="mb-3">
-				For this project, you will solder the 555 Piano to a PCB we specially designed in a software called 
-				KiCAD (as seen below). If you are not enrolled in the course, you may alternatively use a protoboard.	
-				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
-					src="./assets/images/project 2/ops_kicad.png">
-				</p>
-
-			<p class="mb-3">
-				Soldering to a PCB is much like soldering to a protoboard, and you may even find it easier. 
-				For more soldering tips visit our workshop material <span class="text-blue">here [Webpage Link]</span>.
-				</p>
-
-			
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-schematics">Schematics</h2>
 			<div class="accordion mb-5" id="schemAccordian">
@@ -386,7 +400,7 @@
 					<!--Pin to page?-->
 					<div id="schemCollapse1" class="accordion-collapse collapse show" data-bs-parent="#schemAccordian">
 						<div class="accordion-body text-center">
-							<img src='./assets/images/project 2/ops_schem_proj2a.png' class="pj-schem">
+							<img src='assets/images/visuals/ops_schem_proj2a.png' class="pj-schem">
 						</div>
 					</div>
 				</div>
@@ -401,7 +415,7 @@
 					<!--Pin to page?-->
 					<div id="schemCollapse2" class="accordion-collapse collapse" data-bs-parent="#schemAccordian">
 						<div class="accordion-body text-center">
-							<img src='./assets/images/project 2/ops_schem_proj2b.png' class="pj-schem">
+							<img src='assets/images/visuals/ops_schem_proj2b.png' class="pj-schem">
 						</div>
 					</div>
 				</div>
@@ -415,8 +429,7 @@
 					Build the circuit from <strong>Schematic A</strong> on your breadboard.
 					<div class="alert alert-info mt-2" role="alert">
 						Refer closely to the 555 Timer IC Pinout. The schematic does not show the true location of each pin on the IC, but the pinout does.
-						<div>
-					<div class="alert alert-info mt-2" role="alert">
+						<br><br>
 						Use the capacitor marking guide when looking for the right capacitors for this circuit.
 						<div>
 				</li>
