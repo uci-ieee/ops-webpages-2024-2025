@@ -81,10 +81,7 @@
 								<a class="nav-link" href="#pj-heading-pcb">Printed Circuit Board (PCB)</a>
 							</li>
 						</ul>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#pj-heading-arduino-nano-pinout">Arduino Nano Pinout</a>
-					</li>
+					
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-schematics">Schematics</a>
 					</li>
@@ -291,7 +288,7 @@
 			</p>
 
 
-			<h4 class="mb-3 fw-light" id="pj-heading-Pushbuttons" style="display: inline;">Pushbuttons</h4>
+			<h4 class="mb-3 fw-light" id="pj-heading-pushbutton" style="display: inline;">Pushbuttons</h4>
 			<p class="mb-3">
 				<img class="img-fluid my-3 me-5 float-end" style="max-width: 150px;"
 					src="./assets/images/project 2/ops_pushbutton.jpg">
@@ -301,7 +298,9 @@
 			<p class="mb-3">
 				<img class="img-fluid my-3 me-5 float-end" style="max-width: 200px;"
 					src="./assets/images/project 2/ops_pushbutton_annotated.png">
-					Though pushbuttons have four legs, their schematic symbol reduces the complexity to two terminals (as depicted in the figure to the right).
+					The figure to the right shows that the legs labeled 1 are internally connected. The same is true for the legs labeled 2.
+					<br><br>
+					Legs 1 and 2 are connected only when the button is pressed.	
 			</p>
 
 
@@ -310,73 +309,70 @@
 			<p class="mb-3">
 				<img class="img-fluid my-3 me-5 float-end" style="max-width: 200px;"
 					src="./assets/images/project 2/ops_symbol_pushbutton.png">
-					The figure to the right shows that the legs labeled 1 are internally connected. The same is true for the legs labeled 2.
-					<br><br>
-					Legs 1 and 2 are connected only when the button is pressed.
+					Though pushbuttons have four legs, their schematic symbol reduces the complexity to two terminals (as depicted in the figure to the right).
 			</p>
 
+			<h4 class="mb-3 fw-light" id="pj-heading-NE555P_IC" style="display: inline;">NE555P</h4>	
+			<p class="mb-3">
+				The <strong>555 Timer</strong> is one of the most popular integrated circuits for hobby projects. It outputs an <strong>oscillating digital waveform</strong> (see the image below), 
+				which we will use to create piezo buzzer sounds.
+				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
+					src="./assets/images/project 2/ops_waveform_digital.png">
+			</p>
+
+			<p class="mb-3">
+			If we change the frequency of the waveform, we can control the pitch of the sound.
+			<br><br>
+		    </p>
+
+			<h5 class="mb-3 fw-light" id="pj-heading-NE555PIC" style="display: inline;">Pinout</h5>	
+			<p class="mb-3">
+				We will use the <strong>NE555P</strong>, a variant of the 555 Timer. Its pinout is shown below. 
+				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
+					src="./assets/images/project 2/ops_pinout_ne555p.png">
+				    
+			</p>
+
+			<p class="mb-3">
+			Note that the organization of the pinout differs from the schematics below. The true location of the ICs pins are shown by the 
+					pinout, not the schematic. Use the notch or dot at the top of the IC to find its correct orientation.	
+					<br><br>	
+			</p>
+
+			<h5 class="mb-3 fw-light" id="pj-heading-NE555PIC" style="display: inline;">How It Works</h5>	
+			<p class="mb-3">
+				Learn more about 555 Timer’s functionality in the lecture material <span class="text-blue">here [Webpage Link]</span>.
+				<br><br>
+			</p>
+
+			<h4 class="mb-3 fw-light" id="pj-heading-pcb" style="display: inline;">Printed Circuit Board (PCB)</h4>	
+			<p class="mb-3">
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 400px;"
+					src="./assets/images/project 2/ops_proj2_pcb.png">
+				Breadboards and protoboards are great for prototyping, but when electronics are ready for production, we use <strong>printed circuit boards </strong>
+				or <strong>PCB</strong>s. Nearly every device, from digital alarm clock to laptop computer, contains a PCB. It is an assembly, designed 
+				with CAD software, that connects individual components. 
+				<br><br>
+				The benefits of PCBs over prototyping boards are numerous: They’re more compact, more reliable, and enable 
+				complex circuit design. Above all, they are easy to mass produce.	
+				
+			</p>
 
 		
+
+			<p class="mb-3">
+				For this project, you will solder the 555 Piano to a PCB we specially designed in a software called 
+				KiCAD (as seen below). If you are not enrolled in the course, you may alternatively use a protoboard.	
+				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
+					src="./assets/images/project 2/ops_kicad.png">
+				</p>
+
+			<p class="mb-3">
+				Soldering to a PCB is much like soldering to a protoboard, and you may even find it easier. 
+				For more soldering tips visit our workshop material <span class="text-blue">here [Webpage Link]</span>.
+				</p>
+
 			
-			<p class="mb-3">
-				Create an object as follows, declaring it in the global scope.
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">dht11 weatherSensor;</code>
-			</p>
-			<p class="mb-3">
-				To collect data from the sensor, call the <code class="pj-code language-arduino">read()</code> function
-				from the dht11 object.
-				Make sure to pass the digital pin of the <span class="text-green">S</span> line as the argument.
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">weatherSensor.read(int pin); </code>
-			</p>
-			<p class="mb-3">
-				After you call <code class="pj-code language-arduino">read()</code>, you may access the temperature and
-				humidity values using the following dht11 member variables. These values are the int type. Temperature
-				is Celsius.
-			</p>
-			<p class="mb-5">
-				<code class="pj-code language-arduino">weatherSensor.temperature</code>
-				<code class="pj-code language-arduino">weatherSensor.humidity</code>
-			</p>
-
-			<p class="mb-5">
-				At this point, you can print the values to the serial monitor or use it however else you please.
-				<br>
-				<span>Let’s see all of the code in action!</span>
-			</p>
-
-			<pre class="mb-5"><code class="pj-code language-arduino">#include &lt;LiquidCrystal_I2C.h&gt;
-LiquidCrystal_I2C lcd(0x27, 16, 2);
-
-void setup()
-{
-	lcd.init(); // initialize the lcd
-	lcd.backlight();
-}
-
-void loop()
-{
-	lcd.clear();                 // clear display
-	lcd.setCursor(0, 0);         // move cursor to   (0, 0)
-	lcd.print("Hello");          // print message at (0, 0)
-	lcd.setCursor(2, 1);         // move cursor to   (2, 1)
-	lcd.print("World");          // print message at (2, 1)
-	delay(1000);                 // delay between each print to LCD
-}</code></pre>
-
-
-
-			<h2 class="mb-3 fw-bold" id="pj-heading-arduino-nano-pinout">Arduino Nano Pinout</h2>
-			<p class="mb-5">
-				Thinking about using a pin but you don’t know what it does? Refer to the Arduino Nano pinout diagram, or
-				scroll further to find the full datasheet.
-				<br>
-				<span class="text-blue">~</span> represents pins that are PWM capable.
-				<img class="img-fluid my-4" src=".\assets\images\pinouts\ops-pinout-arduino-nano.png">
-			</p>
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-schematics">Schematics</h2>
 			<div class="accordion mb-5" id="schemAccordian">
@@ -390,7 +386,7 @@ void loop()
 					<!--Pin to page?-->
 					<div id="schemCollapse1" class="accordion-collapse collapse show" data-bs-parent="#schemAccordian">
 						<div class="accordion-body text-center">
-							<img src='./assets/images/schematics/ops_schem_proj2_a.png' class="pj-schem">
+							<img src='./assets/images/project 2/ops_schem_proj2a.png' class="pj-schem">
 						</div>
 					</div>
 				</div>
@@ -405,7 +401,7 @@ void loop()
 					<!--Pin to page?-->
 					<div id="schemCollapse2" class="accordion-collapse collapse" data-bs-parent="#schemAccordian">
 						<div class="accordion-body text-center">
-							<img src='./assets/images/schematics/ops_schem_proj2_b.png' class="pj-schem">
+							<img src='./assets/images/project 2/ops_schem_proj2b.png' class="pj-schem">
 						</div>
 					</div>
 				</div>
@@ -466,39 +462,24 @@ void loop()
 			<ul class="mb-4 list-group">
 				<li class="list-group-item">
 					<i class="bi bi-check2-square me-2"></i>
-					Photo of the weather station/transmitter Arduino board
+					Submit a <strong><u>video of the 555 Blinker (Schematic A) circuit on a breadboard</u></strong> to the Project 2 Canvas assignment.
 					<div class="alert alert-info mt-2" role="alert">
-						This photo should include the DHT11, light sensor, NRF24 transceiver, and one Arduino correctly
-						wired together.
+						The video should clearly show the LED blinking ON and OFF
 					</div>
 				</li>
 				<li class="list-group-item">
 					<i class="bi bi-check2-square me-2"></i>
-					Photo of the receiver Arduino board
+					Submit a <strong><u>video of the 555 Piano (Schematic B) circuit on a breadboard</u></strong> to the Project 2 Canvas assignment.
 					<div class="alert alert-info mt-2" role="alert">
-						This photo should include the NRF24 transceiver, LCD, and one Arduino correctly wired together.
-					</div>
-					<div class="alert alert-info mt-2" role="alert">
-						The LCD should clearly display the temperature, humidity, and time of day (day or night).
+						Make sure to press each button in the video. The video must also include sound.
 					</div>
 				</li>
 				<li class="list-group-item">
 					<i class="bi bi-check2-square me-2"></i>
-					Transmitter Arduino sketch file
+					Submit a <strong><u>video of the 555 Piano (Schematic B) circuit soldered to the PCB</u></strong> to the Project 2 Canvas assignment.
 					<div class="alert alert-info mt-2" role="alert">
-						This file should include all of the code you have written for the Arduino Nano acting as the
-						transmitter. Name it “<code class="pj-code language-plaintext">project6_transmitter.ino</code>”.
-
+						Make sure to press each button in the video. The video must also include sound.
 					</div>
-				</li>
-				<li class="list-group-item">
-					<i class="bi bi-check2-square me-2"></i>
-					Receiver Arduino sketch file
-					<div class="alert alert-info mt-2" role="alert">
-						This file should include all of the code you have written for the Arduino Nano acting as the
-						transmitter. Name it “<code class="pj-code language-plaintext">project6_receiver.ino</code>”.
-					</div>
-				</li>
 			</ul>
 		</main>
 	</div>
