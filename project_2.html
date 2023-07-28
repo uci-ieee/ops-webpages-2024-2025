@@ -257,11 +257,12 @@
 				A <strong>capacitor</strong> is a component that briefly stores electrical energy, which it charges and discharges in bursts. 
 				It is not a battery. Batteries store energy at a high density and slowly charge and discharge that energy.
 				<br><br>
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 400px;"
+					src="./assets/images/visuals/ops_capacitor_ceramic.webp">
 				The ability of a capacitor to store energy is determined by its <strong>capacitance</strong>, measured in <strong>farads (F)</strong>.
 				<br><br>
 				The higher the capacitance, the longer it can store energy. Naturally, the capacitor will also take more time to charge and discharge.
-				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
-					src="./assets/images/visuals/capacitor1.png">
+				
 			</p>
 
 
@@ -280,103 +281,68 @@
 				You can determine the capacitance of a ceramic capacitor from its 3-digit markings. As shown below, the first two digits 
 				are multiplied by 10 raised to the power of the third digit. The product is the value of the capacitor measured in picofarads.
 				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
-					src="./assets/images/visuals/capacitor2.png">
+					src="./assets/images/visuals/ops_capacitor_ceramic_103_annotated.png">
 			</p>
 			
 			<h4 class="mb-3 fw-light" id="pj-heading-symbol" style="display: inline;">Symbol</h4>
 
 			<p class="mb-5">
-				Our projects make use of ceramic capacitors which exhibit no polarity. Non-polar capacitors are represented by the 
+				<img class="img-fluid my-3 me-5 float-start" style="max-width: 350px;"
+					src="./assets/images/visuals/ops_symbol_capacitor_unpolarized.jpg">
+				Our projects make use of <strong>ceramic capacitors</strong> which exhibit no polarity. Non-polar capacitors are represented by the 
 				schematic symbol on the right.
 			</p>
 
 
-			<h4 class="mb-3 fw-light" id="pj-heading-Pushbuttons" style="display: inline;">Pushbuttons</h4>
+			<h3 class="mb-3" id="pj-heading-pushbutton">Pushbutton</h3>
 			<p class="mb-3">
-				<img class="img-fluid my-3 me-5 float-start" style="max-width: 200px;"
-					src="./assets/images/project 2/ops_pushbutton.jpg">
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 170px;"
+					src="./assets/images/visuals/ops_pushbutton.jpg">
 				A <strong>pushbutton</strong> is a type of switch. It completes a circuit when pressed and disconnects the circuit when unpressed.
 			</p>
-			<h5 class="mb-3 fw-light" id="pj-heading-Pushbuttons-Legs" style="display: inline;">Pushbuttons Legs</h5>
+
+			<h4 class="mb-3 fw-light" id="pj-pushbutton-legs" style="display: inline;">Pushbutton Legs</h4>
 			<p class="mb-3">
-				<img class="img-fluid my-3 me-5 float-start" style="max-width: 200px;"
-					src="./assets/images/project 2/ops_pushbutton_annotated.png">
-					Though pushbuttons have four legs, their schematic symbol reduces the complexity to two terminals (as depicted in the figure to the right).
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 400px;"
+					src="./assets/images/visuals/ops_pushbutton_annotated.png">
+				The figure to the right shows that the legs labeled 1 are internally connected. The same is true for the legs labeled 2.
+				<br><br>
+				Legs 1 and 2 are connected only when the button is pressed.
+					
 			</p>
 
 
 
 			<h3 class="mb-3 fw-light" id="pj-heading-pushbutton-symbol" style="display: inline;">Symbol</h3>
 			<p class="mb-3">
-				<img class="img-fluid my-3 me-5 float-start" style="max-width: 200px;"
-					src="./assets/images/project 2/ops_symbol_pushbutton.png">
-					The figure to the right shows that the legs labeled 1 are internally connected. The same is true for the legs labeled 2.
-					<br><br>
-					Legs 1 and 2 are connected only when the button is pressed.
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 200px;"
+					src="./assets/images/visuals/ops_symbol_pushbutton.png">
+				Though pushbuttons have four legs, their schematic symbol reduces the complexity to two terminals (as depicted in the figure to the right).
 			</p>
 
 
-		
+			<h3 class="mb-3" id="pj-piezoelectric_buzzer">Piezoelectric Buzzer</h3>
+			<p class="mb-3">
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 300px;"
+					src="./assets/images/visuals/ops_piezo.webp">
+				A <strong>piezoelectric buzzer</strong> is a component used to emit sound. 
+				<br><br>
+				Piezo buzzers come in two varieties: active and passive. 
+				<strong>Active</strong> buzzers have a built-in oscillator to control its frequency. 
+				<strong>Passive</strong> buzzers do not; they have to be fed an oscillating signal.
+				<br><br>
+				We will use a passive piezo buzzer, which is non-polar.
+			</p>
 			
+			<h4 class="mb-3 fw-light" id="pj-buzzer_symbol" style="display: inline;">Symbol</h4>
 			<p class="mb-3">
-				Create an object as follows, declaring it in the global scope.
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">dht11 weatherSensor;</code>
-			</p>
-			<p class="mb-3">
-				To collect data from the sensor, call the <code class="pj-code language-arduino">read()</code> function
-				from the dht11 object.
-				Make sure to pass the digital pin of the <span class="text-green">S</span> line as the argument.
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">weatherSensor.read(int pin); </code>
-			</p>
-			<p class="mb-3">
-				After you call <code class="pj-code language-arduino">read()</code>, you may access the temperature and
-				humidity values using the following dht11 member variables. These values are the int type. Temperature
-				is Celsius.
-			</p>
-			<p class="mb-5">
-				<code class="pj-code language-arduino">weatherSensor.temperature</code>
-				<code class="pj-code language-arduino">weatherSensor.humidity</code>
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 120px;"
+					src="./assets/images/visuals/ops_symbol_piezo.png">
+				The symbol on the right depicts a non-polar piezo buzzer. This differs from a speaker, 
+				which looks like the traditional volume symbol.
 			</p>
 
-			<p class="mb-5">
-				At this point, you can print the values to the serial monitor or use it however else you please.
-				<br>
-				<span>Let’s see all of the code in action!</span>
-			</p>
-
-			<pre class="mb-5"><code class="pj-code language-arduino">#include &lt;LiquidCrystal_I2C.h&gt;
-LiquidCrystal_I2C lcd(0x27, 16, 2);
-
-void setup()
-{
-	lcd.init(); // initialize the lcd
-	lcd.backlight();
-}
-
-void loop()
-{
-	lcd.clear();                 // clear display
-	lcd.setCursor(0, 0);         // move cursor to   (0, 0)
-	lcd.print("Hello");          // print message at (0, 0)
-	lcd.setCursor(2, 1);         // move cursor to   (2, 1)
-	lcd.print("World");          // print message at (2, 1)
-	delay(1000);                 // delay between each print to LCD
-}</code></pre>
-
-
-
-			<h2 class="mb-3 fw-bold" id="pj-heading-arduino-nano-pinout">Arduino Nano Pinout</h2>
-			<p class="mb-5">
-				Thinking about using a pin but you don’t know what it does? Refer to the Arduino Nano pinout diagram, or
-				scroll further to find the full datasheet.
-				<br>
-				<span class="text-blue">~</span> represents pins that are PWM capable.
-				<img class="img-fluid my-4" src=".\assets\images\pinouts\ops-pinout-arduino-nano.png">
-			</p>
+			<!--Finished up to here-->
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-schematics">Schematics</h2>
 			<div class="accordion mb-5" id="schemAccordian">
@@ -419,8 +385,7 @@ void loop()
 					Build the circuit from <strong>Schematic A</strong> on your breadboard.
 					<div class="alert alert-info mt-2" role="alert">
 						Refer closely to the 555 Timer IC Pinout. The schematic does not show the true location of each pin on the IC, but the pinout does.
-						<div>
-					<div class="alert alert-info mt-2" role="alert">
+						<br><br>
 						Use the capacitor marking guide when looking for the right capacitors for this circuit.
 						<div>
 				</li>
