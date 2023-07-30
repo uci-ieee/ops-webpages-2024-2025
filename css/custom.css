@@ -11853,7 +11853,6 @@ textarea.form-control-lg {
 body {
   scroll-behavior: smooth;
   font-family: "Roboto", sans-serif;
-  overflow-x: hidden !important;
 }
 
 .pj-layout {
@@ -11861,6 +11860,10 @@ body {
   grid-template-areas: "sidebar main";
   grid-template-columns: 1fr 4fr;
   gap: 2rem;
+}
+
+.pj-content {
+  overflow-x: hidden;
 }
 
 .pj-sidebar {
