@@ -11929,6 +11929,10 @@ ol {
   border-radius: 5px;
 }
 
+.nav-link {
+  color: #fff;
+}
+
 .pj-part {
   color: #8f939b;
   text-decoration: none;
