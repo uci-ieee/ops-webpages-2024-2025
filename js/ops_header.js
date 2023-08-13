@@ -16,7 +16,7 @@ document.write(`
                         <a class="nav-link" href="./syllabus.html">Syllabus</a>
                     </li>
                     <li class="nav-item dropdown ">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle disabled" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Projects
                         </a>
                         <ul class="dropdown-menu" data-bs-theme="light" aria-labelledby="navbarDropdown">
@@ -54,13 +54,19 @@ document.write(`
                         </ul>
                     </li>
                 </ul>
-                <a class="bi bi-facebook link-light me-4 fs-5" href="#"></a>
-                <a class="bi bi-instagram link-light me-4 fs-5" href="#"></a>
-                <a class="bi bi-linkedin link-light me-4 fs-5" href="#"></a>
-                <a class="bi bi-discord link-light me-4 fs-5" href="#"></a>
+                <a class="bi bi-facebook link-light me-4 fs-5" target="_blank" href="https://www.facebook.com/IEEE.UCI/"></a>
+                <a class="bi bi-instagram link-light me-4 fs-5" target="_blank" href="https://www.instagram.com/ieee_uci/?hl=en"></a>
+                <a class="bi bi-linkedin link-light me-4 fs-5" target="_blank" href="https://www.linkedin.com/company/ieee-uci/"></a>
+                <a class="bi bi-discord link-light me-4 fs-5" target="_blank" href="https://discord.gg/GgRmEvzgvA"></a>
+                <a class="link-light me-4" target="_blank" href="https://ieee.ics.uci.edu">
+                <img src="./assets/images/ieee_logo.png" width="26px" alt="OPS Logo"></a>
                 <!-- Setup JS Script to auto-remove Application Button at end of season. Replace with -->
-                <button class="btn btn-outline-info" href="#"><i class="bi bi-pen me-1"></i>Apply Now</button>
-                </form>
+                <a class="btn btn-outline-info"
+                    target="_blank"
+                    href="https://forms.gle/72Utb9mtvfvz5Cob9">
+                    <i class="bi bi-pen me-1"></i>
+                    Apply Now
+                </a>
             </div>
     </nav>
 </header>
