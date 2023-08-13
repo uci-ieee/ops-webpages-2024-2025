@@ -124,15 +124,14 @@
 			<p class="mb-5">
 				Before you begin assembling the project, give this section a skim. You will find code snippets,
 				explanations, and diagrams
-				of the major electronics compoenents you will use.
+				of the major electronics components you will use.
 			</p>
 			
-			<h3 class="mb-3" id="pj-heading-dht11">Arduino Nano</h3>
+			<h3 class="mb-3" id="pj-heading-arduino-nano">Arduino Nano</h3>
 			<p class="mb-5">
 				The Arduino Nano is a board based on an Atmega microchip. The chip itself contains the processor, RAM, and flash
 				storage. These components execute the programs we write.
-			</p>
-			<p class="mb-5">
+				<br><br>
 				The Arduino company designed several boards to make the Atmega chip hobbyist-friendly: they added a USB port, voltage
 				regulator, and onboard LEDs (among other things). In this family of boards are the Arduino Uno, Arduino Nano, and many,
 				many more!
@@ -144,34 +143,38 @@
 				<strong>General Purpose Input/Output</strong> or <strong>GPIO</strong>, power, and reset pins run along the sides of the Nano.
 				<br><br>
 				In the lecture content, we discuss the different GPIO pin types and their use cases. We also use the Arduino programming
-				language (a C++ variant) to write and compile sketches.
-			</p>
-
-			<p class="mb-5">
+				language (a C++ variant) to write and compile sketches. Learn more <a href="#arduino-ide">here</a>.
+				<br><br>
 				We won't talk in depth about each function or data structure from the Arduino Library. When you need to read up on
 				Arduino code, refer to the <a href="https://www.arduino.cc/reference/en/" target="_blank" rel="noopener noreferrer">Arduino Language Reference</a>.
 			</p>
-			
-			<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">DHT11 Pinout</h4>
-			<p>
-				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
-					src="./assets/images/pinouts/ops_pinout_dht11.png">
-				To the left is the pinout of the DHT11.
-				<br><br>
-				The <span class="text-gray">GND</span> and <span class="text-red">VCC</span> pins power the radio
-				module.
-				Note that the <span class="text-red">VCC</span> pin takes a voltage between 3.3 and 5V, but to keep it
-				simple, <strong>connect it to the VCC pin</strong> of
-				the Arduino board.
-			</p>
-			
+
+			<h4 class="mb-3 fw-light" id="pj-heading-pinout" style="display: inline;">Pinout</h4>
 			<p class="mb-5">
-				The third and final pin is <span class="text-green">S</span>. This line carries the communication
-				between the
-				Arduino and sensor. It should be connected to a digital pin of the Arduino board.
+				Thinking about using a pin but you don't know what it does? Refer to the Arduino Nano pinout diagram. The full datasheet
+				is linked in the <a href="#pj-heading-parts">Parts</a> section.
+
+				<br><br>
+				<span class="text-blue">~</span> represents pins that are PWM capable.
+				<img class="img-fluid my-4" src=".\assets\images\pinouts\ops-pinout-arduino-nano.png">
+			</p>
+			<h4 class="mb-3 fw-light" id="pj-heading-potentiometer" style="display: inline;">Potentiometer</h4>
+			<p>
+				A <strong>potentiometer</strong> is a three-terminal component that acts as a <strong>variable voltage divider</strong>. The voltage of its output pin
+				ranges between the VCC and GND pin voltages, depending on the dial's position.
+				<br>
+				<img class="img-fluid my-4" src=".\assets\images\parts\ops_parts_potentiometer_annotated.png">
+			</p>
+
+			<h5 class="mb-3 fw-light" id="pj-heading-using-it-with-arduino" style="display: inline;">Using it with Arduino</h5>
+			<p class="mb-5">
+				We can connect the potentiometer’s output pin to one of the Nano’s analog pins (see its pinout above). Using
+				<code class="pj-code language-arduino">analogRead()</code>, we interpret the pin’s analog voltage as a discrete integer in the range <code class="pj-code language-arduino">0-1023</code>. This is the purpose of
+				the <strong>analog-to-digital converter</strong> or <strong>ADC</strong> inside the Nano’s Atmega chip. The ADC is physical hardware that translates the
+				analog signal to a discrete digital signal.
 			</p>
 			
-			<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">Using the DHT11 Library</h4>
+			<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">RGB LED</h4>
 			<p class="mb-3">
 				Writing the code for the DHT11 is almost as easy as wiring it! You can download the library
 				<a class="link-primary" href="#pj-heading-arduino-libraries">here</a>.
@@ -211,7 +214,7 @@
 			<p class="mb-5">
 				At this point, you can print the values to the serial monitor or use it however else you please.
 				<br>
-				<span>Let’s see all of the code in action!</span>
+				<span>Let's see all of the code in action!</span>
 			</p>
 			
 			<pre class="mb-5"><code class="pj-code language-arduino">#include &lt;LiquidCrystal_I2C.h&gt;
@@ -232,17 +235,6 @@
 				lcd.print("World");          // print message at (2, 1)
 				delay(1000);                 // delay between each print to LCD
 			}</code></pre>
-			
-			
-			
-			<h2 class="mb-3 fw-bold" id="pj-heading-arduino-nano-pinout">Arduino Nano Pinout</h2>
-			<p class="mb-5">
-				Thinking about using a pin but you don’t know what it does? Refer to the Arduino Nano pinout diagram, or
-				scroll further to find the full datasheet.
-				<br>
-				<span class="text-blue">~</span> represents pins that are PWM capable.
-				<img class="img-fluid my-4" src=".\assets\images\pinouts\ops-pinout-arduino-nano.png">
-			</p>
 
 			<h2 class="mb-3 fw-bolder" id="pj-heading-requirements">Requirements</h2>
 			<p class="mb-3">
