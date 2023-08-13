@@ -153,7 +153,6 @@
 			<p class="mb-5">
 				Thinking about using a pin but you don't know what it does? Refer to the Arduino Nano pinout diagram. The full datasheet
 				is linked in the <a href="#pj-heading-parts">Parts</a> section.
-
 				<br><br>
 				<span class="text-blue">~</span> represents pins that are PWM capable.
 				<img class="img-fluid my-4" src=".\assets\images\pinouts\ops-pinout-arduino-nano.png">
@@ -202,6 +201,27 @@
 				<br><br>
 				Only some Nano pins are capable of PWM as indicated by the <a href="#pj-heading-pinout">pinout</a> above.
 			</p>
+
+			<h2 class="mb-3 fw-bold" id="pj-heading-software-installations">Software Installations</h2>
+			<p class="mb-5">
+				We will use the Arduino IDE to write code for our Arduino Nano board. The software includes a text editor, compiler,
+				debugger, and library manager. While you may use any IDE of your choice, we highly recommend installing Arduino IDE, so
+				you can follow our lectures and projects with ease.
+			</p>
+
+			<h3 class="mb-3 fw-bold" id="pj-heading-arduino-ide">Arduino IDE</h3>
+			<p class="mb-5">
+				Visit this <a href="https://www.arduino.cc/en/software" target="_blank" rel="noopener noreferrer">link</a> to download the installer for Arduino IDE 2.0.0+ . Make sure to select the installer appropriate for
+				your system.
+				<img class="img-fluid my-4" src=".\assets\images\project_4\ops_install_ide.png">
+				<br><br>
+				Open the installer and follow its instructions. Easy peasy!
+				<br><br>
+				If you want to know more about using the Arduino IDE, check out our lecture content.
+			</p>
+
+			<h3 class="mb-3 fw-bold" id="pj-heading-ch340-driver">CH340 Driver</h3>
+
 
 			<!-- <pre class="mb-5"><code class="pj-code language-arduino">#include &lt;LiquidCrystal_I2C.h&gt;
 			LiquidCrystal_I2C lcd(0x27, 16, 2);
