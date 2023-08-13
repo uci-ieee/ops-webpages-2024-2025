@@ -103,25 +103,131 @@
 			data-bs-smooth-scroll="true" tabindex="0">
 			<div class="d-flex flex-row justify-content-between mb-5">
 				<div class="">
-					<h4>Project 6</h4>
-					<h1 class="fw-bold">Weather Station</h1>
+					<h4>Project 4</h4>
+					<h1 class="fw-bold">RGB LED Dimmer</h1>
 				</div>
 				<div class="alert alert-light" role="alert">
 					<i class="bi bi-calendar-event me-1"></i>
-					Updated 2023.06.30 <br>
-					By Benjamen Bielecki
+					Updated 2023.08.12 <br>
+					By Dylan Vu and Gavin Nguyen
 				</div>
 			</div>
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-introduction">Overview</h2>
 			<p class="mb-5">
-				This next project is a culmination of all that you have learned in communication.
-				You will transfer data between two Arduino boards and several embedded devices,
-				using a variety of communication protocols. The goal? Your system will be a full-fledged,
-				wireless weather station. An outdoor Arduino unit, connected to temperature, humidity,
-				and light sensors, will transmit its data over radio to the indoor Arduino unit,
-				which will print this information on a display. Read the primer (sections 2-7), and then proceed
-				to the procedure (section 9) when you are ready to build.
+				You will learn how to use a single-board microcontroller. It's quite a leap from using just one IC, but don't worry.
+				It'll be fun! You will program an Arduino Nano to control a dimmable RGB light. At each checkpoint, you will explore a
+				core function of microcontrollers: digital input/output, pulse width modulation, and analog-to-digital conversion.
+			</p>
+
+			<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Concepts</h2>
+			<p class="mb-5">
+				Before you begin assembling the project, give this section a skim. You will find code snippets,
+				explanations, and diagrams
+				of the major electronics compoenents you will use.
+			</p>
+			
+			<h3 class="mb-3" id="pj-heading-dht11">DHT11</h3>
+			<p class="mb-5">
+				We will use the DHT11 sensor module to measure temperature and humidity. This component is rather
+				straightforward. The DHT11 uses the
+				<a class="link-primary" href="https://docs.arduino.cc/learn/communication/one-wire">1-Wire® protocol</a>
+				to communicate with the Arduino board over a single data line. We simply
+				need to accept the data at the Arduino and display it.
+			</p>
+			
+			
+			
+			<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">DHT11 Pinout</h4>
+			<p>
+				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
+					src="./assets/images/pinouts/ops_pinout_dht11.png">
+				To the left is the pinout of the DHT11.
+				<br><br>
+				The <span class="text-gray">GND</span> and <span class="text-red">VCC</span> pins power the radio
+				module.
+				Note that the <span class="text-red">VCC</span> pin takes a voltage between 3.3 and 5V, but to keep it
+				simple, <strong>connect it to the VCC pin</strong> of
+				the Arduino board.
+			</p>
+			
+			<p class="mb-5">
+				The third and final pin is <span class="text-green">S</span>. This line carries the communication
+				between the
+				Arduino and sensor. It should be connected to a digital pin of the Arduino board.
+			</p>
+			
+			<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">Using the DHT11 Library</h4>
+			<p class="mb-3">
+				Writing the code for the DHT11 is almost as easy as wiring it! You can download the library
+				<a class="link-primary" href="#pj-heading-arduino-libraries">here</a>.
+				Make sure to include the header file:
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">#include &lt;dht11.h&gt;</code>
+			</p>
+			<p class="mb-3">
+				At the core of this library is the dht11 class, which you will instantiate as an object and use to read
+				data from the sensor.
+			</p>
+			<p class="mb-3">
+				Create an object as follows, declaring it in the global scope.
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">dht11 weatherSensor;</code>
+			</p>
+			<p class="mb-3">
+				To collect data from the sensor, call the <code class="pj-code language-arduino">read()</code> function
+				from the dht11 object.
+				Make sure to pass the digital pin of the <span class="text-green">S</span> line as the argument.
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">weatherSensor.read(int pin); </code>
+			</p>
+			<p class="mb-3">
+				After you call <code class="pj-code language-arduino">read()</code>, you may access the temperature and
+				humidity values using the following dht11 member variables. These values are the int type. Temperature
+				is Celsius.
+			</p>
+			<p class="mb-5">
+				<code class="pj-code language-arduino">weatherSensor.temperature</code>
+				<code class="pj-code language-arduino">weatherSensor.humidity</code>
+			</p>
+			
+			<p class="mb-5">
+				At this point, you can print the values to the serial monitor or use it however else you please.
+				<br>
+				<span>Let’s see all of the code in action!</span>
+			</p>
+			
+			<pre class="mb-5"><code class="pj-code language-arduino">#include &lt;LiquidCrystal_I2C.h&gt;
+			LiquidCrystal_I2C lcd(0x27, 16, 2);
+			
+			void setup()
+			{
+				lcd.init(); // initialize the lcd
+				lcd.backlight();
+			}
+			
+			void loop()
+			{
+				lcd.clear();                 // clear display
+				lcd.setCursor(0, 0);         // move cursor to   (0, 0)
+				lcd.print("Hello");          // print message at (0, 0)
+				lcd.setCursor(2, 1);         // move cursor to   (2, 1)
+				lcd.print("World");          // print message at (2, 1)
+				delay(1000);                 // delay between each print to LCD
+			}</code></pre>
+			
+			
+			
+			<h2 class="mb-3 fw-bold" id="pj-heading-arduino-nano-pinout">Arduino Nano Pinout</h2>
+			<p class="mb-5">
+				Thinking about using a pin but you don’t know what it does? Refer to the Arduino Nano pinout diagram, or
+				scroll further to find the full datasheet.
+				<br>
+				<span class="text-blue">~</span> represents pins that are PWM capable.
+				<img class="img-fluid my-4" src=".\assets\images\pinouts\ops-pinout-arduino-nano.png">
 			</p>
 
 			<h2 class="mb-3 fw-bolder" id="pj-heading-requirements">Requirements</h2>
@@ -363,120 +469,6 @@
 					</tr>
 				</tbody>
 			</table>
-
-
-			<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Concepts</h2>
-			<p class="mb-5">
-				Before you begin assembling the project, give this section a skim. You will find code snippets,
-				explanations, and diagrams
-				of the major electronics compoenents you will use.
-			</p>
-
-			<h3 class="mb-3" id="pj-heading-dht11">DHT11</h3>
-			<p class="mb-5">
-				We will use the DHT11 sensor module to measure temperature and humidity. This component is rather
-				straightforward. The DHT11 uses the
-				<a class="link-primary" href="https://docs.arduino.cc/learn/communication/one-wire">1-Wire® protocol</a>
-				to communicate with the Arduino board over a single data line. We simply
-				need to accept the data at the Arduino and display it.
-			</p>
-
-
-
-			<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">DHT11 Pinout</h4>
-			<p>
-				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
-					src="./assets/images/pinouts/ops_pinout_dht11.png">
-				To the left is the pinout of the DHT11.
-				<br><br>
-				The <span class="text-gray">GND</span> and <span class="text-red">VCC</span> pins power the radio
-				module.
-				Note that the <span class="text-red">VCC</span> pin takes a voltage between 3.3 and 5V, but to keep it
-				simple, <strong>connect it to the VCC pin</strong> of
-				the Arduino board.
-			</p>
-
-			<p class="mb-5">
-				The third and final pin is <span class="text-green">S</span>. This line carries the communication
-				between the
-				Arduino and sensor. It should be connected to a digital pin of the Arduino board.
-			</p>
-
-			<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">Using the DHT11 Library</h4>
-			<p class="mb-3">
-				Writing the code for the DHT11 is almost as easy as wiring it! You can download the library
-				<a class="link-primary" href="#pj-heading-arduino-libraries">here</a>.
-				Make sure to include the header file:
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">#include &lt;dht11.h&gt;</code>
-			</p>
-			<p class="mb-3">
-				At the core of this library is the dht11 class, which you will instantiate as an object and use to read
-				data from the sensor.
-			</p>
-			<p class="mb-3">
-				Create an object as follows, declaring it in the global scope.
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">dht11 weatherSensor;</code>
-			</p>
-			<p class="mb-3">
-				To collect data from the sensor, call the <code class="pj-code language-arduino">read()</code> function
-				from the dht11 object.
-				Make sure to pass the digital pin of the <span class="text-green">S</span> line as the argument.
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">weatherSensor.read(int pin); </code>
-			</p>
-			<p class="mb-3">
-				After you call <code class="pj-code language-arduino">read()</code>, you may access the temperature and
-				humidity values using the following dht11 member variables. These values are the int type. Temperature
-				is Celsius.
-			</p>
-			<p class="mb-5">
-				<code class="pj-code language-arduino">weatherSensor.temperature</code>
-				<code class="pj-code language-arduino">weatherSensor.humidity</code>
-			</p>
-
-			<p class="mb-5">
-				At this point, you can print the values to the serial monitor or use it however else you please.
-				<br>
-				<span>Let’s see all of the code in action!</span>
-			</p>
-
-			<pre class="mb-5"><code class="pj-code language-arduino">#include &lt;LiquidCrystal_I2C.h&gt;
-LiquidCrystal_I2C lcd(0x27, 16, 2);
-
-void setup()
-{
-	lcd.init(); // initialize the lcd
-	lcd.backlight();
-}
-
-void loop()
-{
-	lcd.clear();                 // clear display
-	lcd.setCursor(0, 0);         // move cursor to   (0, 0)
-	lcd.print("Hello");          // print message at (0, 0)
-	lcd.setCursor(2, 1);         // move cursor to   (2, 1)
-	lcd.print("World");          // print message at (2, 1)
-	delay(1000);                 // delay between each print to LCD
-}</code></pre>
-
-
-
-			<h2 class="mb-3 fw-bold" id="pj-heading-arduino-nano-pinout">Arduino Nano Pinout</h2>
-			<p class="mb-5">
-				Thinking about using a pin but you don’t know what it does? Refer to the Arduino Nano pinout diagram, or
-				scroll further to find the full datasheet.
-				<br>
-				<span class="text-blue">~</span> represents pins that are PWM capable.
-				<img class="img-fluid my-4" src=".\assets\images\pinouts\ops-pinout-arduino-nano.png">
-			</p>
-
-
-
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-instructions">Instructions</h2>
 			<h3 class="mb-3" id="pj-heading-checkpoint1">Checkpoint 1</h3>
