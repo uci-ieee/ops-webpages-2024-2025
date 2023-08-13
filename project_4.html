@@ -166,7 +166,7 @@
 				<img class="img-fluid my-4" src=".\assets\images\parts\ops_parts_potentiometer_annotated.png">
 			</p>
 
-			<h5 class="mb-3 fw-light" id="pj-heading-using-it-with-arduino" style="display: inline;">Using it with Arduino</h5>
+			<h5 class="mb-3 fw-light" id="pj-heading-using-it-with-arduino-potentiometer" style="display: inline;">Using it with Arduino</h5>
 			<p class="mb-5">
 				We can connect the potentiometer’s output pin to one of the Nano’s analog pins (see its pinout above). Using
 				<code class="pj-code language-arduino">analogRead()</code>, we interpret the pin’s analog voltage as a discrete integer in the range <code class="pj-code language-arduino">0-1023</code>. This is the purpose of
@@ -175,49 +175,35 @@
 			</p>
 			
 			<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">RGB LED</h4>
-			<p class="mb-3">
-				Writing the code for the DHT11 is almost as easy as wiring it! You can download the library
-				<a class="link-primary" href="#pj-heading-arduino-libraries">here</a>.
-				Make sure to include the header file:
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">#include &lt;dht11.h&gt;</code>
-			</p>
-			<p class="mb-3">
-				At the core of this library is the dht11 class, which you will instantiate as an object and use to read
-				data from the sensor.
-			</p>
-			<p class="mb-3">
-				Create an object as follows, declaring it in the global scope.
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">dht11 weatherSensor;</code>
-			</p>
-			<p class="mb-3">
-				To collect data from the sensor, call the <code class="pj-code language-arduino">read()</code> function
-				from the dht11 object.
-				Make sure to pass the digital pin of the <span class="text-green">S</span> line as the argument.
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">weatherSensor.read(int pin); </code>
-			</p>
-			<p class="mb-3">
-				After you call <code class="pj-code language-arduino">read()</code>, you may access the temperature and
-				humidity values using the following dht11 member variables. These values are the int type. Temperature
-				is Celsius.
-			</p>
 			<p class="mb-5">
-				<code class="pj-code language-arduino">weatherSensor.temperature</code>
-				<code class="pj-code language-arduino">weatherSensor.humidity</code>
+				For this project, we will use a <strong>common cathode RGB LED</strong>. Inside this component are just three smaller LEDs - one red, one
+				green, and one blue - that are all connected by a shared or common cathode.
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 400px;" src="./assets/images/parts/ops_part_led_rgb_cathode_annotated.png">
+				<br><br>
+				This RGB LED has four pins: One is the cathode (ground), but the other three are the red, green, and blue LED anodes.
 			</p>
-			
+
+			<h5 class="mb-3 fw-light" id="pj-heading-using-it-with-arduino-rgb-led" style="display: inline;">Using it with Arduino</h5>
 			<p class="mb-5">
-				At this point, you can print the values to the serial monitor or use it however else you please.
-				<br>
-				<span>Let's see all of the code in action!</span>
+				In the world of digital electronics, color is often represented in the 8-bit RGB color model. Every visible color is
+				identified by an encoding of the three base colors: red, green, and blue. In our Arduino code, we will set the intensity
+				of each base color to a value in the range <code class="pj-code language-arduino">0-255</code>.
+				<br><br>
+				Try the <a href="https://g.co/kgs/KbJGyA" target="_blank" rel="noopener noreferrer">RGB Color Picker</a>. Notice how the three values in the RGB field change as you select different colors.
+				<br><br>
+				Recall that LEDs are current driven: we control the intensity of each RGB LED color by increasing/decreasing the current
+				passing through its pin. With an Arduino board, we set the voltage, which indirectly affects current flow (recall Ohm's Law).
+				<br><br>
+				Here's the rub: <code class="pj-code language-arduino">digitalWrite()</code> only sets a pin’s voltage to 0 or 5V. If we want to dim an LED, we need a new function
+				that can output voltages between 0 and 5.
+				<br><br>
+				We will use a <strong>pulse width modulation</strong> or <strong>PWM</strong> signal - a digital waveform mimicking analog voltage signals. With PWM
+				waves, we can generate analog voltages like 2.3V or 4.1V. In Arduino, we accomplish this using <code class="pj-code language-arduino">analogWrite()</code>.
+				<br><br>
+				Only some Nano pins are capable of PWM as indicated by the <a href="#pj-heading-pinout">pinout</a> above.
 			</p>
-			
-			<pre class="mb-5"><code class="pj-code language-arduino">#include &lt;LiquidCrystal_I2C.h&gt;
+
+			<!-- <pre class="mb-5"><code class="pj-code language-arduino">#include &lt;LiquidCrystal_I2C.h&gt;
 			LiquidCrystal_I2C lcd(0x27, 16, 2);
 			
 			void setup()
@@ -234,7 +220,7 @@
 				lcd.setCursor(2, 1);         // move cursor to   (2, 1)
 				lcd.print("World");          // print message at (2, 1)
 				delay(1000);                 // delay between each print to LCD
-			}</code></pre>
+			}</code></pre> -->
 
 			<h2 class="mb-3 fw-bolder" id="pj-heading-requirements">Requirements</h2>
 			<p class="mb-3">
