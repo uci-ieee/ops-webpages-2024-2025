@@ -176,9 +176,9 @@
 
 			<h5 class="mb-3 fw-light" id="pj-heading-using-it-with-arduino-potentiometer" style="display: inline;">Using it with Arduino</h5>
 			<p class="mb-5">
-				We can connect the potentiometer’s output pin to one of the Nano’s analog pins (see its pinout above). Using
-				<code class="pj-code language-arduino">analogRead()</code>, we interpret the pin’s analog voltage as a discrete integer in the range <code class="pj-code language-arduino">0-1023</code>. This is the purpose of
-				the <strong>analog-to-digital converter</strong> or <strong>ADC</strong> inside the Nano’s Atmega chip. The ADC is physical hardware that translates the
+				We can connect the potentiometer's output pin to one of the Nano's analog pins (see its pinout above). Using
+				<code class="pj-code language-arduino">analogRead()</code>, we interpret the pin's analog voltage as a discrete integer in the range <code class="pj-code language-arduino">0-1023</code>. This is the purpose of
+				the <strong>analog-to-digital converter</strong> or <strong>ADC</strong> inside the Nano's Atmega chip. The ADC is physical hardware that translates the
 				analog signal to a discrete digital signal.
 			</p>
 			
@@ -192,7 +192,8 @@
 				This RGB LED has four pins: One is the cathode (ground), but the other three are the red, green, and blue LED anodes.
 				<br><br>
 				<h5 class="mb-3 fw-light" id="pj-heading-using-it-with-arduino-potentiometer" style="display: inline;">Using it with Arduino</h5>
-					<p>In the world of digital electronics, color is often represented in the 8-bit RGB color model. Every visible color is
+				<p>
+					In the world of digital electronics, color is often represented in the 8-bit RGB color model. Every visible color is
 					identified by an encoding of the three base colors: red, green, and blue. In our Arduino code, we will set the intensity
 					of each base color to a value in the range <code class="pj-code language-arduino">0-255</code>.
 					<br><br>
@@ -201,14 +202,14 @@
 					Recall that LEDs are current driven: we control the intensity of each RGB LED color by increasing/decreasing the current
 					passing through its pin. With an Arduino board, we set the voltage, which indirectly affects current flow (recall Ohm's Law).
 					<br><br>
-					Here's the rub: <code class="pj-code language-arduino">digitalWrite()</code> only sets a pin’s voltage to 0 or 5V. If we want to dim an LED, we need a new function
+					Here's the rub: <code class="pj-code language-arduino">digitalWrite()</code> only sets a pin's voltage to 0 or 5V. If we want to dim an LED, we need a new function
 					that can output voltages between 0 and 5.
 					<br><br>
 					We will use a <strong>pulse width modulation</strong> or <strong>PWM</strong> signal - a digital waveform mimicking analog voltage signals. With PWM
 					waves, we can generate analog voltages like 2.3V or 4.1V. In Arduino, we accomplish this using <code class="pj-code language-arduino">analogWrite()</code>.
 					<br><br>
 					Only some Nano pins are capable of PWM as indicated by the <a href="#pj-heading-pinout">pinout</a> above.
-					</p>
+				</p>
 			</p>
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-software-installations">Software Installations</h2>
@@ -231,7 +232,7 @@
 
 			<h3 class="mb-3 fw-bold" id="pj-heading-ch340-driver">CH340 Driver</h3>
 			<p class="mb-3">
-				There is a small IC on the Nano board responsible for converting USB signals to a signal the Nano’s Atmega chip can
+				There is a small IC on the Nano board responsible for converting USB signals to a signal the Nano's Atmega chip can
 				understand. This ultimately allows us to connect our computer to the Nano over USB. That IC is called the CH340
 				microchip.
 				<br><br>
@@ -274,7 +275,7 @@
 			</ul>
 			<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">LED Dimmer</h4>
 			<ul class="mb-4">
-				<li>The user must be able to adjust the LED’s brightness from 0% to 100% when turning the potentiometer dial.</li>
+				<li>The user must be able to adjust the LED's brightness from 0% to 100% when turning the potentiometer dial.</li>
 				<li>When turning the potentiometer clockwise, the LED should brighten.</li>
 				<li>When turning the potentiometer counter-clockwise, the LED should dim.</li>
 				<li>The circuit must be built on a breadboard.</li>
