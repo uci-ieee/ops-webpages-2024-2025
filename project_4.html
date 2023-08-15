@@ -183,34 +183,45 @@
 			</p>
 			
 			<h4 class="mb-3 fw-light" id="pj-heading-rgb-led" style="display: inline;">RGB LED</h4>
-			<p class="mb-5">
-				<img class="img-fluid my-3 me-5 float-end" style="max-width: 500px;"
+			<div class="mb-5">
+				<img class="img-fluid my-3 mx-3 float-end" style="max-width: 500px;"
 					src="./assets/images/parts/ops_part_led_rgb_cathode_annotated.png">
-				For this project, we will use a <strong>common cathode RGB LED</strong>. Inside this component are just three smaller LEDs - one red, one
-				green, and one blue - that are all connected by a shared or common cathode.
-				<br><br>
-				This RGB LED has four pins: One is the cathode (ground), but the other three are the red, green, and blue LED anodes.
-				<br><br>
-				<h5 class="mb-3 fw-light" id="pj-heading-using-it-with-arduino-potentiometer" style="display: inline;">Using it with Arduino</h5>
+				<p>
+					For this project, we will use a <strong>common cathode RGB LED</strong>. Inside this component are just three smaller
+					LEDs - one red, one
+					green, and one blue - that are all connected by a shared or common cathode.
+					<br><br>
+					This RGB LED has four pins: One is the cathode (ground), but the other three are the red, green, and blue LED anodes.
+					<br><br>
+				</p>
+				<h5 class="mb-3 fw-light" id="pj-heading-using-it-with-arduino-potentiometer" style="display: inline;">Using it with
+					Arduino</h5>
 				<p>
 					In the world of digital electronics, color is often represented in the 8-bit RGB color model. Every visible color is
-					identified by an encoding of the three base colors: red, green, and blue. In our Arduino code, we will set the intensity
+					identified by an encoding of the three base colors: red, green, and blue. In our Arduino code, we will set the
+					intensity
 					of each base color to a value in the range <code class="pj-code language-arduino">0-255</code>.
 					<br><br>
-					Try the <a href="https://g.co/kgs/KbJGyA" target="_blank" rel="noopener noreferrer">RGB Color Picker</a>. Notice how the three values in the RGB field change as you select different colors.
+					Try the <a href="https://g.co/kgs/KbJGyA" target="_blank" rel="noopener noreferrer">RGB Color Picker</a>. Notice how
+					the three values in the RGB field change as you select different colors.
 					<br><br>
-					Recall that LEDs are current driven: we control the intensity of each RGB LED color by increasing/decreasing the current
-					passing through its pin. With an Arduino board, we set the voltage, which indirectly affects current flow (recall Ohm's Law).
+					Recall that LEDs are current driven: we control the intensity of each RGB LED color by increasing/decreasing the
+					current
+					passing through its pin. With an Arduino board, we set the voltage, which indirectly affects current flow (recall
+					Ohm's Law).
 					<br><br>
-					Here's the rub: <code class="pj-code language-arduino">digitalWrite()</code> only sets a pin's voltage to 0 or 5V. If we want to dim an LED, we need a new function
+					Here's the rub: <code class="pj-code language-arduino">digitalWrite()</code> only sets a pin's voltage to 0 or 5V.
+					If we want to dim an LED, we need a new function
 					that can output voltages between 0 and 5.
 					<br><br>
-					We will use a <strong>pulse width modulation</strong> or <strong>PWM</strong> signal - a digital waveform mimicking analog voltage signals. With PWM
-					waves, we can generate analog voltages like 2.3V or 4.1V. In Arduino, we accomplish this using <code class="pj-code language-arduino">analogWrite()</code>.
+					We will use a <strong>pulse width modulation</strong> or <strong>PWM</strong> signal - a digital waveform mimicking
+					analog voltage signals. With PWM
+					waves, we can generate analog voltages like 2.3V or 4.1V. In Arduino, we accomplish this using <code
+						class="pj-code language-arduino">analogWrite()</code>.
 					<br><br>
 					Only some Nano pins are capable of PWM as indicated by the <a href="#pj-heading-pinout">pinout</a> above.
 				</p>
-			</p>
+			</div>
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-software-installations">Software Installations</h2>
 			<p class="mb-5">
