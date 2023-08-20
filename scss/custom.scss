@@ -35,13 +35,13 @@ $display-font-sizes: (
 $navbar-height: 85px;
 
 
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 // Then add additional custom code here
 body {
     scroll-behavior: smooth;
     font-family: 'Roboto', sans-serif;
-    overflow-x: hidden !important;
+    // overflow-x: hidden !important;
 }
 
 
@@ -50,6 +50,10 @@ body {
     grid-template-areas: 'sidebar main';
     grid-template-columns: 1fr 4fr;
     gap: 2rem;
+}
+
+.pj-content {
+    overflow-x: hidden;
 }
 
 .pj-sidebar {
@@ -126,6 +130,10 @@ ol {
     color: inherit;
     text-decoration: none;
     border-radius: 5px;
+}
+
+.nav-link {
+    color: $white
 }
 
 .pj-part {

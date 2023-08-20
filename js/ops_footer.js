@@ -13,6 +13,18 @@ document.write(`
             CC BY-NC-SA 2023 Institute of Electrical and Electronics Engineers, UC Irvine Branch
         </li>
     </ul>
+
+    <ul class="list-unstyled small">
+    <li class="fw-bold">
+        Have Questions? Contact Us
+    </li>
+    <li>
+        Email | <a href="mailto:ieee@uci.edu">ieee@uci.edu<a>
+    </li>
+    <li>
+        Lead Instructor | Benjamen Bielecki
+    </li>
+</ul>
 </div>
 
 <script>
