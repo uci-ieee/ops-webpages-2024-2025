@@ -32,24 +32,18 @@ $display-font-sizes: (
     6: 2.5rem
 );
 
-$navbar-height: 85px;
-
-
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 // add imports of all scss files
 @import "./project/project_template.scss";
+@import "./js/ops_header.scss";
+@import "./js/ops_footer.scss";
 
 // Then add additional custom code here
 body {
     scroll-behavior: smooth;
     font-family: 'Roboto', sans-serif;
     // overflow-x: hidden !important;
-}
-
-
-.nav-link {
-    color: $white
 }
 
 .text-gray {
@@ -80,9 +74,6 @@ body {
     color: $indigo-400;
 }
 
-.footer {
-    background-color: $gray-300;
-}
 
 .landing-title-box {
     height: calc(100vh - $navbar-height);
@@ -160,12 +151,6 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
 }
-
-#ops-navbar {
-    box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.24);
-    min-height: $navbar-height;
-}
-
 
 .timeline-with-icons {
     margin-left: 2rem;
