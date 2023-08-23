@@ -1,6 +1,8 @@
 /* scss file for common project template scss */
 /* the styles here should be applicable to many projects */
 
+@import "../js/ops_header.scss";
+
 .pj-layout {
     display: grid;
     grid-template-areas: 'sidebar main';
