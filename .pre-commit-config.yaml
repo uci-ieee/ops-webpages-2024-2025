@@ -4,12 +4,14 @@ repos:
     rev: v4.4.0
     hooks:
       - id: check-added-large-files
+      - id: check-ast
       - id: check-case-conflict
       - id: check-json
       - id: check-merge-conflict
       - id: check-symlinks
       - id: check-toml
       - id: check-yaml
+      - id: check-xml
       - id: debug-statements
       - id: destroyed-symlinks
       - id: detect-private-key
