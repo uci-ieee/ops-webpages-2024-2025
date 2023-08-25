@@ -7,7 +7,7 @@ document.write(`
     </a>
     <ul class="list-unstyled small">
         <li>
-            Website designed by the 2023-2024 Open Project Space Committee 
+            Website designed by the 2023-2024 Open Project Space Committee
         </li>
         <li>
             CC BY-NC-SA 2023 Institute of Electrical and Electronics Engineers, UC Irvine Branch

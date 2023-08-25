@@ -77,4 +77,3 @@ const today = new Date(); // January == 0, February == 1 ...
 if (today.getMonth() == 5) {
     document.getElementById("ops-navbar").classList.add('pride');
 };
-
