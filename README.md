@@ -70,3 +70,18 @@
 - Run `npm install` to make sure all the packages are installed
 - Develop feature/fix bugs
 - Create Pull Request
+
+### Workflows and SASS Compilation
+The SCSS gets compiled in to CSS. Locally, this is done via the `npm run sass` and `npm run sass-watch`, but when the site is deployed onto the internet, this is done via a GitHub action.
+
+The GitHub workflow file lives in the [ieee-website-2023-2024 repository's scss_compile_deploy.yml file](https://github.com/uci-ieee/ieee-website-2023-2024/blob/main/.github/workflows/scss_compile_deploy.yml). Specifically, the step being done is the `Compile SCSS` step.
+
+When new SASS files are created, they need should be imported into `scss/custom.scss`. It should be imported similarly to the following:
+
+```scss
+// add imports of all scss files
+@import "./index.scss";
+@import "./project/project_template.scss";
+@import "./js/ops_header.scss";
+@import "./js/ops_footer.scss";
+```
