@@ -76,7 +76,7 @@ The SCSS gets compiled in to CSS. Locally, this is done via the `npm run sass` a
 
 The GitHub workflow file lives in the [ieee-website-2023-2024 repository's scss_compile_deploy.yml file](https://github.com/uci-ieee/ieee-website-2023-2024/blob/main/.github/workflows/scss_compile_deploy.yml). Specifically, the step being done is the `Compile SCSS` step.
 
-When new SASS files are created, they need should be imported into `scss/custom.scss`. It should be imported similarly to the following:
+When new SASS files are created, they need to be imported into `scss/custom.scss`. It should be imported similarly to the following by adding an `@import` followed by the path of the new scss file:
 
 ```scss
 // add imports of all scss files
