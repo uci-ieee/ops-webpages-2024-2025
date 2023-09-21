@@ -48,28 +48,33 @@
 						<a class="nav-link" href="#pj-heading-introduction">Overview</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="#pj-heading-concepts">Concepts</a>
+						<ul class="nav">
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-concepts-breadboards">Breadboard</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-concepts-ohms-law">Ohm's Law</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-concepts-resistor">Resistor</a>
+							</li>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-concepts-led">LED (Light Emitting Diode)</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-concepts-slide-switch">Slide Switch</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-concepts-soldering">Soldering</a>
+							</li>
+						</ul>
+					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-requirements">Requirements</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-parts">Parts</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#pj-heading-concepts-breadboards">Concepts: Breadboards</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#pj-heading-concepts-ohms-law">Concepts: Ohm's Law</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#pj-heading-concepts-resistor">Concepts: Resistor</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#pj-heading-led">LED (Light Emitting Diode)</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#pj-heading-slide-switch">Slide Switch</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#pj-heading-soldering">Soldering</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-schematics">Schematics</a>
@@ -105,22 +110,146 @@
 				</div>
 				<div class="alert alert-light" role="alert">
 					<i class="bi bi-calendar-event me-1"></i>
-					Updated 2023.07.25 <br>
+					Updated 2023.09.20 <br>
 					By Gavin Nguyen and Dylan Vu
 				</div>
 			</div>
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-introduction">Overview</h2>
 			<p class="mb-5">
-				Just as the newborn programmer prints “Hello World” to the console, the novice electrical engineer
-				must light an LED. For your first project, you will prototype a basic LED circuit on a breadboard.
-				Then, you will solder it onto a perfboard.
+				Every electrical engineer has to start somewhere; for you, it’s no different. We’ll stick with the classic beginner’s project:
+				You will build a basic LED circuit on a breadboard. Then, you will solder it onto a perfboard.
+				<br><br>
+				Because this is the very first project, let’s walk through the layout of this webpage: The first section, “Concepts”, discusses
+				the key details from the accompanying lecture that are most relevant to the project. The following section, “Requirements”, lists
+				all the <i>requirements</i> your deliverable must meet for full marks.  The “Parts” and “Schematics” sections show the components needed
+				and the circuit schematics, respectively. Next, “Instructions” describe how to assemble the deliverables. Last but not least, the
+				“Deliverables” section outlines exactly what you will submit in the Canvas course. This last section is only relevant to students
+				participating in the course, but our online resources remain available to everyone.
 			</p>
+
+			<h2 class="mb-4 fw-bold" id="pj-heading-concepts">Concepts</h2>
+			<h3 class="mb-4" id="pj-heading-concepts-breadboards">Breadboard</h3>
+			<p>
+				<img class="img-fluid my-3 me-5 float-start" style="max-width: 350px;"
+					src="./assets/images/project_1/ops_breadboard_half.jpg">
+					You will use a <strong>breadboard</strong> to prototype your circuits. Inside the breadboard are
+					conductive metal strips.
+				<br><br>
+				When you insert components into holes of the same strip, current can flow between those components.
+				<br><br>
+				Closely follow the illustrations below to understand how current travels through the breadboard.
+			</p>
+
+			<p class = "mb-3">
+			<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
+			src="./assets/images/project_1/ops_breadboard_explanation_1.png">
+			
+			<img class="img-fluid my-3 me-5 float-end" style="max-width: 400px;"
+			src="./assets/images/project_1/ops_breadboard_explanation_2.png">
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				<strong>Remember to place a component’s terminals on different strips.</strong> If both terminals sit on 
+				the same strip, current will not flow properly through the component.
+			</p>
+
+			<div style= "text-align: center;" class="mb-3">
+				<img class="mb-5 img-fluid my-3 me-5" style="max-width: 700px;"
+					src="./assets/images/project_1/ops_breadboard_explanation_3.png">
+			</div>
+			<style>
+
+			h6 {
+				font-size: 80px;
+			}
+			</style>
+
+			<h3 class="mb-4" id="pj-heading-concepts-ohms-law">Ohm’s Law</h3>
+			<h6 class="mb-4" >V = IR</h6>
+
+			<p class="mb-5">
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 250px;"
+				src="./assets/images/project_1/ops_ohms_law.png">
+				Ohm’s Law relates the <strong>voltage (V)</strong>, <strong>current (I)</strong>, and <strong>resistance (R)</strong>
+				in a circuit.
+				<br><br>
+				Take the figure here as an example: Suppose we hold the voltage at a constant value. As the resistance increases,
+				the current across the resistor decreases. In the opposite case, as resistance decreases, current increases.
+				<br><br>
+				We will use the formula to calculate a safe resistor value for our circuit. If our chosen resistance is too low,
+				we risk inducing a high current that our components are unable to withstand. However, a resistance too high limits
+				the current so that our LED is insufficiently powered.
+			</p>
+
+			<h3 class="mb-3" id="pj-heading-concepts-resistor">Resistor</h3>
+			<p class = "mb-3">
+				A <strong>resistor</strong> is a component that restricts the current flow. It has no polarity, meaning that its
+				orientation in a circuit has no effect on the circuit. The resistance, the ability of a resistor to limit current flow,
+				is measured in Ohms (Ω).
+				<br><br>
+			</p>
+			<h4 class="mb-3 fw-light">Reading Resistor Bands</h4>
+			<p>	
+				The value of a resistor is determined by the color of each of its bands and the number of bands. Let’s take, for example, the
+				<strong>four-band resistor:</strong>
+			</p>
+
+			<div style= "text-align: center;" class="mb-3">
+				<img class="img-fluid my-3 me-5" style="max-width: 200px;"
+					src="./assets/images/project_1/ops_resistor_band_4.jpg">
+			</div>
+
+			<p class="mb-5">
+				The first two bands (<span class="text-red">red</span> and black) represent the <strong>digits</strong> of the resistor
+				value. The value of each digit can be decoded on the chart below. Referencing this chart, we find the digits are
+				<span class="text-red">2</span><strong>0</strong>. The second-to-last band (<span class="text-yellow">yellow</span>) represents a
+				<strong>multiplier</strong> by which the digits are multiplied. In our case, we see that the multiplier is
+				<span class="text-yellow">10<sup>4</sup></span>. The last band represents the <strong>tolerance</strong>, the maximum deviation of the
+				actual resistance from the nominal resistance described by the bands.
+				In our case, <span class="text-yellow">gold</span> represents a tolerance of <span class="text-yellow">±5%</span>.
+				<br><br>
+				When we combine the digits, multiplier, and tolerance, we identify the resistor value as <strong>200KΩ ±5%</strong>.
+			</p>
+
+			<div style= "text-align: center;" class="mb-5">
+				<img class="img-fluid my-3 me-5" style="max-width: 500px;"
+					src="./assets/images/project_1/ops_resistor_chart.png">
+			</div>
+
+			<h3 class="mb-3" id="pj-heading-concepts-led">LED (Light Emitting Diode)</h3>
+			<p class="mb-5">
+				<img class="img-fluid my-3 me-5 float-end" style="max-width: 400px;"
+					src="./assets/images/project_1/ops_led_annotated.png">
+					An <strong>LED</strong> is a component that emits light! Big surprise.
+				<br><br>
+				Just like other diodes, LEDs are polarized, which means their orientation does <i>affect</i> the circuit:
+				<strong>Current only travels through an LED in one direction.</strong> It flows from the <span class="text-red">anode</span>
+				to the <span class="text-gray">cathode</span> terminal.
+				<br><br>
+				The LED also has a constant <strong>voltage drop</strong> between its terminals within normal operating conditions.
+				The voltage is noted in the LED’s datasheet.
+			</p>
+
+			<h3 class="mb-3" id="pj-heading-concepts-slide-switch">Slide Switch</h3>
+
+			<p class="mb-4">
+				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
+					src="./assets/images/project_1/ops_switch_slide_annotated.png">
+				You will use a <strong>slide switch</strong> to control the current flow in the circuit. The sliding contact completes a
+				connection with the middle terminal (pin 2) and one of the two outer terminals (pins 1 and 3).
+				<br><br>
+				The slider is shifted in the direction of the outer terminal actively connected to the middle terminal.
+			</p>
+
+			<h3 class="mb-3" id="pj-heading-concepts-soldering">Soldering</h3>
+			<p class="mb-5">
+				Woah woah woah! Soldering is a bit more complicated than a two paragraph discussion. 
+				Head over to the workshop material <span class="text-blue">here [Webpage Link]</span> to learn more.
+			</p>			
 
 			<h2 class="mb-3 fw-bolder" id="pj-heading-requirements">Requirements</h2>
 			<ul class="mb-5">
 				<li>The circuit must work as implied by the schematic: A switch will toggle the LED ON and OFF.</li>
-				<li>The circuit must be soldered to the protoboard.</li>
+				<li>The circuit must be soldered to the perfboard.</li>
 				<li>The LED must be brightly lit when toggled ON. A dim LED indicates poor soldering or an incorrect resistor value.</li>
 				<li>The LED must be completely dark when toggled OFF.</li>
 			</ul>
@@ -138,21 +267,13 @@
 				<tbody>
 					<tr>
 						<td>
-							<a class="pj-part"
-								data-bs-content="<img src='./assets/images/parts/ops_part_jumper_wires.webp' height='150px' width='auto'>"
-								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
-								Jumper Wire
-							</a>
+							Jumper Wire
 						</td>
 						<td>X?</td>
 					</tr>
 					<tr>
 						<td>
-							<a class="pj-part"
-								data-bs-content="<img src='./assets/images/parts/ops_breadboard_half.jpg' height='150px' width='auto'>"
-								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
-								Breadboard
-							</a>
+							Breadboard
 						</td>
 						<td>1</td>
 					</tr>
@@ -210,11 +331,7 @@
 					</tr>
 					<tr>
 						<td>
-							<a class="pj-part"
-								data-bs-content="<img src='./assets/images/parts/ops_part_perfboard.jpg' height='150px' width='auto'>"
-								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
-								Perfboard
-							</a>
+							Perfboard
 						</td>
 						<td>1</td>
 					</tr>										
@@ -222,113 +339,6 @@
 			</table>
 			<!-- End Part Table -->
 
-			<h2 class="mb-4 fw-bold" id="pj-heading-concepts-breadboards">Concepts: Breadboards</h2>
-			<p>
-				<img class="img-fluid my-3 me-5 float-start" style="max-width: 350px;"
-					src="./assets/images/project_1/ops_breadboard_half.jpg">
-					You will use a <strong>breadboard</strong> to prototype your circuits. Inside the breadboard are
-					conductive metal strips.
-				<br><br>
-				When you insert components into holes of the same strip, current can flow between those components.
-				<br><br>
-				Closely follow the illustrations below to understand how current travels through the breadboard.
-			</p>
-
-			<p class = "mb-3">
-			<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
-			src="./assets/images/project_1/ops_breadboard_explanation_1.png">
-			
-			<img class="img-fluid my-3 me-5 float-end" style="max-width: 400px;"
-			src="./assets/images/project_1/ops_breadboard_explanation_2.png">
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-				<strong>Remember to place a component’s terminals on different strips.</strong> If both terminals sit on 
-				the same strip, current will not flow properly through the component.
-			</p>
-
-			<div style= "text-align: center;" class="mb-3">
-				<img class="mb-5 img-fluid my-3 me-5" style="max-width: 700px;"
-					src="./assets/images/project_1/ops_breadboard_explanation_3.png">
-			</div>
-			<style>
-
-			h6 {
-				font-size: 80px;
-			}
-			</style>
-
-			<h2 class="mb-4 fw-bold" id="pj-heading-concepts-ohms-law">Concepts: Ohm’s Law</h2>
-			<h6 class="mb-4" >V = IR</h6>
-
-			<p class="mb-5">
-				Ohm’s Law relates the <strong>voltage (V)</strong>, <strong>current (I)</strong>, and <strong>resistance (R)</strong>
-				in a circuit. Suppose we hold the voltage at a constant value: As the current increases, resistance in the circuit 
-				decreases. In the opposite case, as current decreases, resistance increases.
-				<br><br>
-				We will use the formula to calculate the proper resistor value for our circuit. With a resistance too low, the
-				components break under high current. However, a resistance too high limits the current so that no component is
-				sufficiently powered. 
-				<br><br>
-				Admittedly, there is plenty more nuance to this topic: we will eventually distinguish between <strong>current-driven</strong> and
-				<strong>voltage-driven</strong> electronics, which exhibit different characteristics under changing voltage and current conditions.
-			</p>
-
-			<h2 class="mb-3 fw-bold" id="pj-heading-concepts-resistor">Concepts: Resistor</h2>
-			<p class = "mb-3">
-				A <strong>resistor</strong> is a component that reduces the current flow. It has no polarity, meaning that
-				its orientation in a circuit has no effect on the circuit. The ability of a resistor to limit current flow is measured
-				in ohms (Ω). The value of a resistor is determined by the color and number of bands appearing on it. Different resistors
-				have a different count of bands, so <strong>let’s take, for example, the four-band resistor:</strong>
-			</p>
-
-			<div style= "text-align: center;" class="mb-3">
-				<img class="img-fluid my-3 me-5" style="max-width: 200px;"
-					src="./assets/images/project_1/ops_resistor_band_4.jpg">
-			</div>
-
-			<p class="mb-5">
-				The first two bands (<span class="text-red">red</span> and black) represent the <strong>digits</strong> of the resistor
-				value (resistance). The value of each digit can be decoded on the chart below. In our case, we find the digits are
-				<span class="text-red">2</span><strong>0</strong>. The next band (<span class="text-yellow">yellow</span>) represents a
-				multiplier to be multiplied by the digits. Looking at the chart again, we can see that the multiplier is
-				<span class="text-yellow">10<sup>4</sup></span>. The last band represents the <strong>tolerance</strong>, the variance
-				of the true resistance compared to the one described by the bands. In our case, gold has a tolerance of
-				<span class="text-yellow">±5%</span>.
-				<br><br>
-				Putting it all together, we get the value <strong>20 x 104 ±5% Ω</strong>, which is identified as a <strong>200KΩ</strong> resistor.
-			</p>
-
-			<div style= "text-align: center;" class="mb-5">
-				<img class="img-fluid my-3 me-5" style="max-width: 500px;"
-					src="./assets/images/project_1/ops_resistor_chart.png">
-			</div>
-
-			<h2 class="mb-3 fw-bold" id="pj-heading-led">LED (Light Emitting Diode)</h2>
-			<p class="mb-5">
-				<img class="img-fluid my-3 me-5 float-end" style="max-width: 400px;"
-					src="./assets/images/project_1/ops_led_annotated.png">
-					An <strong>LED</strong> is a component that emits light! Big surprise.
-				<br><br>
-				Like all diodes, LEDs exhibit a polarity, which means <strong>only travels through it in one direction</strong>.
-				Electricity flows from the <span class="text-red">anode</span> to the <span class="text-blue">cathode</span> terminal.
-				<br><br>
-				LEDs also have a consistent voltage drop between terminals, usually 2.2V or 3.2V. Be mindful of which is required for each project.
-			</p>
-
-			<h2 class="mb-3 fw-bold" id="pj-heading-slide-switch">Slide Switch</h2>
-
-			<p class="mb-4">
-				<img class="img-fluid my-3 me-5 float-start" style="max-width: 400px;"
-					src="./assets/images/project_1/ops_switch_slide_annotated.png">
-				You will use a <strong>slide switch</strong> to control the current flow in the circuit. The sliding contact completes a connection with the middle
-				terminal (pin 2) and one of the two outer terminals (pins 1 and 3).
-				<br><br>
-				The slider points in the direction of the outer terminal connected to the middle terminal.
-			</p>
-
-			<h2 class="mb-3 fw-bold" id="pj-heading-soldering">Soldering</h2>
-			<p class="mb-5">
-				Woah woah! Soldering is a bit more complicated than a two paragraph discussion. 
-				Head over to the workshop material <span class="text-blue">here [Webpage Link]</span> to learn more.
 			<h2 class="mb-2 fw-bold" id="pj-heading-schematics">Schematics</h2>
 			<div style="text-align: center;" class="mb-5">
 				<img class="img-fluid my-3 me-5" style="max-width: 600px;" src="./assets/images/project_1/ops_schem_proj1.png"
@@ -336,18 +346,24 @@
 			</div>
 			<h2 class="mb-3 fw-bold" id="pj-heading-instructions">Instructions</h2>
 			<h3 class="mb-3" id="pj-heading-checkpoint1">Checkpoint 1</h3>
-			<ol class="mb-5 list-group list-group-numbered">s
+			<ol class="mb-5 list-group list-group-numbered">
 				<li class="list-group-item">
-					Using the provided <a href="./assets/datasheets/ops_all_leds_datasheet.pdf" target="_blank" rel="noopener noreferrer">datasheet</a>, find the <strong>forward voltage</strong> of the LED and the <strong>continuous forward current</strong> through the LED.
+					We need to find an acceptable value for the resistor! Using the provided
+					<a href="./assets/datasheets/ops_all_leds_datasheet.pdf" target="_blank" rel="noopener noreferrer">datasheet</a>,
+					find the <strong>forward voltage</strong> of the LED and the <strong>continuous forward current</strong> through the LED.
 				</li>
 				<li class="list-group-item">
-					Determine the voltage drop through the resistor by subtracting the battery's voltage from the forward voltage of the
-					LED.
+					Determine the voltage across the resistor by subtracting the forward voltage of the LED from the battery’s voltage.
+					<div class="alert alert-info mt-2" role="alert">
+						V<sub>Resistor</sub> = V<sub>Battery</sub> - V<sub>LED</sub>
+						<br><br>
+						This formula was derived from Kirchoff’s Laws, which you will explore in Lecture II.
+					</div>
 				</li>
 				<li class="list-group-item">
-					Calculate the resistor value using its voltage drop and the maximum current with Ohm's Law.
+					Calculate the resistor value by plugging its voltage and the current into Ohm’s Law, solving for <strong>R</strong>.
 					<div>
-						<script src="./js/collapsible.js" title="Click to Reveal Answer" content="290Ω"></script>
+						<script src="./js/collapsible.js" title="Click to Reveal Answer" content="An appropriate resistor value is <strong>290Ω</strong> for a circuit with a 9V battery, 3.2V LED, and 20mA current."></script>
 					</div>
 				</li>
 			</ol>
@@ -358,10 +374,9 @@
 					Now that you have the correct resistor value, build the circuit on the breadboard, using the schematic as reference.
 				</li>
 				<li class="list-group-item">
-					(Optional) Test the circuit with different valued resistors, and observe how the brightness of the LED changes. Keep in
-					mind that a low resistance will burn out the LED.
+					(Optional) Test the circuit with different resistor values, and observe how the brightness of the LED changes. Keep in mind that a low resistance may burn out the LED.
 					<div>
-						<script src="./js/collapsible.js" title="Click to Reveal Answer" content="You should observe that the LED brightness decreases as the resistor value increases. This is because LEDs are <strong>current-driven</strong>: as the current of the circuit decreases so does the LED brightness."></script>
+						<script src="./js/collapsible.js" title="Click to Reveal Answer" content="You should observe that the LED brightness decreases as the resistor value increases. This is because LEDs are <strong>current-driven</strong>: as the current of the circuit decreases, so does the LED brightness."></script>
 					</div>
 				</li>
 			</ol>
@@ -369,7 +384,7 @@
 			<h3 class="mb-3" id="pj-heading-checkpoint3">Checkpoint 3</h3>
 			<ol class="mb-5 list-group list-group-numbered">
 				<li class="list-group-item">
-					Once you have successfully prototyped the circuit on your breadboard, build the same circuit on the protoboard. Solder
+					Once you have successfully prototyped the circuit on your breadboard, build the same circuit on the perfboard. Solder
 					with care!
 					<div class="alert alert-info" role="alert">
 						<strong>Do not solder the 9V snap connector</strong> to the protoboard. Instead, solder the female 1x2 header to the board. The snap connector will be inserted into the
@@ -378,20 +393,22 @@
 				</li>
 			</ol>
 
-			<h2 class="mb-3 fw-bold" id="pj-heading-deliverables">Deliverables <span class="fw-light">(Enrolled Students
-					Only)</span></h2>
+			<h2 class="mb-3 fw-bold" id="pj-heading-deliverables">Deliverables</h2>
 			<p class="mb-3">
 				Students enrolled in the course must submit the following deliverables to the corresponding Canvas
-				course assignment:
+				course assignment.
+				<br><br>
+				Place the following files in a single folder:
 			</p>
 
 			<ul class="mb-4 list-group">
 				<li class="list-group-item">
 					<i class="bi bi-check2-square me-2"></i>
-					Submit a <strong><u>video of your soldered protoboard</u></strong> to the Project 1 Canvas assignment.
+					Video of your soldered perfboard
 					<div class="alert alert-info mt-2" role="alert">
 						The video should demonstrate the switch in both states (ON and OFF).
 					</div>
+					<strong>Compress</strong> the folder to a <strong>zip</strong> file and rename the file using the format “<strong>ops_project#_lastname_firstname.zip</strong>” Then, submit the <strong>zip</strong> file to the Project 1 Canvas assignment.
 				</li>
 			</ul>
 		</main>
