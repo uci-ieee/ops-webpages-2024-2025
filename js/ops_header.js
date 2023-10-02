@@ -13,6 +13,9 @@ document.write(`
                         <a class="nav-link" aria-current="page" href="./index.html">Home</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="./faq.html">FAQ</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="./syllabus.html">Syllabus</a>
                     </li>
                     <li class="nav-item dropdown ">
@@ -77,4 +80,3 @@ const today = new Date(); // January == 0, February == 1 ...
 if (today.getMonth() == 5) {
     document.getElementById("ops-navbar").classList.add('pride');
 };
-
