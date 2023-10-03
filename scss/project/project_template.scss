@@ -38,8 +38,6 @@
 .pj-layout .pj-main {
     grid-area: main;
     justify-self: stretch;
-    //overflow: hidden !important;
-
     display: grid;
 }
 
@@ -60,8 +58,11 @@
     background-color: $gray-100;
 }
 
-.pj-main ul,
-ol {
+.pj-main img {
+    max-width: 400px;
+}
+
+.pj-main ul, .pj-main ol {
     font-size: 1.2rem;
     line-height: 1.8;
 }
@@ -144,15 +145,37 @@ pre code.pj-code {
     margin-left: 1.3rem;
 }
 
+/* For responsive, mobile screens */
 @media (max-width: 992px) {
     .pj-layout {
-            display: grid;
-            grid-template-areas: 'main';
-            grid-template-columns: 4fr;
-            gap: 2rem;
-        }
+        display: grid;
+        grid-template-areas: 'main';
+        grid-template-columns: 4fr;
+        gap: 2rem;
+    }
     
     .pj-sidebar {
         display: none;
     }
+
+    .pj-main {
+        // overflow: hidden;
+        width: 80vw;
+    }
+
+    .pj-main p, .pj-main ul, .pj-main ol {
+        word-wrap: break-word;
+        text-wrap: wrap;
+        display: inline;
+        white-space: pre-line;
+        width: 80vw;
+    }
+
+    .pj-main img {
+        min-width: 90vw;
+        max-width: 90vw;
+        object-fit: contain;
+        overflow: hidden;
+    }
+
 }
