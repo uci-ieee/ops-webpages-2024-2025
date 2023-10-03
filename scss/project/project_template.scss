@@ -176,6 +176,21 @@ pre code.pj-code {
         max-width: 90vw;
         object-fit: contain;
         overflow: hidden;
+        /* center the image */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* overwrite the bootstrap class to switch from flex-row to flex-column */
+    .flex-row {
+        flex-direction: column !important;
+        flex-wrap: nowrap;
+    }
+
+    /* overwrite the bootstrap class to remove the right margin on images */
+    img.me-5 {
+        margin-right: 0 !important;
     }
 
 }
