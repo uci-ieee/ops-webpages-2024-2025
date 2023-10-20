@@ -99,6 +99,12 @@
     border-bottom-style: dotted;
 }
 
+/* used to add color and pointer to text in the parts section, often used to link to datasheets */
+.pj-part-link {
+    color: #0000EE;
+    cursor: pointer;
+}
+
 .pj-part-table {
     padding: 0px 20px 20px 20px;
     border-collapse: separate;
