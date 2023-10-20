@@ -37,7 +37,7 @@ function createCollapsible() {
                 </button>
             </h2>
             <div id="${accordionItemID}" class="accordion-collapse collapse" data-bs-parent="#${collapsibleID}">
-                <div class="accordion-body text-center">
+                <div class="accordion-body">
                     ${content}
                 </div>
             </div>
