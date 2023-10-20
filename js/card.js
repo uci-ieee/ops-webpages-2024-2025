@@ -30,8 +30,8 @@ function createCard() {
                 <h6 class="mb-2 text-muted">
                     ${date}
                 </h6>
-                    <button class="btn card-btn px-3 mr-card ${slides && slides.length > 0 ? "btn-primary" : "btn-secondary disabled"}" onclick="window.location='${slides}';">Slides</button>
-                    <button class="btn card-btn px-3 ${video && video.length > 0 ? "btn-primary" : "btn-secondary disabled"}" onclick="window.location='${video}';">Video</button>
+                    <button class="btn card-btn px-3 mr-card ${slides && slides.length > 0 ? "btn-primary" : "btn-secondary disabled"}" onclick="window.open('${slides}', '_blank');">Slides</button>
+                    <button class="btn card-btn px-3 ${video && video.length > 0 ? "btn-primary" : "btn-secondary disabled"}" onclick="window.open('${video}', '_blank');">Video</button>
                 </div>
             </div>
         </div>
