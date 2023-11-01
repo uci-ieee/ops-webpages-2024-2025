@@ -23,7 +23,7 @@ document.write(`
                             Projects
                         </a>
                         <ul class="dropdown-menu" data-bs-theme="light" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="./project_1.html">Project 1: LED Circuit</a></li>
+                            <li><a class="dropdown-item" href="./project_1.html">Project 1: LED Circuit</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
