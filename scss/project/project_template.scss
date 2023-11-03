@@ -62,7 +62,12 @@
     max-width: 400px;
 }
 
-.pj-main ul, .pj-main ol {
+.pj-main img.img-lg {
+    max-width: 700px;
+}
+
+.pj-main ul,
+.pj-main ol {
     font-size: 1.2rem;
     line-height: 1.8;
 }
@@ -163,7 +168,7 @@ li .nav-item {
         grid-template-columns: 4fr;
         gap: 2rem;
     }
-    
+
     .pj-sidebar {
         display: none;
     }
@@ -173,7 +178,9 @@ li .nav-item {
         width: 80vw;
     }
 
-    .pj-main p, .pj-main ul, .pj-main ol {
+    .pj-main p,
+    .pj-main ul,
+    .pj-main ol {
         word-wrap: break-word;
         text-wrap: wrap;
         display: inline;
