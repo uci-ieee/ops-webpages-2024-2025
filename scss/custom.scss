@@ -42,6 +42,12 @@ $display-font-sizes: (
 @import "./js/card.scss";
 
 // Then add additional custom code here
+
+/* class to just hide elements, use !important to override everything */
+.hidden {
+    display: none !important;
+}
+
 body {
     scroll-behavior: smooth;
     font-family: 'Roboto', sans-serif;
