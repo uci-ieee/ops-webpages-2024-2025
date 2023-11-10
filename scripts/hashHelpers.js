@@ -34,7 +34,8 @@ function createHashMapOfJSFiles(directoryPath) {
             if (path.extname(file).toLowerCase() === '.js') {
                 // grab the js base
                 const fileName = file.split(".").slice(0, -1).join(".");
-                jsFiles[file] = `${fileName}.${createHashOfJS(filePath)}.js`;
+                const hash = createHashOfJS(filePath);
+                jsFiles[file] = `${fileName}.${hash}.js`;
 
                 const newFileName = `${fileName}.${hash}.js`;
                 const newFilePath = path.join(directoryPath, newFileName);
