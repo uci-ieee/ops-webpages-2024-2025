@@ -95,4 +95,10 @@ Here is the entire process, contained in `scripts/hash.js`:
 
 This is done in the GitHub workflows, using the `npm run cache-busting`. As such,  **do not run this command while developing locally** as it generates unnecessary and duplicate files. If it's run on accident, do not commit. Fix all the modifications to all the js files, or if it proves to be too much, restore.
 
+Run `git status` to check all the untracked files. If the only untracked files are the hashed js files, then run `git clean -f` to delete all the hashed js file copies. This command deletes all the untracked files.
+
+Run `git restore [html files]` where you add all the html files.
+
+`git restore index.html lectures.html workshops.html syllabus.html` and so on...
+
 If this is committed, then **all the JS will be broken**.
