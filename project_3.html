@@ -121,7 +121,7 @@
 				</div>
 				<div class="alert alert-light" role="alert">
 					<i class="bi bi-calendar-event me-1"></i>
-					Updated 2023.10.09 <br>
+					Updated 2023.11.15 <br>
 					By Gavin Nguyen
 				</div>
 			</div>
@@ -134,56 +134,63 @@
 
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Concepts</h2>
-            <h4 class="mb-3 fw-light" id="pj-heading-cpp">C++ Programming Language</h4>
-            <p class="mb-5">
+            <h3 class="mb-3" id="pj-heading-cpp">C++ Programming Language</h3>
+            <p class="mb-3">
 				<img class="img-fluid my-3 me-5 float-start" width="200"
 					src="./assets/images/project_3/ops_cpp_logo.png">
                     Nearly four decades old, C++ is one of the most widely used general-purpose programming languages. It is highly versatile, utilized in operating systems, video games, internet browsers, embedded software, and more!
-                    <br><br>
+			</p>
+			<p class="mb-3">
                     C++ was designed to extend the C programming language. For the most part, anything you write in C can also run in a C++ program.
-                    <br><br>
+			</p>
+			<p class="mb-3">
                     C and C++ are frequently used in embedded systems programming, partly due to the ease at which the languages directly interface with hardware. You can create and delete data in memory. You also have great awareness and control over where and how the data is stored. This is particularly useful when memory, storage, and processing power are limited. C/C++ programs can be lightweight and incredibly efficient.
-                    <br><br>
+			</p>
+			<p class="mb-5">
                     In <a href="https://ieee.ics.uci.edu/ops/lectures.html">Lecture III</a>, we discuss the basics of writing a C++ program. There you will learn about the syntax and semantics of the language.
 			</p>
 
-			<h4 class="mb-3 fw-light" id="pj-heading-ide">Integrated Development Environment (IDE)</h4>
-			<p class="mb-5">
+			<h3 class="mb-3" id="pj-heading-ide">Integrated Development Environment (IDE)</h3>
+			<p class="mb-3">
 				An <strong>integrated development environment (IDE)</strong> is a suite of applications used for programming. It includes a source-code editor, compiler, debugger, and build automation tools.
-                <br><br>
+			</p>
+			<p class="mb-3">
                 When you create a program, you will write and edit it in the <strong>source-code editor</strong>. Then, you will employ the help of the <strong>compiler</strong> to convert the source code (C++ for example) to machine code, which is readable by the computer. You may also run a <strong>debugger</strong> to troubleshoot errors while the program is running. Again, all of these applications are part of the IDE.
-                <br><br>
+			</p>
+			<p class="mb-5">
                 Popular IDEs include Microsoft Visual Studio, Eclipse, and IntelliJ IDEA. There are plenty more to choose from, some of which are customized to specific programming languages.
 			</p>
 
-			<h4 class="mb-3 fw-light" id="pj-heading-compiler">Compilers, Assemblers, and Linkers. Oh My!</h4>			
+			<h3 class="mb-3" id="pj-heading-compiler">Compilers, Assemblers, and Linkers. Oh My!</h3>			
 			<p class="mb-3">
 				You write code in a programming language like C++, but that is not what the computer executes as instructions. The computer sees only 1s and 0s, or binary <strong>machine code</strong>. So how do we bridge the communication gap between you and the computer? We use a program called a <strong>compiler</strong> to translate your C++ code into machine language.
-                <br><br>
+            </p>
+			<p class="mb-3">
                 We tend to use “compiler” as an umbrella term to describe what is actually several programs working together to create machine code. In reality, the <strong>compiler</strong> turns a high-level language like C++ into assembly code. 
-                <br><br>
+            </p>
+			<p class="mb-3">
                 <strong>Assembly language</strong> is a low-level programming language based on a computer’s processor. Each assembly statement corresponds directly with a machine instruction or set of instructions. There was a time when most programmers wrote in assembly language; this is no longer commonplace.
-                <br><br>
+			</p>
+			<p class="mb-3">
                 The <strong>assembler</strong> converts the assembly language into machine code. We’re not done, though! One last program called a <strong>linker</strong> takes the machine code files and “links” them together into an <strong>executable file</strong>. You might recognize executables as files with the “.exe” extension on Windows. The executable is ultimately what the computer uses to execute your program.
-                <br><br>
             </p>
 			<p class="mb-5" style="text-align:center;">
 				<img class="img-fluid my-3 me-5" width="300"
-				src="./assets/images/project_3/[2023-24] OPS Project 3_ C++ Programming (1).png">
+				src="./assets\images\project_3\ops_compiler_pipeline.png">
 			</p>
 
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-ide-setup">IDE Setup</h2>
-			<p class="mb-3">
+			<p class="mb-5">
 				Before we get started, you will need to choose an IDE. It is recommended that you use Replit, a free online IDE, for this project.
 			</p>
-			<h4 class="mb-3 fw-light" id="pj-heading-replit">Replit</h4>
+			<h3 class="mb-3" id="pj-heading-replit">Replit</h3>
 			<p class="mb-3">
 				Visit this <a href="https://repl.it/">link</a> and create an account with Replit. You will notice that there are paid pricing options. However, they are not required to complete the project.
 			</p>
 			<p class="mb-5" style="text-align:center;">
 				<img class="img-fluid my-3 me-5"
-				src="./assets/images/project_3/replit_image.png">
+				src="./assets/images/project_3/ops_replit_image.png">
 			</p>
 
 
@@ -191,7 +198,7 @@
 			<p class="mb-3">
 				You will write five functions into one .cpp file. The requirements for each function are listed below. They must pass the autograder when submitted.
 			</p>
-			<h4 class="mb-3 fw-light" id="pj-heading-echo">Echo</h4>
+			<h3 class="mb-3" id="pj-heading-echo">Echo</h3>
 			<p>
 				<ul class="mb-5">
 					<li>Function Header: <code class="pj-code language-arduino">void echo()</code></li>
@@ -201,7 +208,7 @@
 				</ul>
 			</p>
 
-			<h4 class="mb-3 fw-light" id="pj-heading-even-or-odd">Even or Odd?</h4>
+			<h3 class="mb-3" id="pj-heading-even-or-odd">Even or Odd?</h3>
 			<p>
 				<ul class="mb-5">
 					<li>Function Header: <code class="pj-code language-arduino">bool isEven(int num)</code></li>
@@ -218,7 +225,7 @@
 				</ul>
 			</p>
 
-			<h4 class="mb-3 fw-light" id="pj-heading-number-power">Number Power</h4>
+			<h3 class="mb-3" id="pj-heading-number-power">Number Power</h3>
 			<p>
 				<ul class="mb-5">
 					<li>Function Header: <code class="pj-code language-arduino">unsigned pow2(unsigned base, unsigned exp)</code></li>
@@ -234,7 +241,7 @@
 				</ul>
 			</p>
 
-			<h4 class="mb-3 fw-light" id="pj-heading-take-the-average">Take the Average</h4>
+			<h3 class="mb-3" id="pj-heading-take-the-average">Take the Average</h3>
 			<p>
 				<ul class="mb-5">
 					<li>Function Header: <code class="pj-code language-arduino">double avg(int arr[], int size)</code></li>
@@ -244,7 +251,7 @@
 				</ul>
 			</p>
 
-			<h4 class="mb-3 fw-light" id="pj-heading-fibonacci-sequence">Fibonacci Sequence</h4>
+			<h3 class="mb-3" id="pj-heading-fibonacci-sequence">Fibonacci Sequence</h3>
 			<p>
 				<ul class="mb-5">
 					<li>Function Header: <code class="pj-code language-arduino">void fib(unsigned n)</code></li>
@@ -267,14 +274,14 @@
 					Access the <strong>project template code</strong> through this <a href="https://replit.com/@BenjamenBieleck/uciopsproject3?v=1">link</a>. <strong>Fork the project</strong> to create your own copy in Replit.
 					<p style="text-align:center;">
 						<img class="img-fluid my-3 me-5"
-						src="./assets/images/project_3/fork_label.png">
+						src="./assets/images/project_3/ops_fork_label.png">
 					</p>
 				</li>
 				<li class="list-group-item">
 					After you fork the project, the IDE will automatically launch. <strong>Click on the file “ops_project3.cpp”</strong> in the file explorer <strong>(1)</strong>. The file's contents will be displayed in the editor <strong>(2)</strong>. This is where you will implement each of the required functions. When you execute the code, its output will appear in the console <strong>(3)</strong>.
 					<p style="text-align:center;">
 						<img class="img-fluid my-3 me-5"
-						src="./assets/images/project_3/template_code.png" width="650">
+						src="./assets/images/project_3/ops_template_code.png" width="650">
 					</p>
 				</li>
 				<li class="list-group-item">
@@ -284,7 +291,7 @@
 					Click the “Run” button at the top of the viewport. The .cpp file will compile and then execute. You should see the following output to the console:
 					<p style="text-align:center;">
 						<img class="img-fluid my-3 me-5"
-						src="./assets/images/project_3/hello_world_ran.png">
+						src="./assets/images/project_3/ops_hello_world_ran.png">
 						<br>
 						“Hello World” is printed onto the console (along with one test for Checkpoint 3).
 					</p>
@@ -383,7 +390,7 @@
 					<strong>Download your work from Replit</strong> by navigating to the file explorer and selecting the “Actions” button. Click <strong>“Download as zip”</strong>.
 					<p style="text-align:center;">
 						<img class="img-fluid my-3 me-5"
-						src="./assets/images/project_3/zip_download_finder.png">
+						src="./assets/images/project_3/ops_zip_download_finder.png">
 					</p>
 					<div class="alert alert-info mt-2" role="alert">
 						Ensure the following files are in the zip:
