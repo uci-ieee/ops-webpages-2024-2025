@@ -95,7 +95,7 @@
 								<a class="nav-link" href="#pj-heading-take-the-average">Take the Average</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#pj-heading-fibonacci-sequence">Fibonacci Sequence</a>
+								<a class="nav-link" href="#pj-heading-fib-seq">Fibonacci Sequence</a>
 							</li>
 						</ul>
 					</li>
@@ -121,7 +121,7 @@
 				</div>
 				<div class="alert alert-light" role="alert">
 					<i class="bi bi-calendar-event me-1"></i>
-					Updated 2023.11.15 <br>
+					Updated 2023.11.16 <br>
 					By Gavin Nguyen
 				</div>
 			</div>
@@ -198,75 +198,128 @@
 			<p class="mb-3">
 				You will write five functions into one .cpp file. The requirements for each function are listed below. They must pass the autograder when submitted.
 			</p>
+
 			<h3 class="mb-3" id="pj-heading-echo">Echo</h3>
-			<p>
-				<ul class="mb-5">
-					<li>Function Header: <code class="pj-code language-arduino">void echo()</code></li>
-					<li>Parameters: None</li>
-					<li>Return: None</li>
-					<li>Description: <code class="pj-code language-arduino">echo()</code> uses the standard input/output stream. When the function is called, the user types in one text string to the console. The function then prints that identical string back to the console.</li>
-				</ul>
-			</p>
+			<ul class="mb-5 list-group">
+				<li class="list-group-item">
+					Function Header: <code class="pj-code language-arduino">void echo()</code>
+				</li>
+				<li class="list-group-item">
+					Parameters: None
+				</li>
+				<li class="list-group-item">
+					Return: None
+				</li>
+				<li class="list-group-item">
+					Description: <code class="pj-code language-arduino">echo()</code> uses the standard input/output stream. When the function is called, the user types in one text string to the console. The function then prints that identical string back to the console.
+				</li>
+			</ul>
+
 
 			<h3 class="mb-3" id="pj-heading-even-or-odd">Even or Odd?</h3>
-			<p>
-				<ul class="mb-5">
-					<li>Function Header: <code class="pj-code language-arduino">bool isEven(int num)</code></li>
-					<li>Parameters: num (int)</li>
-					<li>Return: bool</li>
-					<li>Description:  Description: <code class="pj-code language-arduino">isEven()</code> returns true if the parameter <code class="pj-code language-arduino">num</code> is an even number and false if otherwise. <code class="pj-code language-arduino">num</code> can be any integer value, negative or positive.</li>
-					<li>Examples:</li>
-						<ul>
-							<li><code class="pj-code language-arduino">isEven(62) : true</code></li>
-							<li><code class="pj-code language-arduino">isEven(3) : false</code></li>
-							<li><code class="pj-code language-arduino">isEven(-2) : true</code></li>
-							<li><code class="pj-code language-arduino">isEven(0) : true</code></li>
-						</ul>
-				</ul>
-			</p>
+			<ul class="mb-3 list-group">
+				<li class="list-group-item">
+					Function Header: <code class="pj-code language-arduino">bool isEven(int num)</code>
+				</li>
+				<li class="list-group-item">
+					Parameters: num (int)
+				</li>
+				<li class="list-group-item">
+					Return: bool
+				</li>
+				<li class="list-group-item">
+					Description: <code class="pj-code language-arduino">isEven()</code> returns true if the parameter <code class="pj-code language-arduino">num</code> is an even number and false if otherwise. <code class="pj-code language-arduino">num</code> can be any integer value, negative or positive.
+				</li>
+			</ul>
+			<li class="list-group-item">
+				<p>
+					<ul class="mb-5">
+						<li>Examples:</li>
+							<ul>
+								<li><code class="pj-code language-arduino">isEven(62) : true</code></li>
+								<li><code class="pj-code language-arduino">isEven(3) : false</code></li>
+								<li><code class="pj-code language-arduino">isEven(-2) : true</code></li>
+								<li><code class="pj-code language-arduino">isEven(0) : true</code></li>
+							</ul>
+					</ul>
+				</p>
+			</li>
 
+			
 			<h3 class="mb-3" id="pj-heading-number-power">Number Power</h3>
-			<p>
-				<ul class="mb-5">
-					<li>Function Header: <code class="pj-code language-arduino">unsigned pow2(unsigned base, unsigned exp)</code></li>
-					<li>Parameters: base (unsigned int), exp (unsigned int)</li>
-					<li>Return: unsigned int</li>
-					<li>Description: <code class="pj-code language-arduino">pow2(2)</code> returns the calculated value of <code class="pj-code language-arduino">base</code> raised to the power of <code class="pj-code language-arduino">exp</code> (i.e. base <sup>exp</sup>). The parameters can only be positive integers.</li>
-					<li>Examples:</li>
-						<ul>
-							<li><code class="pj-code language-arduino">pow2(6, 2) : 36</code></li>
-							<li><code class="pj-code language-arduino">pow2(1, 8) : 1</code></li>
-							<li><code class="pj-code language-arduino">pow2(9, 3) : 729</code></li>
-						</ul>
-				</ul>
-			</p>
+			<ul class="mb-3 list-group">
+				<li class="list-group-item">
+					Function Header: <code class="pj-code language-arduino">unsigned pow2(unsigned base, unsigned exp)</code>
+				</li>
+				<li class="list-group-item">
+					Parameters: base (unsigned int), exp (unsigned int)
+				</li>
+				<li class="list-group-item">
+					Return: unsigned int
+				</li>
+				<li class="list-group-item">
+					Description: <code class="pj-code language-arduino">pow2(2)</code> returns the calculated value of <code class="pj-code language-arduino">base</code> raised to the power of <code class="pj-code language-arduino">exp</code> (i.e. base <sup>exp</sup>). The parameters can only be positive integers.
+				</li>
+			</ul>
+			<li class="list-group-item">
+				<p>
+					<ul class="mb-5">
+						<li>Examples:</li>
+							<ul>
+								<li><code class="pj-code language-arduino">pow2(6, 2) : 36</code></li>
+								<li><code class="pj-code language-arduino">pow2(1, 8) : 1</code></li>
+								<li><code class="pj-code language-arduino">pow2(9, 3) : 729</code></li>
+							</ul>
+					</ul>
+				</p>
+			</li>
+
 
 			<h3 class="mb-3" id="pj-heading-take-the-average">Take the Average</h3>
-			<p>
-				<ul class="mb-5">
-					<li>Function Header: <code class="pj-code language-arduino">double avg(int arr[], int size)</code></li>
-					<li>Parameters: arr (int array), size (int)</li>
-					<li>Return: double</li>
-					<li>Description: <code class="pj-code language-arduino">avg()</code> returns the mean of the elements in the array <code class="pj-code language-arduino">arr</code>. The array must not be mutated by the function. Its elements may be positive or negative.</li>
-				</ul>
-			</p>
+				<li class="list-group-item">
+					<ul class="mb-5 list-group">
+						<li class="list-group-item">
+							Function Header: <code class="pj-code language-arduino">double avg(int arr[], int size)</code>	
+						</li>
+						<li class="list-group-item">
+							Parameters: arr (int array), size (int)
+						</li>
+						<li class="list-group-item">
+							Return: double
+						</li>
+						<li class="list-group-item">
+							Description: <code class="pj-code language-arduino">avg()</code> returns the mean of the elements in the array <code class="pj-code language-arduino">arr</code>. The array must not be mutated by the function. Its elements may be positive or negative.
+						</li>
+					</ul>
 
-			<h3 class="mb-3" id="pj-heading-fibonacci-sequence">Fibonacci Sequence</h3>
-			<p>
-				<ul class="mb-5">
-					<li>Function Header: <code class="pj-code language-arduino">void fib(unsigned n)</code></li>
-					<li>Parameters: n (unsigned int)</li>
-					<li>Return: None</li>
-					<li>Description: <code class="pj-code language-arduino">fib()</code> prints the first n elements of the Fibonacci sequence to the console. Each element should be separated by a comma and one space. The last element terminates the line without a space or comma. <code class="pj-code language-arduino">n > 0</code></li>
-					<li>Examples:</li>
-						<ul>
-							<li><code class="pj-code language-arduino">fib(1) : 1</code></li>
-							<li><code class="pj-code language-arduino">fib(4) : 1, 1, 2, 3</code></li>
-						</ul>
-				</ul>
-			</p>
+					<h3 class="mb-3" id="pj-heading-fib-seq">Fibonacci Sequence</h3>
+					<ul class="mb-3 list-group">
+						<li class="list-group-item">
+							Function Header: <code class="pj-code language-arduino">void fib(unsigned n)</code>
+						</li>
+						<li class="list-group-item">
+							Parameters: n (unsigned int)
+						</li>
+						<li class="list-group-item">
+							Return: None
+						</li>
+						<li class="list-group-item">
+							Description: <code class="pj-code language-arduino">fib()</code> prints the first n elements of the Fibonacci sequence to the console. Each element should be separated by a comma and one space. The last element terminates the line without a space or comma. <code class="pj-code language-arduino">n > 0</code>
+						</li>
+					</ul>
+					<li class="list-group-item">
+						<p>
+							<ul class="mb-5">
+								<li>Examples:</li>
+									<ul>
+										<li><code class="pj-code language-arduino">fib(1) : 1</code></li>
+										<li><code class="pj-code language-arduino">fib(4) : 1, 1, 2, 3</code></li>
+									</ul>
+							</ul>
+						</p>
+					</li>
 
-
+			
 			<h2 class="mb-3 fw-bold" id="pj-heading-instructions">Instructions</h2>
 			<h3 class="mb-3">Checkpoint 1: Hello World</h3>
 			<ol class="mb-5 list-group list-group-numbered">
