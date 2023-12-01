@@ -58,22 +58,9 @@
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="#pj-heading-potentiometer">Potentiometer</a>
-								<ul class="nav">
-									<li class="nav-item">
-										<a class="nav-link" href="#pj-heading-how-it-works-potentiometer">How it Works</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#pj-heading-using-it-with-arduino-potentiometer">Using it with Arduino</a>
-									</li>
-								</ul>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="#pj-heading-rgb-led">RGB LED</a>
-								<ul class="nav">
-									<li>
-										<a class="nav-link" href="#pj-heading-using-it-with-arduino-rgb">Using it with Arduino</a>
-									</li>
-								</ul>
 							</li>
 						</ul>
 					</li>
@@ -90,6 +77,17 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-requirements">Requirements</a>
+						<ul class="nav">
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-blinker">LED Blinker</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-dimmer">LED Dimmer</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-rgb-dimmer">RGB LED Dimmer</a>
+							</li>
+						</ul>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-parts">Parts</a>
@@ -141,50 +139,58 @@
 			</p>
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Concepts</h2>			
-			<h3 class="mb-3 fw-light" id="pj-heading-arduino-nano">Arduino Nano</h3>
+			<h3 class="mb-3" id="pj-heading-arduino-nano">Arduino Nano</h3>
 			<div class="mb-3">
 			<p>
 				The Arduino Nano is a board based on an ATmega microcontroller. The chip itself contains
 				the processor, RAM, and flash storage. These components execute the programs we write.
-				<br><br>
+			</p>
+			<p>
 				The Arduino company designed several boards to make the ATmega chip hobbyist-friendly: they
 				added a USB port, voltage regulator, and onboard LEDs (among other things). In this family of
 				boards are the Arduino Uno, Arduino Nano, and many, <i>many</i> more.
 			</p>
 			</div>
-			<p class="mb-5">
+			<div class="mb-5">
 				<img class="img-fluid my-3 me-5 float-end" style="max-width: 400px;" src="./assets/images/parts/ops_part_arduino_nano.png">
+				<p>
 				We’ll stick with the Arduino Nano for now, which is depicted here.
-				<br><br>
+				</p>
+				<p>
 				<strong>General Purpose Input/Output</strong> <strong>(GPIO)</strong>, power, and reset pins run along the sides of the Nano.
-				<br><br>
+				</p>
+				<p>
 				In the lecture content, we discuss the different GPIO pin capabilities and their use cases. We also use the Arduino programming
 				language (a C++ variant) to write and compile sketches. Learn more <a href="https://ieee.ics.uci.edu/ops/lectures.html" target="_blank" rel="noopener noreferrer">here</a>.
-				<br><br>
+				</p>
+			<p>
 				We won't talk in depth about each function or data structure from the Arduino Library. When you need to read up on
 				Arduino code, refer to the <a href="https://www.arduino.cc/reference/en/" target="_blank" rel="noopener noreferrer">Arduino Language Reference</a>.
 			</p>
+			</div>
 
-			<h3 class="mb-3 fw-light" id="pj-heading-pinout" style="display: inline;">Pinout</h3>
-			<p class="mb-5">
+			<h3 class="mb-3" id="pj-heading-pinout" style="display: inline;">Pinout</h3>
+			<p>
 				Thinking about using a pin but you don't know what it does? Refer to the Arduino Nano pinout diagram. The full datasheet
 				is linked in the <a href="#pj-heading-parts">Parts</a> section.
-				<br><br>
-				<span class="text-blue">~</span> represents pins that are PWM capable.
-				<img class="img-fluid my-4" src=".\assets\images\pinouts\ops-pinout-arduino-nano.png">
 			</p>
-			<h3 class="mb-3 fw-light" id="pj-heading-potentiometer" style="display: inline;">Potentiometer</h3>
+			<p>
+				<span class="text-blue">~</span> represents pins that are PWM capable.
+			</p>
+			<div class="mb-5 text-center">
+				<img class="img-fluid my-4" src=".\assets\images\pinouts\ops-pinout-arduino-nano.png" style="max-width: 625px;">
+			</div>
+			<h3 class="mb-3" id="pj-heading-potentiometer" style="display: inline;">Potentiometer</h3>
 			<p>
 				A <strong>potentiometer</strong> is a is a three-terminal <i>variable</i> resistor. We will use it as a <strong>voltage divider</strong>,
 				a circuit which accepts a supply voltage and outputs a voltage which is a fraction of the supply voltage. The voltage of
 				the potentiometer’s output pin ranges between the VCC and GND pin voltages, depending on the dial’s position.
-				<br>
+			</p>
 				<div style= "text-align: center;" class="mb-5">
 					<img class="img-fluid my-4 me-5" style="max-width: 550px;" src=".\assets\images\parts\ops_parts_potentiometer_annotated.png">
 				</div>
 			</p>
-			<h4 class="mb-3 fw-light" id="pj-heading-how-it-works-potentiometer" style="display: inline;">How it Works</h4>
-			<div class="mb-5">
+			<h3 class="mb-3 fw-light" style="display: inline;">How it Works</h3>
 			<p>
 				We just referred to the potentiometer as a kind of resistor. Why? Internally, a resistive strip connects its VCC and GND pins, and a rotating wiper connects
 				the output pin to the strip. The greater the distance along the strip between the wiper and the VCC pin, the greater the resistance between the wiper and VCC.
@@ -192,44 +198,50 @@
 			<div style= "text-align: center;" class="mb-3">
 				<img class="img-fluid my-4 me-5" style="max-width: 550px;" src=".\assets/images/project_4/ops_potentiometer_internal_annotated.png">
 			</div>
-			<p>
+			<p class="mb-5">
 				In this voltage divider configuration, the wiper reduces the voltage at the output pin the further it is turned clockwise (toward GND).
 			</p>
-			</div>
-			<h4 class="mb-3 fw-light" id="pj-heading-using-it-with-arduino-potentiometer" style="display: inline;">Using it with Arduino</h4>
+
+
+			<h3 class="mb-3 fw-light" style="display: inline;">Using it with Arduino</h3>
 			<p class="mb-5">
 				We can connect the potentiometer’s output pin to one of the Nano’s analog pins (see its pinout above). The analog pin is wired to the <strong>analog-to-digital converter (ADC)</strong>
 				inside the Nano’s ATmega chip. The ADC is hardware that translates the analog signal to a discrete digital signal. Using
 				<code class="pj-code language-arduino">analogRead()</code>, we interpret the pin's analog voltage as a discrete integer in the range <code class="pj-code language-arduino">0-1023</code>.
 			</p>
 			
-			<h3 class="mb-3 fw-light" id="pj-heading-rgb-led" style="display: inline;">RGB LED</h3>
+
+			<h3 class="mb-3" id="pj-heading-rgb-led" style="display: inline;">RGB LED</h3>
 			<div class="mb-5">
 				<img class="img-fluid my-3 mx-3 float-end" style="max-width: 500px;"
 					src="./assets/images/parts/ops_part_led_rgb_cathode_annotated.png">
-				<p class="mb-5">
+				<p>
 					For this project, we will use a <strong>common cathode RGB LED</strong>. Inside this component are three smaller LEDs - one red, one green, and one blue. They are all connected by a shared or <i>common</i> cathode.
-					<br><br>
+				</p>
+				<p class="mb-5">
 					This RGB LED has four pins: One is the common cathode, and the other three are the red, green, and blue LED anodes.
 				</p>
-				<h4 class="fw-light" id="pj-heading-using-it-with-arduino-rgb" style="display: inline;">Using it with Arduino</h4>
+				<h3 class="mb-3 fw-light" style="display: inline;">Using it with Arduino</h3>
 				<br><br>
 				<p>
 					In the world of digital electronics, color is often represented in the 8-bit RGB color model. Every visible color is
 					identified by an encoding of the three base colors: red, green, and blue. In our Arduino code, we will set the
 					intensity of each base color to a value in the range <code class="pj-code language-arduino">0-255</code>.
-					<br><br>
+				</p>
+				<p>
 					Try the <a href="https://g.co/kgs/34wKLk" target="_blank" rel="noopener noreferrer">RGB Color Picker</a>. Adjust the slider at the bottom of the application. Notice how the three values in the RGB field change as you select different colors.
-					<br><br>
+				</p>
+				<p>
 					Recall that LEDs are current driven: we control the intensity of each RGB LED color by increasing/decreasing the current passing through its pin. With the Arduino board, we set the voltage, which changes current flow (recall
 					Ohm's Law).
-					<br><br>
+				</p>
+				<p>
 					Here's the rub: <code class="pj-code language-arduino">digitalWrite()</code> can only set a pin’s voltage to 0 or 5V (the supply voltage). If we want to dim an LED, we need a new function that can output voltages between 0 and 5.
-					<br><br>
+				</p>
+				<p>
 					We will use a <strong>pulse width modulation</strong> or <strong>PWM</strong> signal - a digital waveform mimicking
 					analog voltage signals. With PWM
 					waves, we can generate analog voltages like 2.3V or 4.1V. In Arduino, we accomplish this using <code class="pj-code language-arduino">analogWrite()</code>.
-					<br><br>
 				</p>
 				<p>
 					Only certain Nano pins are capable of PWM, as indicated in the <a href="#pj-heading-pinout">pinout</a> above.
@@ -243,51 +255,41 @@
 				you can follow our lectures and projects with ease.
 			</p>
 
-			<h3 class="mb-3 fw-light" id="pj-heading-arduino-ide">Arduino IDE</h3>
-			<p class="mb-5">
+
+			<h3 class="mb-3" id="pj-heading-arduino-ide">Arduino IDE</h3>
+			<p>
 				Visit this <a href="https://www.arduino.cc/en/software" target="_blank" rel="noopener noreferrer">link</a> to download the installer for Arduino IDE 2.0.0+ . Make sure to select the installer appropriate for
 				your system.
-				<img class="img-fluid my-4" src=".\assets\images\project_4\ops_install_ide.png">
-				<br><br>
+			</p>
+			<div style= "text-align: center;">
+				<img class="img-fluid my-4" style="max-width: 625px;" src=".\assets\images\project_4\ops_install_ide.png">
+			</div>
+			<p>
 				Open the installer and follow its instructions. Easy peasy!
-				<br><br>
+			</p>
+			<p class="mb-5">
 				If you want to know more about using the Arduino IDE, check out our lecture content.
 			</p>
 
-			<h3 class="mb-3 fw-light" id="pj-heading-ch340-driver">CH340 Driver</h3>
-			<p class="mb-3">
+
+			<h3 class="mb-3" id="pj-heading-ch340-driver">CH340 Driver</h3>
+			<p>
 				There is an IC known as the CH340 on the Arduino Nano board responsible for converting USB signals to a signal the Nano’s ATmega chip can understand. This ultimately allows us to connect our computer to the Nano over USB.
-				<br><br>
+			</p>
+			<p>
 				For your computer to connect with the Nano, we need to install a software <strong>driver</strong> that tells the computer how to communicate with the CH340.
-				<br><br>
+			</p>
+			<p>
 				Visit this <a href="https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all" target="_blank" rel="noopener noreferrer">link</a> to download the installer for the CH340 driver. You may have to scroll down the page a little. Make sure
 				to select the installer appropriate for your system.
-				<img class="img-fluid my-4" src=".\assets\images\project_4\ops_install_ch340.png">
 			</p>
+			<div class="mb-5" style= "text-align: center;">
+				<img class="img-fluid my-4" style="max-width: 625px;" src=".\assets\images\project_4\ops_install_ch340.png">
+			</div>
 
-
-
-			<!-- <pre class="mb-5"><code class="pj-code language-arduino">#include &lt;LiquidCrystal_I2C.h&gt;
-			LiquidCrystal_I2C lcd(0x27, 16, 2);
-			
-			void setup()
-			{
-				lcd.init(); // initialize the lcd
-				lcd.backlight();
-			}
-			
-			void loop()
-			{
-				lcd.clear();                 // clear display
-				lcd.setCursor(0, 0);         // move cursor to   (0, 0)
-				lcd.print("Hello");          // print message at (0, 0)
-				lcd.setCursor(2, 1);         // move cursor to   (2, 1)
-				lcd.print("World");          // print message at (2, 1)
-				delay(1000);                 // delay between each print to LCD
-			}</code></pre> -->
 
 			<h2 class="mb-3 fw-bolder" id="pj-heading-requirements">Requirements</h2>
-			<h3 class="mb-3 fw-light" style="display: inline;">LED Blinker</h3>
+			<h3 class="mb-3" style="display: inline;" id="pj-heading-blinker">LED Blinker</h3>
 			<ul class="mb-5">
 				<li>You must build a blinking LED circuit.</li>
 				<li>The LED in the circuit must blink once per second.</li>
@@ -295,7 +297,7 @@
 				<li>The LED must be completely dark when turned OFF.</li>
 				<li>The circuit must be built on a breadboard.</li>
 			</ul>
-			<h3 class="mb-3 fw-light" style="display: inline;">LED Dimmer</h3>
+			<h3 class="mb-3" style="display: inline;" id="pj-heading-dimmer">LED Dimmer</h3>
 			<ul class="mb-5">
 				<li>You must build a circuit with a dimmable LED.</li>
 				<li>The user must be able to adjust the LED’s brightness from 0% to 100% when turning the potentiometer dial.</li>
@@ -303,7 +305,7 @@
 				<li>When turning the potentiometer counter-clockwise, the LED should dim.</li>
 				<li>The circuit must be built on a breadboard.</li>
 			</ul>
-			<h3 class="mb-3 fw-light" style="display: inline;">RGB LED Dimmer</h3>
+			<h3 class="mb-3" style="display: inline;" id="pj-heading-rgb-dimmer">RGB LED Dimmer</h3>
 			<ul class="mb-5">
 				<li>You must build a circuit with a dimmable RGB LED.</li>
 				<li>The user must be able to adjust the RGB LED to any color when turning the three potentiometer dials.</li>
@@ -333,7 +335,13 @@
 						<td>1</td>
 					</tr>
 					<tr>
-						<td>Potentiometer, 10kΩ</td>
+						<td>
+							<a class="pj-part"
+								data-bs-content="<img src='./assets/images/project_4/ops_potentiometer.jpg' height='150px' width='auto'>"
+								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
+								Potentiometer, 10kΩ
+							</a>
+						</td>
 						<td>1</td>
 					</tr>
 					<tr>
@@ -341,7 +349,13 @@
 						<td>1</td>
 					</tr>
 					<tr>
-						<td>LED, RGB, Common Cathode</td>
+						<td>
+							<a class="pj-part"
+								data-bs-content="<img src='./assets/images/project_4/ops_rgb_led.jpg' height='150px' width='auto'>"
+								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
+								LED, RGB, Common Cathode
+							</a>
+						</td>
 						<td>1</td>
 					</tr>
 					<tr>
@@ -369,7 +383,13 @@
 						<td>1</td>
 					</tr>
 					<tr>
-						<td>Mini USB Cable</td>
+						<td>
+							<a class="pj-part"
+								data-bs-content="<img src='./assets/images/project_4/ops_micro_usb.jpg' height='150px' width='auto'>"
+								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
+								Micro USB Cable
+							</a>
+						</td>
 						<td>1</td>
 					</tr>
 				</tbody>
@@ -389,7 +409,7 @@
 					<!--Pin to page?-->
 					<div id="schemCollapse1" class="accordion-collapse collapse show" data-bs-parent="#schemAccordian">
 						<div class="accordion-body text-center">
-							<img src='./assets/images/project_4/ops_schem_proj4a.png' class="pj-schem">
+							<img src='./assets/images/project_4/ops_schem_proj4a.png' class="pj-schem" style="max-height: 200px; max-width: 200px;">
 						</div>
 					</div>
 				</div>
@@ -404,7 +424,7 @@
 					<!--Pin to page?-->
 					<div id="schemCollapse2" class="accordion-collapse collapse" data-bs-parent="#schemAccordian">
 						<div class="accordion-body text-center">
-							<img src='./assets/images/project_4/ops_project_4_schematic_b.png' class="pj-schem">
+							<img src='./assets/images/project_4/ops_project_4_schematic_b.png' class="pj-schem" style="max-height: 300px; max-width: 300px;">
 						</div>
 					</div>
 				</div>
@@ -419,7 +439,7 @@
 					<!--Pin to page?-->
 					<div id="schemCollapse3" class="accordion-collapse collapse" data-bs-parent="#schemAccordian">
 						<div class="accordion-body text-center">
-							<img src='./assets/images/project_4/ops_schem_proj4c.png' class="pj-schem">
+							<img src='./assets/images/project_4/ops_schem_proj4c.png' class="pj-schem" style="max-height: 600px; max-width: 600px;">
 						</div>
 					</div>
 				</div>
@@ -427,7 +447,7 @@
 				</div>
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-instructions">Instructions</h2>
-			<h3 class="mb-3 fw-light" id="pj-heading-checkpoint1">Checkpoint 1</h3>
+			<h3 class="mb-3" id="pj-heading-checkpoint1">Checkpoint 1</h3>
 			<ol class="mb-5 list-group list-group-numbered">
 				<li class="list-group-item">
 					Build the circuit from <strong>Schematic A</strong> (LED Blinker) on your breadboard. You will design a blinking LED using the Arduino Nano.
@@ -437,7 +457,7 @@
 					<div class="alert alert-info mt-2" role="alert">
 						These functions may be helpful: <code class="pj-code language-arduino">Serial.begin()</code>, <code class="pj-code language-arduino">pinMode()</code>, <code class="pj-code language-arduino">digitalWrite()</code>, <code class="pj-code language-arduino">delay()</code>
 					</div>
-					<pre class="mt-3"><code class="pj-code language-plaintext">// Assign variable to pin number for LED
+					<pre class="mt-3"><code class="pj-code language-arduino">// Assign variable to pin number for LED
 
 void setup() {
 	// Configure LED pin's behavior to OUTPUT
@@ -456,7 +476,7 @@ void loop() {
 				</li>
 			</ol>
 
-			<h3 class="mb-3 fw-light" id="pj-heading-checkpoint2">Checkpoint 2</h3>
+			<h3 class="mb-3" id="pj-heading-checkpoint2">Checkpoint 2</h3>
 			<ol class="mb-5 list-group list-group-numbered">
 				<li class="list-group-item">
 					Build the circuit from <strong>Schematic B</strong> (LED Dimmer) on your breadboard. Your goal is to make the LED grow brighter as you twist the potentiometer clockwise.
@@ -467,7 +487,7 @@ void loop() {
 						These functions may be helpful:  <code class="pj-code language-arduino">Serial.begin()</code>, <code class="pj-code language-arduino">pinMode()</code>,
 						<code class="pj-code language-arduino">analogRead()</code>, <code class="pj-code language-arduino">analogWrite()</code>
 					</div>
-					<pre class="mt-3"><code class="pj-code language-plaintext">// Assign variable to pin number for LED
+					<pre class="mt-3"><code class="pj-code language-arduino">// Assign variable to pin number for LED
 // Assign variable to pin number for Potentiometer
 
 void setup() {
@@ -486,7 +506,7 @@ void loop() {
 				</li>
 			</ol>
 
-			<h3 class="mb-3 fw-light" id="pj-heading-checkpoint3">Checkpoint 3</h3>
+			<h3 class="mb-3" id="pj-heading-checkpoint3">Checkpoint 3</h3>
 			<ol class="mb-5 list-group list-group-numbered">
 				<li class="list-group-item">
 					Build the circuit from <strong>Schematic C</strong> (RGB LED Dimmer) on your breadboard. No pseudo code this time! You are on your own.
@@ -498,10 +518,11 @@ void loop() {
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-deliverables">Deliverables <span class="fw-light">(Enrolled Students
 					Only)</span></h2>
-			<p class="mb-3">
+			<p>
 				Students enrolled in the course must submit the following deliverables to the corresponding Canvas
 				course assignment.
-				<br><br>
+			</p>
+			<p>
 				Place the following files in a single folder:
 			</p>
 
