@@ -68,22 +68,20 @@ function createHashMapOfJSFiles(directoryPath) {
 function updateHTMLFiles(htmlFiles, jsFileHashMap) {
     for (file of htmlFiles) {
         // read the file contents
-        const htmlContent = fs.readFileSync(file, 'utf-8');
+        let htmlContent = fs.readFileSync(file, 'utf-8');
         // update all the JS files
+        // NOTE: this is a bit circular
         for (const [jsFileName, jsHashedFileName] of Object.entries(jsFileHashMap)) {
             console.log(`searching for ${jsFileName} in ${file}`)
-            const updatedHtml = htmlContent.replaceAll(jsFileName, jsHashedFileName);
+            updatedHtml = htmlContent.replaceAll(jsFileName, jsHashedFileName);
             if (updatedHtml !== htmlContent) {
-                console.log(`${jsFileName} was found and replaced with ${jsHashedFileName}`)
-                try {
-                    fs.writeFileSync(file, updatedHtml, 'utf-8');
-                } catch (e) {
-                    console.error(e)
-                }
+                console.log(`${jsFileName} was found and replaced with ${jsHashedFileName}`);
+                htmlContent = updatedHtml;
             } else {
                 console.log(`${jsFileName} was not found in ${file}`)
             }
         }
+        fs.writeFileSync(file, htmlContent, 'utf-8');
     }
 }
 
