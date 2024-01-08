@@ -5,14 +5,22 @@ const path = require('path');
 // this function defines helper functions used in hash.js to implement cache busting of js files
 
 
-// given a js file path, generate an md5 hash
+/**
+ * given a js file path, generate an md5 hash
+ * @param {*} filePath 
+ * @returns 
+ */
 function createHashOfJS(filePath) {
     console.log(filePath)
     const fileContent = fs.readFileSync(filePath);
     return crypto.createHash('md5').update(fileContent).digest('hex');
 }
 
-// generate a hash of all the js files in the js directory
+/**
+ * generate a hash of all the js files in the js directory
+ * @param {*} directoryPath 
+ * @returns 
+ */
 function createHashMapOfJSFiles(directoryPath) {
     // recursively iterate through every js file in this directory to hash
 
@@ -50,7 +58,11 @@ function createHashMapOfJSFiles(directoryPath) {
 }
 
 
-// update the html to include the hashed js now
+/**
+ * update the html to include the hashed js now
+ * @param {*} htmlFiles a list of html file paths to update
+ * @param {*} jsFileHashMap the map of the unhashed javascript file names to the hashed javascript name
+ */
 function updateHTMLFiles(htmlFiles, jsFileHashMap) {
     for (file of htmlFiles) {
         // read the file contents
@@ -63,7 +75,11 @@ function updateHTMLFiles(htmlFiles, jsFileHashMap) {
     }
 }
 
-// find all html files in the directory and push to an array
+/**
+ * search for all the html files in the directory and return them as an array
+ * @param {*} directoryPath 
+ * @returns 
+ */
 function getHtmlFilePaths(directoryPath) {
 
     // list of files to ignore
