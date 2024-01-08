@@ -124,12 +124,76 @@
                 a small speaker.
             </p>
 			<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Concepts</h2>
-            <h3 class="mb-3 fw-light" id="pj-heading-concepts">UART</h3>
+            <h3 class="mb-3" id="pj-heading-concepts">UART</h3>
 			<p class="mb-3">
 				Embedded within the Arduino Nano is a device called the <strong>Universal Asynchronous Receiver-Transmitter (UART)</strong>. It may communicate with another UART by
                 transmitting or receiving messages known as <strong>packets</strong>. This is done in <strong>serial</strong>, meaning packets are sent one bit of data at a time. UARTs also communicate
                 <strong>asynchronously</strong>, so there is no clock to time when packets are transmitted or received.
 			</p>
+			<div style= "text-align: center;" class="mb-3">
+				<img class="img-fluid my-3 me-5"
+					src="./assets/images/project_5/ops_project_5_uart_explanation.png" width = "750">
+			</div>
+
+			<h4 class="mb-3 fw-light">Serial Communication with Arduino</h4>
+			<p class="mb-3">
+				We can use the UART in our Arduino Nano to transmit data to another UART device. To do so, we will enlist the help of the
+				<a href="https://www.arduino.cc/reference/en/language/functions/communication/serial/">Serial Library</a>, which is already installed in the Arduino IDE.
+			</p>
+			<p class="mb-3">
+				The data within each packet sent with UART is <strong>one byte</strong> in size, meaning if the data contained an <code class="pj-code language-arduino">int</code>, its value could only be in the range <code class="pj-code language-arduino">-128 to 127</code> (signed) or <code class="pj-code language-arduino">0 to 255</code> (unsigned). We’ll see how this comes into play later.
+			</p>
+			<p class="mb-3">
+				Every UART can both transmit and receive packets, which is referred to as <strong>duplex communication</strong>. They communicate over their <strong>TX</strong> and <strong>RX</strong> pins; recall that the TX pin on one device connects to the RX pin on the other.
+			</p>	
+			<p class="mb-3">
+				Remember how we set the baud rate of our Nano using <code class="pj-code language-arduino">Serial.begin(9600)</code>? When a UART receives a transmission, it reads each bit at the speed of the <strong>baud rate</strong> (measured in bits per second). Both the transmitting and receiving UART <strong>must have the same baud rate</strong> for proper communication.
+			</p>
+			<p class="mb-3">
+				There are three core functions of the Serial library:
+			</p>	
+			<p class="mb-3">
+				<code class="pj-code language-arduino">Serial.write(val)</code> sends data from the Arduino board to another UART device. You will use it to transmit one byte at a time, meaning the int value passed as an argument must be in the range <code class="pj-code language-arduino">-128 to 127</code> (signed) or <code class="pj-code language-arduino">0 to 255</code> (unsigned).
+			</p>
+			<p class="mb-3">
+				When the Arduino <i>receives</i> data, we need to check its <strong>receive buffer</strong>, a “mailbox” or an array of recently received bytes. <code class="pj-code language-arduino">Serial.available()</code> will return an <code class="pj-code language-arduino">int</code>, the number of bytes currently in the UART buffer. If the number is zero, nothing has been received.
+			</p>
+			<p class="mb-5">
+				If the UART buffer <i>does</i> have data in it, you will read the byte at the front of the buffer using <code class="pj-code language-arduino">Serial.read()</code>, which returns an <code class="pj-code language-arduino">int</code>.
+			</p>
+
+			<h4 class="mb-3 fw-light">Universal Serial Bus (USB) on the Arduino</h4>
+			<p class="mb-3">
+				USB is a serial communication protocol used widely by modern computers. It defines the standards by which devices transmit data over USB cables. When you plug the Arduino Nano into your computer, upload a sketch, and execute a program with <code class="pj-code language-arduino">Serial.print()</code>, data transmits between the Nano and your computer using the USB protocol. 
+			</p>
+			<p class="mb-3">
+				Hidden behind the scenes is the UART. Data is transmitted between the computer and Arduino Nano through a chip that converts USB signals to UART signals. Those converted signals are then transmitted to and from the UART within the Nano’s microcontroller.
+			</p>
+			<div style= "text-align: center;" class="mb-3">
+				<img class="img-fluid my-3 me-5"
+					src="./assets/images/project_5/ops_project_5_usb_uart_diagram.png" width = "500">
+			</div>
+			<p class="mb-5">
+				With this in mind, remember that <strong>the Arduino’s USB port is hardwired to the TX and RX pins</strong> of the board. <strong></strong>Do not upload a sketch to an Arduino while the board is connected via the TX/RX pins to another Arduino. Do not attempt to use <code class="pj-code language-arduino">Serial.print()</code> under these conditions either.
+			</p>
+
+			<h4 class="mb-3 fw-light">Universal Serial Bus (USB) on the Arduino</h4>
+			<p class="mb-3">
+				The SoftwareSerial library enables UART communication over other digital pins of the Arduino board. Why do we need it? Suppose you connect the Arduino over USB to your PC and use the Serial Monitor. At the same, you want the Arduino to connect to another UART device. The Arduino Nano only has one physical UART, so we use Software Serial to emulate a second UART connection over separate digital pins.
+			</p>
+			<pre class="mt-3" style="white-space: pre-wrap;"><code class="pj-code language-arduino">#include &lt;SoftwareSerial.h&gt;
+const int rxPin = 2;
+const int txPin = 3;
+SoftwareSerial mySerial(rxPin, txPin);
+</code></pre>
+			<p class="mb-3">
+				The code above creates an object of the SoftwareSerial class that manages a new UART connection over the digital pins passed to the constructor. Then, you just use the pins like you would normally!
+			</p>
+			<p class="mb-3">
+				There are several limitations of SoftwareSerial: It cannot transmit and receive data at the same time. If multiple software serial ports are used, only one can receive data at a time. Lastly, not all digital pins support SoftwareSerial. Find out more <a href="https://docs.arduino.cc/learn/built-in-libraries/software-serial">here</a>.
+			</p>
+
+
 			<ul class="mb-5 list-group">
 				<li class="list-group-item">
 					You must build a rover and a remote control.
