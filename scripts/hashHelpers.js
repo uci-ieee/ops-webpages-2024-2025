@@ -75,7 +75,11 @@ function updateHTMLFiles(htmlFiles, jsFileHashMap) {
             const updatedHtml = htmlContent.replaceAll(jsFileName, jsHashedFileName);
             if (updatedHtml !== htmlContent) {
                 console.log(`${jsFileName} was found and replaced with ${jsHashedFileName}`)
-                fs.writeFileSync(file, updatedHtml, 'utf-8');
+                try {
+                    fs.writeFileSync(file, updatedHtml, 'utf-8');
+                } catch (e) {
+                    console.error(e)
+                }
             } else {
                 console.log(`${jsFileName} was not found in ${file}`)
             }
