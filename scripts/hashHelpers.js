@@ -17,9 +17,9 @@ function createHashOfJS(filePath) {
 }
 
 /**
- * generate a hash of all the js files in the js directory, without actually creating the new files
- * @param {*} directoryPath 
- * @returns javascript object keyed by the original javascript path and the new path that is hashed
+ * generate a hash of all the js files in the js directory, also creating a copy of the file with the hashed name
+ * @param {*} directoryPath where all the javascript files that should be hashed live
+ * @returns javascript object keyed by the original javascript file name and the new hashed file name
  */
 function createHashMapOfJSFiles(directoryPath) {
     // recursively iterate through every js file in this directory to hash
@@ -43,30 +43,20 @@ function createHashMapOfJSFiles(directoryPath) {
                 // grab the js base
                 const fileName = file.split(".").slice(0, -1).join(".");
                 const hash = createHashOfJS(filePath);
-                jsFiles[file] = `${fileName}.${hash}.js`;
-
                 const newFileName = `${fileName}.${hash}.js`;
+
+                // add it to the map
+                jsFiles[file] = newFileName;
+
+                // copy the content of the original js to the new js file with the name
                 const newFilePath = path.join(directoryPath, newFileName);
+                fs.copyFileSync(filePath, newFilePath);
             }
         }
     }
 
     // return the map
     return jsFiles;
-}
-
-
-/**
- * actually creates the hashed javascript file
- * @param {*} jsFileMap a javascript object (acting as a map) keyed by the original javascript file path, value of the hashed javascript file map
- * @returns 
- */
-function createHashedJSFiles(jsFileMap) {
-    // for every javascript file in the map
-    for (const [originalPath, hashedPath] of jsFileMap) {
-        // copy the original's contents into a file in the same location, hashed
-        fs.copyFileSync(originalPath, hashedPath);
-    }
 }
 
 

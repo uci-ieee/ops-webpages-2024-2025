@@ -11,12 +11,9 @@ const jsPath = directoryPath + "/js/";
 const jsHashMap = hashHelpers.createHashMapOfJSFiles(jsPath);
 console.log(jsHashMap);
 
-// copy the contents of every unhashed javascript file to the new hashed file
-hashHelpers.createHashedJSFiles(jsHashMap);
-
 // get a list of all the HTML files in the directory
 const htmlFiles = hashHelpers.getHtmlFilePaths(directoryPath);
 console.log(htmlFiles)
 
 // iterate through all the html files and update the javascript
-hashHelpers.updateHTMLFiles(htmlFiles, jsHashMap);
+// hashHelpers.updateHTMLFiles(htmlFiles, jsHashMap);
