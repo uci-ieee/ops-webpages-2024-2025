@@ -17,9 +17,9 @@ function createHashOfJS(filePath) {
 }
 
 /**
- * generate a hash of all the js files in the js directory
+ * generate a hash of all the js files in the js directory, without actually creating the new files
  * @param {*} directoryPath 
- * @returns 
+ * @returns javascript object keyed by the original javascript path and the new path that is hashed
  */
 function createHashMapOfJSFiles(directoryPath) {
     // recursively iterate through every js file in this directory to hash
@@ -47,19 +47,31 @@ function createHashMapOfJSFiles(directoryPath) {
 
                 const newFileName = `${fileName}.${hash}.js`;
                 const newFilePath = path.join(directoryPath, newFileName);
-
-                // copy the content of the original js to the new js file with the name
-                fs.copyFileSync(filePath, newFilePath);
             }
         }
     }
 
+    // return the map
     return jsFiles;
 }
 
 
 /**
- * update the html to include the hashed js now
+ * actually creates the hashed javascript file
+ * @param {*} jsFileMap a javascript object (acting as a map) keyed by the original javascript file path, value of the hashed javascript file map
+ * @returns 
+ */
+function createHashedJSFiles(jsFileMap) {
+    // for every javascript file in the map
+    for (const [originalPath, hashedPath] of jsFileMap) {
+        // copy the original's contents into a file in the same location, hashed
+        fs.copyFileSync(originalPath, hashedPath);
+    }
+}
+
+
+/**
+ * update the html content to include the hashed js
  * @param {*} htmlFiles a list of html file paths to update
  * @param {*} jsFileHashMap the map of the unhashed javascript file names to the hashed javascript name
  */
@@ -112,4 +124,4 @@ function getHtmlFilePaths(directoryPath) {
     return htmlFiles;
 }
 
-module.exports = { getHtmlFilePaths, createHashMapOfJSFiles, updateHTMLFiles };
+module.exports = { getHtmlFilePaths, createHashMapOfJSFiles, updateHTMLFiles, createHashedJSFiles };
