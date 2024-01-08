@@ -114,4 +114,4 @@ function getHtmlFilePaths(directoryPath) {
     return htmlFiles;
 }
 
-module.exports = { getHtmlFilePaths, createHashMapOfJSFiles, updateHTMLFiles, createHashedJSFiles };
+module.exports = { getHtmlFilePaths, createHashMapOfJSFiles, updateHTMLFiles };

@@ -16,4 +16,4 @@ const htmlFiles = hashHelpers.getHtmlFilePaths(directoryPath);
 console.log(htmlFiles)
 
 // iterate through all the html files and update the javascript
-// hashHelpers.updateHTMLFiles(htmlFiles, jsHashMap);
+hashHelpers.updateHTMLFiles(htmlFiles, jsHashMap);
