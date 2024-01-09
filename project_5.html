@@ -47,37 +47,50 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-concepts">Concepts</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#pj-heading-parts">Parts</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#pj-heading-arduino-libraries">Arduino Libraries</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#pj-heading-concepts">Concepts</a>
-
 						<ul class="nav">
 							<li class="nav-item">
-								<a class="nav-link" href="#pj-heading-dht11">DHT11</a>
+								<a class="nav-link" href="#pj-heading-uart">UART</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#pj-heading-lcd">LCD with I<sup>2</sup>C Backpack</a>
+								<a class="nav-link" href="#pj-heading-pull-up-resistors">Pull-Up Resistors</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#pj-heading-nrf24l01">NRF24L01 Transceiver</a>
+								<a class="nav-link" href="#pj-heading-dfplayer">DFPLayer Mini MP3 Player</a>
 							</li>
 						</ul>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="#pj-heading-arduino-libraries">Installing Arduino Libraries</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-arduino-nano-pinout">Arduino Nano Pinout</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#pj-heading-requirements">Requirements</a>
+						<!-- <ul class="nav">
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-uart-echo">UART Echo</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-external-pull-up">External Pull-Up Resistor Circuit</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-internal-pull-up">Internal Pull-Up Resistor Circuit</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-ipoduino">iPoduino</a>
+							</li>
+						</ul> -->
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#pj-heading-parts">Parts</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-schematics">Schematics</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-instructions">Instructions</a>
-						<ul class="nav">
+						<!-- <ul class="nav">
 							<li class="nav-item">
 								<a class="nav-link" href="#pj-heading-checkpoint1">Checkpoint 1</a>
 							</li>
@@ -87,7 +100,10 @@
 							<li class="nav-item">
 								<a class="nav-link" href="#pj-heading-checkpoint3">Checkpoint 3</a>
 							</li>
-						</ul>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-checkpoint4">Checkpoint 4</a>
+							</li>
+						</ul> -->
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-deliverables">Deliverables</a>
@@ -108,7 +124,7 @@
 				</div>
 				<div class="alert alert-light" role="alert">
 					<i class="bi bi-calendar-event me-1"></i>
-					Updated 2024.01.05 <br>
+					Updated 2024.01.08 <br>
 					By Gavin Nguyen
 				</div>
 			</div>
@@ -124,7 +140,7 @@
                 a small speaker.
             </p>
 			<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Concepts</h2>
-            <h3 class="mb-3" id="pj-heading-concepts">UART</h3>
+            <h3 class="mb-3" id="pj-heading-uart">UART</h3>
 			<p class="mb-3">
 				Embedded within the Arduino Nano is a device called the <strong>Universal Asynchronous Receiver-Transmitter (UART)</strong>. It may communicate with another UART by
                 transmitting or receiving messages known as <strong>packets</strong>. This is done in <strong>serial</strong>, meaning packets are sent one bit of data at a time. UARTs also communicate
@@ -197,7 +213,7 @@ SoftwareSerial mySerial(rxPin, txPin);
 				href="https://docs.arduino.cc/learn/built-in-libraries/software-serial" target="_blank"
 				rel="noopener noreferrer">here</a>.
 			</p>
-			<h3 class="mb-3" id="pj-heading-concepts">Pull-Up Resistors</h3>
+			<h3 class="mb-3" id="pj-heading-pull-up-resistors">Pull-Up Resistors</h3>
 			<p class="mb-3">
 				Suppose you use a digital input pin on the Arduino board, but it’s not connected to anything. Is the state of the pin HIGH or LOW? For it to be HIGH, the pin would need to be connected to the VCC power source. For the state to be LOW, the pin would need to be connected to GND. When the state is indeterminate like this, the pin is said to have a <strong>floating signal</strong>, which we should avoid.
 			</p>
@@ -243,7 +259,7 @@ SoftwareSerial mySerial(rxPin, txPin);
 			<p class="mb-5">
 				The layout above is for a pushbutton that uses the Arduino Nano’s internal pullup resistor.
 			</p>
-			<h3 class="mb-3">DFPLayer Mini MP3 Player</h3>
+			<h3 class="mb-3" id="pj-heading-dfplayer">DFPLayer Mini MP3 Player</h3>
 			<p class="mb-3">
 				The Arduino Nano has too little memory to load and play audio files. Instead, we use a separate device to store and manage the audio media: The DFPlayer Mini is a small MP3 module that connects to an Arduino board (or other microcontrollers) over UART. 
 			</p>
@@ -371,31 +387,14 @@ void loop() {
 						<td>DFRobot DFPlayerMini</td>
 						<td>
 							<a class="btn btn-outline-success mx-3"
-								href="https://drive.google.com/u/0/uc?id=13l0xBJkl7UiNxC3JY1AaUamEku6W_K77&export=download"
-								role="button"><i class="bi bi-download"></i> Download</a>
-						</td>
-					</tr>
-					<tr>
-						<td>LiquidCrystal I<sup>2</sup>C Library</td>
-						<td>
-							<a class="btn btn-outline-success mx-3"
-								href="https://drive.google.com/u/0/uc?id=1HyxZnboDG1AFusFtOMBhR6ogWcsgrf-6&export=download"
-								role="button"><i class="bi bi-download"></i> Download</a>
-						</td>
-					</tr>
-
-					<tr>
-						<td>NRF24L01_W Library</td>
-						<td>
-							<a class="btn btn-outline-success mx-3"
-								href="https://drive.google.com/u/0/uc?id=1NOQYAHhi2zEvs3LF03NmtVruFnfNxvSp&export=download"
+								href="https://drive.google.com/uc?export=download&id=1tc4KY-tViCPWNbc8Z_jIsfigmyeKCzg4"
 								role="button"><i class="bi bi-download"></i> Download</a>
 						</td>
 					</tr>
 				</tbody>
 			</table>			
 
-			<h2 class="mb-3 fw-bold" style="display: inline;">Arduino Nano Pinout</h2>
+			<h2 class="mb-3 fw-bold" id="pj-heading-arduino-nano-pinout" style="display: inline;">Arduino Nano Pinout</h2>
 			<p class="mb-3">
 				Thinking about using a pin but you don’t know what it does? Refer to the Arduino Nano pinout diagram, or scroll further to find the full datasheet.
 				<br><span class="text-blue">~</span> represents pins that are PWM capable.
@@ -405,14 +404,14 @@ void loop() {
 		</div>
 
 		<h2 class="mb-3 fw-bolder" id="pj-heading-requirements">Requirements</h2>
-		<h3 class="mb-3" style="display: inline;" id="pj-heading-blinker">UART Echo</h3>
+		<h3 class="mb-3" style="display: inline;" id="pj-heading-uart-echo">UART Echo</h3>
 		<ul class="mb-5 list-group">
 			<li class="list-group-item">You must write a program in which the Arduino board “echoes” back any small unsigned integer (0-255) sent to it over UART.</li>
 			<li class="list-group-item">When the user enters an integer (0-255) into the Arduino IDE Serial Monitor from their computer, the value is sent to the Arduino board. The board must send the same value back to the computer.</li>
 			<li class="list-group-item">The Arduino will only “echo” back a value sent to it once. It should not resend the value multiple times.</li>
 			<li class="list-group-item">The program must run in an infinite loop.</li>
 		</ul>
-		<h3 class="mb-3" style="display: inline;" id="pj-heading-blinker">External Pull-Up Resistor Circuit</h3>
+		<h3 class="mb-3" style="display: inline;" id="pj-heading-external-pull-up">External Pull-Up Resistor Circuit</h3>
 		<ul class="mb-5 list-group">
 			<li class="list-group-item">Using the Arduino board, you must build a digital LED circuit which is activated by a pushbutton connected to an external pull-up resistor.</li>
 			<li class="list-group-item">When the pushbutton is pressed, the built-in LED (pin D13) on the Arduino board should turn ON.</li>
@@ -421,7 +420,7 @@ void loop() {
 			<li class="list-group-item">The LED must be completely dark when turned OFF.</li>
 			<li class="list-group-item">The circuit must be built on a breadboard.</li>
 		</ul>
-		<h3 class="mb-3" style="display: inline;" id="pj-heading-blinker">Internal Pull-Up Resistor Circuit</h3>
+		<h3 class="mb-3" style="display: inline;" id="pj-heading-internal-pull-up">Internal Pull-Up Resistor Circuit</h3>
 		<ul class="mb-5 list-group">
 			<li class="list-group-item">Using the Arduino board, you must build a digital LED circuit which is activated by a pushbutton connected to an internal pull-up resistor. </li>
 			<li class="list-group-item">When the pushbutton is pressed, the built-in LED (pin D13) on the Arduino board should turn ON.</li>
@@ -431,7 +430,7 @@ void loop() {
 			<li class="list-group-item">The LED must be completely dark when turned OFF.</li>
 			<li class="list-group-item">The circuit must be built on a breadboard.</li>
 		</ul>
-		<h3 class="mb-3" style="display: inline;" id="pj-heading-blinker">iPoduino</h3>
+		<h3 class="mb-3" style="display: inline;" id="pj-heading-ipoduino">iPoduino</h3>
 		<ul class="mb-5 list-group">
 			<li class="list-group-item">You must build a MP3 Player with speaker sound using the DFPlayerMini module.</li>
 			<li class="list-group-item">The player must be pre-loaded with 3 songs.</li>
@@ -548,7 +547,7 @@ void loop() {
 
 
 
-			<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Schematics</h2>
+			<h2 class="mb-3 fw-bold" id="pj-heading-schematics">Schematics</h2>
 			<div class="accordion mb-5" id="schemAccordian">
 				<div class="accordion-item">
 					<h2 class="accordion-header">
@@ -598,37 +597,37 @@ void loop() {
 				</div>
 			</div>
 
-			<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Instructions</h2>
+			<h2 class="mb-3 fw-bold" id="pj-heading-instructions">Instructions</h2>
 			<h3 class="mb-3" id="pj-heading-checkpoint1">Checkpoint 1</h3>
-			<ol class="mb-5 list-group list-group-numbered">
+			<ol class="mb-5 list-group">
 				<li class="list-group-item">
-					Connect the Arduino Nano to your computer and open the Arduino IDE. You will write a small program that echos small byte-sized values between the Nano and your computer.
+					1. Connect the Arduino Nano to your computer and open the Arduino IDE. You will write a small program that echos small byte-sized values between the Nano and your computer.
 					<div class="alert alert-info mt-2" role="alert">
 						Reference the UART Concepts section for writing this program.
 						<div>
 				</li>
 				<li class="list-group-item">
-					Upload your sketch to the Arduino Nano, and verify that the program executes as expected. Open the Arduino IDE Serial Monitor, enter small integer values, and observe the communication between the computer and the Nano.
+					2. Upload your sketch to the Arduino Nano, and verify that the program executes as expected. Open the Arduino IDE Serial Monitor, enter small integer values, and observe the communication between the computer and the Nano.
 				</li>
 			</ol>
 
 			<h3 class="mb-3" id="pj-heading-checkpoint2">Checkpoint 2</h3>
-			<ol class="mb-5 list-group list-group-numbered">
+			<ol class="mb-5 list-group">
 				<li class="list-group-item">
-					Build the circuit from <strong>Schematic A</strong> (External Pull-Up Resistor Circuit) on your breadboard. You will design a digital LED circuit with an external pull-up resistor and pushbutton.
+					1. Build the circuit from <strong>Schematic A</strong> (External Pull-Up Resistor Circuit) on your breadboard. You will design a digital LED circuit with an external pull-up resistor and pushbutton.
 					<div class="alert alert-info mt-2" role="alert">
 						Use the built-in LED connected to the Arduino Nano’s D13 pin.
 					<div>
 				</li>
 				<li class="list-group-item">
-					Upload your sketch to the Arduino Nano, and verify that the program executes as expected.
+					2. Upload your sketch to the Arduino Nano, and verify that the program executes as expected.
 				</li>
 			</ol>
 
 			<h3 class="mb-3" id="pj-heading-checkpoint3">Checkpoint 3</h3>
-			<ol class="mb-5 list-group list-group-numbered">
+			<ol class="mb-5 list-group">
 				<li class="list-group-item">
-					Build the circuit from <strong>Schematic B</strong> (Internal Pull-Up Resistor Circuit) on your breadboard. You will design a digital LED circuit with an internal pull-up resistor and pushbutton.
+					1. Build the circuit from <strong>Schematic B</strong> (Internal Pull-Up Resistor Circuit) on your breadboard. You will design a digital LED circuit with an internal pull-up resistor and pushbutton.
 					<div class="alert alert-info mt-2" role="alert">
 						Use the built-in LED connected to the Arduino Nano’s D13 pin.
 					</div>
@@ -637,14 +636,14 @@ void loop() {
 					</div>
 				</li>
 				<li class="list-group-item">
-					Upload your sketch to the Arduino Nano, and verify that the program executes as expected.
+					2. Upload your sketch to the Arduino Nano, and verify that the program executes as expected.
 				</li>
 			</ol>
 
-			<h3 class="mb-3" id="pj-heading-checkpoint3">Checkpoint 4</h3>
-			<ol class="mb-5 list-group list-group-numbered">
+			<h3 class="mb-3" id="pj-heading-checkpoint4">Checkpoint 4</h3>
+			<ol class="mb-5 list-group">
 				<li class="list-group-item">
-					Build the circuit from Schematic C (iPoduino) on your breadboard. Use the sample code provided in the Concepts sections to guide your Arduino program.
+					1. Build the circuit from Schematic C (iPoduino) on your breadboard. Use the sample code provided in the Concepts sections to guide your Arduino program.
 					<br><br>If you get stuck on breadboard layout, open the hint below:
 					<div>
 						<script src="./js/collapsible.js" title="Click to Reveal Hint 1"
@@ -654,11 +653,11 @@ void loop() {
 					</div>
 				</li>
 				<li class="list-group-item">
-					Upload your sketch to the Arduino Nano, and verify that the circuit meets the design requirements.
+					2. Upload your sketch to the Arduino Nano, and verify that the circuit meets the design requirements.
 				</li>
 			</ol>
 
-			<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Deliverables (Enrolled Students Only)</h2>
+			<h2 class="mb-3 fw-bold" id="pj-heading-deliverables">Deliverables (Enrolled Students Only)</h2>
 			<p class="mb-3">
 				Students enrolled in the course must submit the deliverables below to the corresponding Canvas course assignment.
 			</p>
