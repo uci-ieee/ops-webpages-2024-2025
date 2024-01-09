@@ -260,7 +260,7 @@ SoftwareSerial mySerial(rxPin, txPin);
 			</div>
 			<h4 class="mb-3 fw-light">Datasheet and Pinout Diagram</h4>
 			<p class="mb-3">
-				As an exercise of technical documentation literacy, we will not provide the pinout diagram. Instead, you can access the datasheet here. 
+				As an exercise of technical documentation literacy, we will not provide the pinout diagram. Instead, you can access the datasheet here [insert datasheet link after adapting to webpage]. 
 			</p>
 			<p class="mb-3">
 				Remember that you are looking for the following in the datasheet’s pinout diagram: <strong>TX</strong>, <strong>RX</strong>, <strong>Power</strong> (VCC), <strong>Ground</strong> (GND), <strong>Speaker +</strong>, and <strong>Speaker -</strong>. (Hint: Look at Section 2 of the datasheet).
@@ -270,7 +270,7 @@ SoftwareSerial mySerial(rxPin, txPin);
 			</p>
 			<h4 class="mb-3 fw-light">Using the DFPLayer Mini with Arduino</h4>
 			<p class="mb-3">
-				You can download the DFPlayer Mini library here. It can be used in your code with the following include:
+				You can download the DFPlayer Mini library here [insert link here after adapting to webpage]. It can be used in your code with the following include:
 			</p>
 			<p class="mb-3">
 				<code class="pj-code language-arduino"> #include &lt;DFRobotDFPlayerMini.h&gt;</code>
@@ -444,6 +444,7 @@ void loop() {
 					<li>In “Play” mode, the player must playback a song. It should resume the song that was previously paused if the “Skip/Next Song” button was not pressed.</li>
 					<li>In “Pause” mode, no song should be played.</li>
 				</ul>
+				</p>
 			</li>
 			<li class="list-group-item">
 				<p>
@@ -452,6 +453,7 @@ void loop() {
 					<li>Each press of this button must cycle through all songs loaded on the MicroSD card.</li>
 					<li>If the player was in “Pause” mode when the “Skip/Next Song” button is pressed, the player must immediately enter “Play” mode.</li>
 				</ul>
+				</p>
 			</li>
 			<li class="list-group-item">Each press of this button must cycle through all songs loaded on the MicroSD card.</li>
 			<li class="list-group-item">If the player was in “Pause” mode when the “Skip/Next Song” button is pressed, the player must immediately enter “Play” mode.</li>
@@ -477,77 +479,66 @@ void loop() {
 				<tbody>
 					<tr>
 						<td>
-							<a class="pj-part"
-								data-bs-content="<img src='./assets/images/parts/ops_part_arduino_nano.png' height='150px' width='auto'>"
-								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
-								Arduino Nano
-							</a>
+							Jumper Wire
 						</td>
-						<td>2</td>
+						<td>X?</td>
 					</tr>
 					<tr>
 						<td>Breadboard</td>
-						<td>2</td>
-					</tr>
-
-					<tr>
-						<td>Battery (9V)</td>
 						<td>1</td>
 					</tr>
 					<tr>
-						<td>Dupont 9V Snap Connector</td>
+						<td>
+							<a class="pj-part pj-part-link"
+								data-bs-content="<img src='./assets/images/parts/ops_part_arduino_nano.png' height='150px' width='auto'>"
+								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0"
+								href="./assets/datasheets/ops_datasheet_arduino_nano.pdf" target="_blank"
+								rel="noopener noreferrer">
+								Arduino Nano
+							</a>
+						</td>
 						<td>1</td>
 					</tr>
 					<tr>
 						<td>
 							<a class="pj-part"
-								data-bs-content="<img src='./assets/images/parts/ops_part_nrf24l01.png' height='150px' width='auto'>"
+								data-bs-content="<img src='./assets/images/project_5/ops_project_5_microsd.jpg' height='150px' width='auto'>"
 								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
-								N4F24L01 Transceiver Module
+								MicroSD Card
 							</a>
+						</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>
+							Pushbutton Switch
 						</td>
 						<td>2</td>
 					</tr>
 					<tr>
 						<td>
-							<a class="pj-part"
-								data-bs-content="<img src='./assets/images/parts/ops_part_lcd_i2c_backpack.png' height='150px' width='auto'>"
-								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
-								LCD with I<sup>2</sup>C Backpack
-							</a>
+							Resistor, 1kΩ
 						</td>
-						<td>2</td>
+						<td>1</td>
 					</tr>
 					<tr>
 						<td>
-							<a class="pj-part"
-								data-bs-content="<img src='./assets/images/parts/ops_part_dht11.png' height='150px' width='auto'>"
-								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
-								DHT11
-							</a>
+							Resistor, 10kΩ
 						</td>
 						<td>1</td>
 					</tr>
 					<tr>
 						<td>
 							<a class="pj-part"
-								data-bs-content="<img src='./assets/images/parts/ops_part_photoresistor.png' height='150px' width='auto'>"
+								data-bs-content="<img src='./assets/images/project_5/ops_project_5_mini_mp3.webp' height='150px' width='auto'>"
 								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
-								Photoresistor
+								DFPlayer Mini Module
 							</a>
 						</td>
 						<td>1</td>
 					</tr>
 					<tr>
-						<td>Resistor (10kΩ)</td>
-						<td>1</td>
-					</tr>
-					<tr>
-						<td>Jumper Wire</td>
-						<td>~</td>
-					</tr>
-					<tr>
-						<td>Micro USB Cable</td>
+						<td>Mini USB Cable</td>
 						<td>1</td>
 					</tr>
 				</tbody>
@@ -557,319 +548,147 @@ void loop() {
 
 
 
-			<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Concepts</h2>
-			<p class="mb-5">
-				Before you begin assembling the project, give this section a skim. You will find code snippets,
-				explanations, and diagrams
-				of the major electronics compoenents you will use.
-			</p>
-
-			<h3 class="mb-3" id="pj-heading-dht11">DHT11</h3>
-			<p class="mb-5">
-				We will use the DHT11 sensor module to measure temperature and humidity. This component is rather
-				straightforward. The DHT11 uses the
-				<a class="link-primary" href="https://docs.arduino.cc/learn/communication/one-wire">1-Wire® protocol</a>
-				to communicate with the Arduino board over a single data line. We simply
-				need to accept the data at the Arduino and display it.
-			</p>
-
-			
-
-			<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">DHT11 Pinout</h4>
-			<p>
-				<img class="img-fluid my-3 me-5 float-start"
-					src="./assets/images/pinouts/ops_pinout_dht11.png">
-				To the left is the pinout of the DHT11.
-				<br><br>
-				The <span class="text-gray">GND</span> and <span class="text-red">VCC</span> pins power the radio
-				module.
-				Note that the <span class="text-red">VCC</span> pin takes a voltage between 3.3 and 5V, but to keep it
-				simple, <strong>connect it to the VCC pin</strong> of
-				the Arduino board.
-			</p>
-
-			<p class="mb-5">
-				The third and final pin is <span class="text-green">S</span>. This line carries the communication
-				between the
-				Arduino and sensor. It should be connected to a digital pin of the Arduino board.
-			</p>
-
-			<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">Using the DHT11 Library</h4>
-			<p class="mb-3">
-				Writing the code for the DHT11 is almost as easy as wiring it! You can download the library
-				<a class="link-primary" href="#pj-heading-arduino-libraries">here</a>.
-				Make sure to include the header file:
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">#include &lt;dht11.h&gt;</code>
-			</p>
-			<p class="mb-3">
-				At the core of this library is the dht11 class, which you will instantiate as an object and use to read
-				data from the sensor.
-			</p>
-			<p class="mb-3">
-				Create an object as follows, declaring it in the global scope.
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">dht11 weatherSensor;</code>
-			</p>
-			<p class="mb-3">
-				To collect data from the sensor, call the <code class="pj-code language-arduino">read()</code> function
-				from the dht11 object.
-				Make sure to pass the digital pin of the <span class="text-green">S</span> line as the argument.
-			</p>
-			<p class="mb-3">
-				<code class="pj-code language-arduino">weatherSensor.read(int pin); </code>
-			</p>
-			<p class="mb-3">
-				After you call <code class="pj-code language-arduino">read()</code>, you may access the temperature and
-				humidity values using the following dht11 member variables. These values are the int type. Temperature
-				is Celsius.
-			</p>
-			<p class="mb-5">
-				<code class="pj-code language-arduino">weatherSensor.temperature</code>
-				<code class="pj-code language-arduino">weatherSensor.humidity</code>
-			</p>
-
-			<p class="mb-5">
-				At this point, you can print the values to the serial monitor or use it however else you please.
-				<br>
-				<span>Let’s see all of the code in action!</span>
-			</p>
-
-			<pre class="mb-5"><code class="pj-code language-arduino">#include &lt;LiquidCrystal_I2C.h&gt;
-LiquidCrystal_I2C lcd(0x27, 16, 2);
-
-void setup()
-{
-	lcd.init(); // initialize the lcd
-	lcd.backlight();
-}
-
-void loop()
-{
-	lcd.clear();                 // clear display
-	lcd.setCursor(0, 0);         // move cursor to   (0, 0)
-	lcd.print("Hello");          // print message at (0, 0)
-	lcd.setCursor(2, 1);         // move cursor to   (2, 1)
-	lcd.print("World");          // print message at (2, 1)
-	delay(1000);                 // delay between each print to LCD
-}</code></pre>
-	<h2 class="mb-3 fw-bold" id="pj-heading-arduino-nano-pinout">Arduino Nano Pinout</h2>
-	<p class="mb-5">
-		Thinking about using a pin but you don’t know what it does? Refer to the Arduino Nano pinout diagram, or
-		scroll further to find the full datasheet.
-		<br>
-		<span class="text-blue">~</span> represents pins that are PWM capable.
-		<img class="img-fluid my-4" src=".\assets\images\pinouts\ops-pinout-arduino-nano.png">
-	</p>
-
-			<h2 class="mb-3 fw-bold" id="pj-heading-schematics">Schematics</h2>
+			<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Schematics</h2>
 			<div class="accordion mb-5" id="schemAccordian">
 				<div class="accordion-item">
 					<h2 class="accordion-header">
-						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#schemCollapse1"
-							aria-expanded="true" aria-controls="schemCollapse1">
-							Schematic A
+						<button class="accordion-button" type="button" data-bs-toggle="collapse"
+							data-bs-target="#schemCollapse1" aria-expanded="true" aria-controls="schemCollapse1">
+							Schematic A (External Pull-Up Resistor Circuit)
 						</button>
 					</h2>
 					<!--Pin to page?-->
-					<div id="schemCollapse1" class="accordion-collapse collapse show" data-bs-parent="#schemAccordian">
+					<div id="schemCollapse1" class="accordion-collapse collapse show"
+						data-bs-parent="#schemAccordian">
 						<div class="accordion-body text-center">
-							<img src='./assets/images/schematics/ops_schem_proj6_a.png' class="pj-schem">
+							<img src='assets/images/project_5/ops23_project5_schemA.png' class="pj-schem">
 						</div>
 					</div>
 				</div>
-
+				<div class="accordion mb-5" id="schemAccordian">
 				<div class="accordion-item">
 					<h2 class="accordion-header">
 						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
 							data-bs-target="#schemCollapse2" aria-expanded="true" aria-controls="schemCollapse2">
-							Schematic B
+							Schematic B (Internal Pull-Up Resistor Circuit)
 						</button>
 					</h2>
 					<!--Pin to page?-->
 					<div id="schemCollapse2" class="accordion-collapse collapse" data-bs-parent="#schemAccordian">
 						<div class="accordion-body text-center">
-							<img src='./assets/images/schematics/ops_schem_proj6_b.png' class="pj-schem">
+							<img src='assets/images/project_5/ops23_project5_schemB.png' class="pj-schem"
+								style="max-width: 500px;">
 						</div>
 					</div>
 				</div>
-
 				<div class="accordion-item">
 					<h2 class="accordion-header">
 						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
 							data-bs-target="#schemCollapse3" aria-expanded="true" aria-controls="schemCollapse3">
-							Schematic C
+							Schematic C (iPoduino v2)
 						</button>
 					</h2>
 					<!--Pin to page?-->
 					<div id="schemCollapse3" class="accordion-collapse collapse" data-bs-parent="#schemAccordian">
 						<div class="accordion-body text-center">
-							<img src='./assets/images/schematics/ops_schem_proj6_c.png' class="pj-schem">
-						</div>
-					</div>
-				</div>
-
-				<div class="accordion-item">
-					<h2 class="accordion-header">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-							data-bs-target="#schemCollapse4" aria-expanded="true" aria-controls="schemCollapse4">
-							Schematic D
-						</button>
-					</h2>
-					<!--Pin to page?-->
-					<div id="schemCollapse4" class="accordion-collapse collapse" data-bs-parent="#schemAccordian">
-						<div class="accordion-body text-center">
-							<img src='./assets/images/schematics/ops_schem_proj6_d.png' class="pj-schem">
+							<img src='assets/images/project_5/ops_23_project5_schemC.png' class="pj-schem"
+								style="max-width: 500px;">
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<h2 class="mb-3 fw-bold" id="pj-heading-instructions">Instructions</h2>
+			<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Instructions</h2>
 			<h3 class="mb-3" id="pj-heading-checkpoint1">Checkpoint 1</h3>
 			<ol class="mb-5 list-group list-group-numbered">
 				<li class="list-group-item">
-					Build the circuit in <strong>Schematic A</strong> on one breadboard.
+					Connect the Arduino Nano to your computer and open the Arduino IDE. You will write a small program that echos small byte-sized values between the Nano and your computer.
 					<div class="alert alert-info mt-2" role="alert">
-						You will test the DHT11 and light sensor, outputting their data to the serial monitor.
+						Reference the UART Concepts section for writing this program.
 						<div>
 				</li>
 				<li class="list-group-item">
-					Program the Arduino board to print the following information to the serial monitor <strong>every 10
-						seconds</strong>:
-					<ul>
-						<li>Temperature</li>
-						<li>Humidity</li>
-						<li>Whether it is day or night</li>
-					</ul>
-				</li>
-				<li class="list-group-item">
-					Upload your sketch to the board, and verify that the system executes as expected.
-					You should see an output similar to the following on the serial monitor:
-					<pre class="mt-3"><code class="pj-code language-plaintext">Temp: 34C
-Humidity: 80%
-Time: Day
-
-Temp: 35C
-Humidity: 81%
-Time: Day
-
-Temp: 36C
-Humidity: 79%
-Time: Night</code></pre>
-
-					<div class="alert alert-warning" role="alert">
-						<strong>Don’t expect the same exact values</strong>; any value within reason is acceptable.
-						The formatting doesn’t have to be exactly the same either.
-					</div>
+					Upload your sketch to the Arduino Nano, and verify that the program executes as expected. Open the Arduino IDE Serial Monitor, enter small integer values, and observe the communication between the computer and the Nano.
 				</li>
 			</ol>
 
-
-
-
-
+			<h3 class="mb-3" id="pj-heading-checkpoint2">Checkpoint 2</h3>
+			<ol class="mb-5 list-group list-group-numbered">
+				<li class="list-group-item">
+					Build the circuit from <strong>Schematic A</strong> (External Pull-Up Resistor Circuit) on your breadboard. You will design a digital LED circuit with an external pull-up resistor and pushbutton.
+					<div class="alert alert-info mt-2" role="alert">
+						Use the built-in LED connected to the Arduino Nano’s D13 pin.
+					<div>
+				</li>
+				<li class="list-group-item">
+					Upload your sketch to the Arduino Nano, and verify that the program executes as expected.
+				</li>
+			</ol>
 
 			<h3 class="mb-3" id="pj-heading-checkpoint3">Checkpoint 3</h3>
 			<ol class="mb-5 list-group list-group-numbered">
 				<li class="list-group-item">
-					Build the circuit in <strong>Schematic C</strong>, which extends Schematic A (Checkpoint 1).
-					<div class="alert alert-warning mt-2" role="alert">
-						<strong>Do not disassemble anything. </strong>Just add to the existing breadboard.
-					</div>
-					<div class="alert alert-info" role="alert">
-						You will design the weather station or transmitter, which will send weather reports to the
-						receiver board with the LCD.
-					</div>
-					<div class="alert alert-info" role="alert">
-						Connect the NRF24 radios to the breadboard using the dupont jumper wire.
-					</div>
-					<div class="alert alert-info" role="alert">
-						This circuit will be powered by the 9V battery. <strong>No USB power is required.</strong>
-					</div>
-				</li>
-				<li class="list-group-item">
-					Program the transmitter Arduino board to send a
-					<code class="pj-code language-arduino">WeatherReport</code> container over radio <strong>every 10
-						seconds</strong>.
-				</li>
-				<li class="list-group-item">
-					Build the circuit in <strong>Schematic D</strong>, which extends Schematic B (Checkpoint 2).
-					<div class="alert alert-warning mt-2" role="alert">
-						<strong>Do not disassemble anything. </strong>Just add to the existing breadboard.
-					</div>
-					<div class="alert alert-info" role="alert">
-						You will design the receiver board, which will display the weather report on the LCD.
-					</div>
-				</li>
-				<li class="list-group-item">
-					Program the receiver Arduino board to display a
-					<code class="pj-code language-arduino">WeatherReport</code>on the LCD upon receiving one.
+					Build the circuit from <strong>Schematic B</strong> (Internal Pull-Up Resistor Circuit) on your breadboard. You will design a digital LED circuit with an internal pull-up resistor and pushbutton.
 					<div class="alert alert-info mt-2" role="alert">
-						You may set a delay since you only expect a report to be sent every 10 seconds.
+						Use the built-in LED connected to the Arduino Nano’s D13 pin.
+					</div>
+					<div class="alert alert-info mt-2" role="alert">
+						Set the digital pin mode to INPUT_PULLUP.
 					</div>
 				</li>
 				<li class="list-group-item">
-					Upload your transmitter and receiver sketches to the respective board, and verify that the system
-					executes as expected.
-					The receiver will display any newly received weather reports on its LCD, which should look like the
-					following (but not necessarily identical):
-					<div class="alert alert-info mt-2" role="alert">
-						Every 10 seconds, the transmitting weather station will send a new weather report to the
-						receiver.
-					</div>
-					<img class="img-fluid m-2 d-block"
-						src=".\assets\images\ops_img_proj6_1.png">
+					Upload your sketch to the Arduino Nano, and verify that the program executes as expected.
 				</li>
 			</ol>
 
+			<h3 class="mb-3" id="pj-heading-checkpoint3">Checkpoint 4</h3>
+			<ol class="mb-5 list-group list-group-numbered">
+				<li class="list-group-item">
+					Build the circuit from Schematic C (iPoduino) on your breadboard. Use the sample code provided in the Concepts sections to guide your Arduino program.
+					<br><br>If you get stuck on breadboard layout, open the hint below:
+					<div>
+						<script src="./js/collapsible.js" title="Click to Reveal Hint 1"
+							content='Our team used the following layout for the main components. No jumper wires are shown. 						<div class="accordion-body text-center">
+								<img src="./assets/images/project_5/ops23_project5_breadboardMain.png" class="pj-schem"
+									style="max-width: 500px;">'></script>
+					</div>
+				</li>
+				<li class="list-group-item">
+					Upload your sketch to the Arduino Nano, and verify that the circuit meets the design requirements.
+				</li>
+			</ol>
 
-			<h2 class="mb-3 fw-bold" id="pj-heading-deliverables">Deliverables <span class="fw-light">(Enrolled Students
-					Only)</span></h2>
+			<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Deliverables (Enrolled Students Only)</h2>
 			<p class="mb-3">
-				Students enrolled in the course must submit the following deliverables to the corresponding Canvas
-				course assignment:
+				Students enrolled in the course must submit the deliverables below to the corresponding Canvas course assignment.
 			</p>
-
+			<p class="mb-3">
+				Place the following files in a single folder:
+			</p>
 			<ul class="mb-4 list-group">
 				<li class="list-group-item">
 					<i class="bi bi-check2-square me-2"></i>
-					Photo of the weather station/transmitter Arduino board
-					<div class="alert alert-info mt-2" role="alert">
-						This photo should include the DHT11, light sensor, NRF24 transceiver, and one Arduino correctly
-						wired together.
-					</div>
-				</li>
-				<li class="list-group-item">
+					iPoduino sketch file
+					<p class="mb-3">
+						<ul>
+							<li>This file should include all of the code you have written for the final checkpoint.</li>
+						</ul>
+					</p>
 					<i class="bi bi-check2-square me-2"></i>
-					Photo of the receiver Arduino board
+					Video of the iPoduino (Schematic C) on a breadboard
 					<div class="alert alert-info mt-2" role="alert">
-						This photo should include the NRF24 transceiver, LCD, and one Arduino correctly wired together.
+						In the video, cycle through the three minimum songs. Toggle the “Play/Pause” button for at least one song.
 					</div>
-					<div class="alert alert-info mt-2" role="alert">
-						The LCD should clearly display the temperature, humidity, and time of day (day or night).
-					</div>
-				</li>
-				<li class="list-group-item">
-					<i class="bi bi-check2-square me-2"></i>
-					Transmitter Arduino sketch file
-					<div class="alert alert-info mt-2" role="alert">
-						This file should include all of the code you have written for the Arduino Nano acting as the
-						transmitter. Name it “<code class="pj-code language-plaintext">project6_transmitter.ino</code>”.
-
-					</div>
-				</li>
-				<li class="list-group-item">
-					<i class="bi bi-check2-square me-2"></i>
-					Receiver Arduino sketch file
-					<div class="alert alert-info mt-2" role="alert">
-						This file should include all of the code you have written for the Arduino Nano acting as the
-						transmitter. Name it “<code class="pj-code language-plaintext">project6_receiver.ino</code>”.
-					</div>
-				</li>
+				</li>	
 			</ul>
+			<p class="mb-3">
+				<strong>Compress</strong> the folder to a <strong>zip</strong> file and rename the file using the
+				format
+				“<strong>ops_project#_lastname_firstname.zip</strong>” Then, submit the <strong>zip</strong> file to
+				the Project 5 Canvas
+				assignment.
+			</p>
+
 			</div>
 		</main>
 	</div>
