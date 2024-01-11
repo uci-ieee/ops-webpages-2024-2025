@@ -58,10 +58,6 @@
     background-color: $gray-100;
 }
 
-.pj-main img {
-    max-width: 500px;
-}
-
 .pj-main img.img-lg {
     max-width: 700px;
 }
@@ -154,7 +150,32 @@ li .nav-item {
     margin-left: 1.3rem;
 }
 
-/* For responsive, mobile screens */
+.pj-img-fluid {
+    display: block;
+    
+    /* Make it effectively the same as .img-fluid from Bootstrap */
+    max-width: 100%;
+    height: auto;
+}
+
+.pj-img-fluid-start {
+    @extend .pj-img-fluid;
+    float: left;
+    margin: 1rem 2rem 1rem 0rem;
+
+
+}
+
+.pj-img-fluid-end {
+    @extend .pj-img-fluid;
+
+    float: right;
+    margin: 1rem 0rem 1rem 2rem;
+}
+
+
+
+/* For responsive, mobile screens (Bootstrap: lg) */
 @media (max-width: 992px) {
     .pj-layout {
         display: grid;
@@ -173,17 +194,6 @@ li .nav-item {
         display: block;
     }
 
-    .pj-main img {
-        max-height: 70vh;
-        max-width: 80vw;
-        object-fit: contain;
-        overflow: hidden;
-        /* center the image */
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
     /* this is used to have larger images not overflow and get clipped on mobile screens */
     .pj-main img.img-lg {
         max-width: 100%;
@@ -197,5 +207,30 @@ li .nav-item {
 
     .max-height-override {
         max-height: 100% !important;
+    }
+}
+
+/* For responsive, mobile screens (Bootstrap: md) */
+@media (max-width: 768px) {
+    
+    /* Forces p elements below left or right floated elements (usually images) */
+    .pj-main p {
+        clear: both;
+    }
+
+    .pj-img-fluid {
+        display: block;
+        margin: 1rem 0 1rem 0;
+    }
+
+    .pj-img-fluid-start {
+        @extend .pj-img-fluid;
+        float: left;
+
+    }
+    
+    .pj-img-fluid-end {
+        @extend .pj-img-fluid;
+        float: left;
     }
 }
