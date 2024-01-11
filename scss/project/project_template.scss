@@ -195,11 +195,6 @@ li .nav-item {
         flex-wrap: nowrap;
     }
 
-    /* overwrite the bootstrap class to remove the right margin on images */
-    img.me-5 {
-        margin-right: 0 !important;
-    }
-
     .max-height-override {
         max-height: 100% !important;
     }
