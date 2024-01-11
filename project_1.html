@@ -113,14 +113,17 @@
 
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-introduction">Overview</h2>
-			<p class="mb-2">
+			<p class="mb-3">
 				Every electrical engineer has to start somewhere; for you, it's no different. We'll stick with the classic beginner's project:
 				You will build a basic LED circuit on a breadboard. Then, you will solder it onto a perfboard.
 			</p>
-			<p class="mb-5">
+			<p class="mb-3">
 				Because this is the very first project, let's walk through the layout of this webpage: The first section, “Concepts”, discusses
 				the key details from the accompanying lecture that are most relevant to the project. The following section, “Requirements”, lists
-				all the <i>requirements</i> your deliverable must meet for full marks.  The “Parts” and “Schematics” sections show the components needed
+				all the <i>requirements</i> your deliverable must meet for full marks.
+			</p>
+			<p class="mb-5">
+				The “Parts” and “Schematics” sections show the components needed
 				and the circuit schematics, respectively. Next, “Instructions” describe how to assemble the deliverables. Last but not least, the
 				“Deliverables” section outlines exactly what you will submit in the Canvas course. This last section is only relevant to students
 				participating in the course, but our online resources remain available to everyone.
@@ -128,24 +131,26 @@
 
 			<h2 class="mb-4 fw-bold" id="pj-heading-concepts">Concepts</h2>
 			<h3 class="mb-4" id="pj-heading-concepts-breadboards">Breadboard</h3>
-			<img class="pj-img-fluid-start" src="./assets/images/project_1/ops_breadboard_half.jpg" width ="350">
-			<p class="mb-2">
-				You will use a <strong>breadboard</strong> to prototype your circuits. Inside the breadboard are
-				conductive metal strips.
-			</p>
-			<p class="mb-2">
-				When you insert components into holes of the same strip, current can flow between those components.
-			</p>
-			<p class="mb-2">
-				Closely follow the illustrations below to understand how current travels through the breadboard.
-			</p>
 
+			<div class = "mb-5">
+				<img class="pj-img-fluid-end" src="./assets/images/project_1/ops_breadboard_half.jpg" width ="300">
+				<p class="mb-2">
+					You will use a <strong>breadboard</strong> to prototype your circuits. Inside the breadboard are
+					conductive metal strips.
+				</p>
+				<p class="mb-2">
+					When you insert components into holes of the same strip, current can flow between those components.
+				</p>
+				<p class="">
+					Closely follow the illustrations below to understand how current travels through the breadboard.
+				</p>
+			</div>
 			
 			<div class = "mb-3">
 				<img class="pj-img-fluid-start"
-				src="./assets/images/project_1/ops_breadboard_explanation_1.png" width = "400">
+				src="./assets/images/project_1/ops_breadboard_explanation_1.png" width = "350">
 				<img class="pj-img-fluid-end"
-				src="./assets/images/project_1/ops_breadboard_explanation_2.2 (1).png" width = "400">
+				src="./assets/images/project_1/ops_breadboard_explanation_2.2 (1).png" width = "350">
 			</div>
 			<p class = "mb-3">
 				<strong>Remember to place a component’s terminals on different strips.</strong> If both terminals sit on 
@@ -153,14 +158,15 @@
 			</p>
 
 
-			<img class="pj-img-fluid mx-auto mb-5" src="./assets/images/project_1/ops_breadboard_explanation_3.png" width="600">
+			<img class="pj-img-fluid mx-auto mb-5" src="./assets/images/project_1/ops_breadboard_explanation_3.png" width="500">
 			
 
 			<h3 class="mb-4" id="pj-heading-concepts-ohms-law">Ohm’s Law</h3>
-			<h1 class="mb-4" >V = IR</h1>
+
 
 			<div class="mb-5">
-				<img class="pj-img-fluid-end" src="./assets/images/project_1/ops_ohms_law.png" width = "250">
+				<img class="pj-img-fluid-end" src="./assets/images/project_1/ops_ohms_law.png" width = "200">
+				<p class="display-5 mb-2" >V = IR</p>
 				<p class="mb-2">
 					Ohm’s Law relates the <strong>voltage (V)</strong>, <strong>current (I)</strong>, and <strong>resistance (R)</strong> in a circuit.
 				</p>
@@ -168,7 +174,7 @@
 					Take the figure here as an example: Suppose we hold the voltage at a constant value. As the resistance increases,
 					the current across the resistor decreases. In the opposite case, as resistance decreases, current increases.
 				</p>
-				<p class="mb-2">
+				<p class="">
 					We will use the formula to calculate a safe resistor value for our circuit. If our chosen resistance is too low,
 					we risk inducing a high current that our components are unable to withstand. However, a resistance too high limits
 					the current so that our LED is insufficiently powered.
@@ -203,7 +209,7 @@
 				When we combine the digits, multiplier, and tolerance, we identify the resistor value as <strong>200KΩ ±5%</strong>.
 			</p>
 
-			<img class="pj-img-fluid mx-auto mb-5" src="./assets/images/project_1/ops_resistor_chart.png" width = "600">
+			<img class="pj-img-fluid mx-auto mb-5" src="./assets/images/project_1/ops_resistor_chart.png" width = "500">
 
 			<h3 class="mb-3" id="pj-heading-concepts-led">LED (Light Emitting Diode)</h3>
 			<div class="mb-5">
@@ -217,7 +223,7 @@
 						class="text-red">anode</span>
 					to the <span class="text-gray">cathode</span> terminal.
 				</p>
-				<p class="mb-2">
+				<p class="">
 					The LED also has a constant <strong>voltage drop</strong> between its terminals within normal operating conditions.
 					The voltage is noted in the LED’s datasheet.
 				</p>
@@ -225,7 +231,6 @@
 
 
 			<h3 class="mb-3" id="pj-heading-concepts-slide-switch">Slide Switch</h3>
-
 			<div class="mb-5">
 				<img class="pj-img-fluid-left mb-3" src="./assets/images/project_1/ops_switch_slide_annotated.png" width = "300">
 				<p class="mb-2">		
@@ -233,11 +238,10 @@
 					completes a
 					connection with the middle terminal (pin 2) and one of the two outer terminals (pins 1 and 3).
 				</p>
-				<p class="mb-2">
+				<p class="">
 					The slider is shifted in the direction of the outer terminal actively connected to the middle terminal.
 				</p>
 			</div>
-			
 
 			<h3 class="mb-3" id="pj-heading-concepts-soldering">Soldering</h3>
 			<p class="mb-5">
@@ -339,7 +343,7 @@
 			<!-- End Part Table -->
 
 			<h2 class="mb-2 fw-bold" id="pj-heading-schematics">Schematics</h2>
-				<img class="pj-img-fluid-left mb-5" src="./assets/images/project_1/ops_schem_proj1.png" width="400">
+				<img class="pj-img-fluid-left mb-5" src="./assets/images/project_1/ops_schem_proj1.png" width="300">
 			<h2 class="mb-3 fw-bold" id="pj-heading-instructions">Instructions</h2>
 			<h3 class="mb-3" id="pj-heading-checkpoint1">Checkpoint 1</h3>
 			<ol class="mb-5 list-group list-group-numbered">
