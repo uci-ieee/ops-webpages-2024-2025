@@ -8,7 +8,7 @@ const directoryPath = __dirname + "/../"; // Use the current directory
 const jsPath = directoryPath + "/js/";
 
 // here is where all the css files live
-const cssPath = directoryPath + "/css";
+const cssPath = directoryPath + "/css/";
 
 // generate a hash map of js files and create copies of the JS file with the hash in the name
 const jsHashMap = hashHelpers.createHashMapOfFiles(jsPath, "js");
