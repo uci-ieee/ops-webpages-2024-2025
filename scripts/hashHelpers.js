@@ -42,7 +42,7 @@ function createHashMapOfFiles(directoryPath, fileExtension) {
         if (fs.statSync(filePath).isDirectory()) {
             // if the current file is a directory
             // recursively call the function for that directory and add it to the current running array of html files
-            filesMap = { ...filesMap, ...createHashMapOfFiles(filePath) };
+            filesMap = { ...filesMap, ...createHashMapOfFiles(filePath, fileExtension) };
         } else {
             // If it is a file, check if it is an HTML file
             if (path.extname(file).toLowerCase() === `.${fileExtension}`) {
