@@ -38,6 +38,10 @@ function createHashMapOfFiles(directoryPath, fileExtension) {
     }
 
     for (const file of files) {
+        // hotfix issue: the css generated from the highlight.js gets hashed, and that causes a directory issue
+        if (file === "highlight.js" || file === "highlight.min.js") {
+            continue;
+        }
         const filePath = path.join(directoryPath, file);
         if (fs.statSync(filePath).isDirectory()) {
             // if the current file is a directory
