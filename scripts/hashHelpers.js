@@ -67,7 +67,7 @@ function createHashMapOfFiles(directoryPath, fileExtension) {
 
 
 /**
- * update the html content to include the hashed js
+ * update the html content to include the hashed file names
  * @param {*} htmlFiles a list of html file paths to update
  * @param {*} fileHashMap the map of the unhashed file names to the hashed name
  */
