@@ -297,7 +297,9 @@ SoftwareSerial mySerial(rxPin, txPin);
 
 			<h4 class="mb-3 fw-light">Datasheet and Pinout Diagram</h4>
 			<p class="mb-3">
-				As an exercise of technical documentation literacy, we will not provide the pinout diagram. Instead, you can access the datasheet here [insert datasheet link after adapting to webpage]. 
+				As an exercise of technical documentation literacy, we will not provide the pinout diagram. Instead, you can access the datasheet <a class="link-primary"
+				href="assets/datasheets/ops_datasheet_FN-M16P.pdf" target="_blank"
+				rel="noopener noreferrer">here</a>. 
 			</p>
 			<p class="mb-3">
 				Remember that you are looking for the following in the datasheet’s pinout diagram: <strong>TX</strong>, <strong>RX</strong>, <strong>Power</strong> (VCC), <strong>Ground</strong> (GND), <strong>Speaker +</strong>, and <strong>Speaker -</strong>. (Hint: Look at Section 2 of the datasheet).
@@ -307,7 +309,9 @@ SoftwareSerial mySerial(rxPin, txPin);
 			</p>
 			<h4 class="mb-3 fw-light">Using the DFPLayer Mini with Arduino</h4>
 			<p class="mb-3">
-				You can download the DFPlayer Mini library here [insert link here after adapting to webpage]. It can be used in your code with the following include:
+				You can download the DFPlayer Mini library <a class="link-primary"
+				href="https://drive.google.com/uc?export=download&id=1tc4KY-tViCPWNbc8Z_jIsfigmyeKCzg4" target="_blank"
+				rel="noopener noreferrer">here</a>. It can be used in your code with the following include:
 			</p>
 			<p class="mb-3">
 				<code class="pj-code language-arduino"> #include &lt;DFRobotDFPlayerMini.h&gt;</code>
@@ -536,6 +540,14 @@ void loop() {
 						<td>2</td>
 					</tr>
 					<tr>
+						<a class="pj-part"
+						data-bs-content="<img src='./assets/images/project_5/ops_project5_speakers.jpg' height='150px' width='auto'>"
+						data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
+						Speaker, 0.5W, 8Ω
+						</a>
+						<td>1</td>
+					</tr>
+					<tr>
 						<td>
 							Resistor, 1kΩ
 						</td>
@@ -549,9 +561,11 @@ void loop() {
 					</tr>
 					<tr>
 						<td>
-							<a class="pj-part"
+							<a class="pj-part pj-part-link"
 								data-bs-content="<img src='./assets/images/project_5/ops_project_5_mini_mp3.webp' height='150px' width='auto'>"
-								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
+								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0"
+								href="./assets/datasheets/ops_datasheet_FN-M16P.pdf" target="_blank"
+								rel="noopener noreferrer">
 								DFPlayer Mini Module
 							</a>
 						</td>
