@@ -2,11 +2,11 @@ const fs = require("fs");
 const crypto = require("crypto");
 const path = require('path');
 
-// this function defines helper functions used in hash.js to implement cache busting of js files
+// this function defines helper functions used in hash.js to implement cache busting of cached files
 
 
 /**
- * given a js file path, generate an md5 hash
+ * given a file path, generate an md5 hash from the content
  * @param {*} filePath 
  * @returns 
  */
@@ -23,7 +23,7 @@ function createHashOfFile(filePath) {
  * @returns javascript object keyed by the original file name and the new hashed file name
  */
 function createHashMapOfFiles(directoryPath, fileExtension) {
-    // recursively iterate through every js file in this directory to hash
+    // recursively iterate through every file in this directory to hash
 
     let filesMap = {};
 
@@ -46,7 +46,7 @@ function createHashMapOfFiles(directoryPath, fileExtension) {
         } else {
             // If it is a file, check if it is an HTML file
             if (path.extname(file).toLowerCase() === `.${fileExtension}`) {
-                // grab the js base
+                // grab the file base
                 const fileName = file.split(".").slice(0, -1).join(".");
                 const hash = createHashOfFile(filePath);
                 const newFileName = `${fileName}.${hash}.${fileExtension}`;
@@ -54,7 +54,7 @@ function createHashMapOfFiles(directoryPath, fileExtension) {
                 // add it to the map
                 filesMap[file] = newFileName;
 
-                // copy the content of the original js to the new js file with the name
+                // copy the content of the original file to the new file with the name
                 const newFilePath = path.join(directoryPath, newFileName);
                 fs.copyFileSync(filePath, newFilePath);
             }
@@ -75,16 +75,16 @@ function updateHTMLFiles(htmlFiles, fileHashMap) {
     for (file of htmlFiles) {
         // read the file contents
         let htmlContent = fs.readFileSync(file, 'utf-8');
-        // update all the JS files
+        // update all the files
         // NOTE: this is a bit circular
-        for (const [jsFileName, jsHashedFileName] of Object.entries(fileHashMap)) {
-            console.log(`searching for ${jsFileName} in ${file}`)
-            updatedHtml = htmlContent.replaceAll(jsFileName, jsHashedFileName);
+        for (const [fileName, hashedFileName] of Object.entries(fileHashMap)) {
+            console.log(`searching for ${fileName} in ${file}`)
+            updatedHtml = htmlContent.replaceAll(fileName, hashedFileName);
             if (updatedHtml !== htmlContent) {
-                console.log(`${jsFileName} was found and replaced with ${jsHashedFileName}`);
+                console.log(`${fileName} was found and replaced with ${hashedFileName}`);
                 htmlContent = updatedHtml;
             } else {
-                console.log(`${jsFileName} was not found in ${file}`)
+                console.log(`${fileName} was not found in ${file}`)
             }
         }
         fs.writeFileSync(file, htmlContent, 'utf-8');
