@@ -10,43 +10,49 @@ const path = require('path');
  * @param {*} filePath 
  * @returns 
  */
-function createHashOfJS(filePath) {
+function createHashOfFile(filePath) {
     console.log(filePath)
     const fileContent = fs.readFileSync(filePath);
     return crypto.createHash('md5').update(fileContent).digest('hex');
 }
 
 /**
- * generate a hash of all the js files in the js directory, also creating a copy of the file with the hashed name
- * @param {*} directoryPath where all the javascript files that should be hashed live
- * @returns javascript object keyed by the original javascript file name and the new hashed file name
+ * generate a hash of all the files in the specified directory, also creating a copy of the file with the hashed name
+ * @param {*} directoryPath where all the files that should be hashed live
+ * @param {*} fileExtension the extension of the files. For example, "js", "css", etc. **omit the dot**.
+ * @returns javascript object keyed by the original file name and the new hashed file name
  */
-function createHashMapOfJSFiles(directoryPath) {
+function createHashMapOfFiles(directoryPath, fileExtension) {
     // recursively iterate through every js file in this directory to hash
 
-    let jsFiles = {};
+    let filesMap = {};
 
     // for each file in the directory
 
     // read directory
     const files = fs.readdirSync(directoryPath);
 
+    // make sure the fileExtension does not start with a dot. If so, remove it.
+    if (fileExtension.startsWith(".")) {
+        fileExtension = fileExtension.slice(1);
+    }
+
     for (const file of files) {
         const filePath = path.join(directoryPath, file);
         if (fs.statSync(filePath).isDirectory()) {
             // if the current file is a directory
             // recursively call the function for that directory and add it to the current running array of html files
-            jsFiles = { ...jsFiles, ...createHashMapOfJSFiles(filePath) };
+            filesMap = { ...filesMap, ...createHashMapOfFiles(filePath) };
         } else {
             // If it is a file, check if it is an HTML file
-            if (path.extname(file).toLowerCase() === '.js') {
+            if (path.extname(file).toLowerCase() === `.${fileExtension}`) {
                 // grab the js base
                 const fileName = file.split(".").slice(0, -1).join(".");
-                const hash = createHashOfJS(filePath);
-                const newFileName = `${fileName}.${hash}.js`;
+                const hash = createHashOfFile(filePath);
+                const newFileName = `${fileName}.${hash}.${fileExtension}`;
 
                 // add it to the map
-                jsFiles[file] = newFileName;
+                filesMap[file] = newFileName;
 
                 // copy the content of the original js to the new js file with the name
                 const newFilePath = path.join(directoryPath, newFileName);
@@ -56,22 +62,22 @@ function createHashMapOfJSFiles(directoryPath) {
     }
 
     // return the map
-    return jsFiles;
+    return filesMap;
 }
 
 
 /**
  * update the html content to include the hashed js
  * @param {*} htmlFiles a list of html file paths to update
- * @param {*} jsFileHashMap the map of the unhashed javascript file names to the hashed javascript name
+ * @param {*} fileHashMap the map of the unhashed file names to the hashed name
  */
-function updateHTMLFiles(htmlFiles, jsFileHashMap) {
+function updateHTMLFiles(htmlFiles, fileHashMap) {
     for (file of htmlFiles) {
         // read the file contents
         let htmlContent = fs.readFileSync(file, 'utf-8');
         // update all the JS files
         // NOTE: this is a bit circular
-        for (const [jsFileName, jsHashedFileName] of Object.entries(jsFileHashMap)) {
+        for (const [jsFileName, jsHashedFileName] of Object.entries(fileHashMap)) {
             console.log(`searching for ${jsFileName} in ${file}`)
             updatedHtml = htmlContent.replaceAll(jsFileName, jsHashedFileName);
             if (updatedHtml !== htmlContent) {
