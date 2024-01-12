@@ -78,7 +78,7 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-requirements">Requirements</a>
-						<!-- <ul class="nav">
+						<ul class="nav">
 							<li class="nav-item">
 								<a class="nav-link" href="#pj-heading-uart-echo">UART Echo</a>
 							</li>
@@ -91,7 +91,7 @@
 							<li class="nav-item">
 								<a class="nav-link" href="#pj-heading-ipoduino">iPoduino</a>
 							</li>
-						</ul> -->
+						</ul>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-parts">Parts</a>
@@ -101,7 +101,7 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-instructions">Instructions</a>
-						<!-- <ul class="nav">
+						<ul class="nav">
 							<li class="nav-item">
 								<a class="nav-link" href="#pj-heading-checkpoint1">Checkpoint 1</a>
 							</li>
@@ -114,7 +114,7 @@
 							<li class="nav-item">
 								<a class="nav-link" href="#pj-heading-checkpoint4">Checkpoint 4</a>
 							</li>
-						</ul> -->
+						</ul>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-deliverables">Deliverables</a>
@@ -135,8 +135,8 @@
 				</div>
 				<div class="alert alert-light" role="alert">
 					<i class="bi bi-calendar-event me-1"></i>
-					Updated 2024.01.09 <br>
-					By Gavin Nguyen
+					Updated 2024.01.12 <br>
+					By Benjamen Bielecki
 				</div>
 			</div>
 
@@ -160,10 +160,7 @@
                 transmitting or receiving messages known as <strong>packets</strong>. This is done in <strong>serial</strong>, meaning packets are sent one bit of data at a time. UARTs also communicate
                 <strong>asynchronously</strong>, so there is no clock to time when packets are transmitted or received.
 			</p>
-			<div style= "text-align: center;" class="mb-3">
-				<img class="img-fluid my-3 me-5"
-					src="./assets/images/project_5/ops_project_5_uart_explanation.png" width = "750">
-			</div>
+			<img class="pj-img-fluid mx-auto mb-5" src="./assets/images/project_5/ops_project_5_uart_explanation.png" width = "500">
 
 
 			<h4 class="mb-3 fw-light">Serial Communication with Arduino</h4>
@@ -173,19 +170,19 @@
 						href="https://www.arduino.cc/reference/en/language/functions/communication/serial/" target="_blank"
 						rel="noopener noreferrer">Serial Library</a>, which is already installed in the Arduino IDE.
 			</p>
-			<p class="mb-3">
+			<p class="mb-5">
 				The data within each packet sent with	 UART is <strong>one byte</strong> in size, meaning if the data contained an <code class="pj-code language-arduino">int</code>, its value could only be in the range <code class="pj-code language-arduino">-128 to 127</code> (signed) or <code class="pj-code language-arduino">0 to 255</code> (unsigned). We’ll see how this comes into play later.
 			</p>
 			<p class="mb-3">
 				Every UART can both transmit and receive packets, which is referred to as <strong>duplex communication</strong>. They communicate over their <strong>TX</strong> and <strong>RX</strong> pins; recall that the TX pin on one device connects to the RX pin on the other.
 			</p>	
-			<p class="mb-3">
+			<p class="mb-5">
 				Remember how we set the baud rate of our Nano using <code class="pj-code language-arduino">Serial.begin(9600)</code>? When a UART receives a transmission, it reads each bit at the speed of the <strong>baud rate</strong> (measured in bits per second). Both the transmitting and receiving UART <strong>must have the same baud rate</strong> for proper communication.
 			</p>
 			<p class="mb-3">
 				There are three core functions of the Serial library:
 			</p>	
-			<ol class="mb-4 list-group list-group-numbered">
+			<ol class="mb-5 list-group list-group-numbered">
 				<li class="list-group-item"><code class="pj-code language-arduino">Serial.write(val)</code> sends data from the Arduino board to another UART device. You will use it to transmit one byte at a time, meaning the int value passed as an argument must be in the range <code class="pj-code language-arduino">-128 to 127</code> (signed) or <code class="pj-code language-arduino">0 to 255</code> (unsigned).</li>
 				<li class="list-group-item">When the Arduino <i>receives</i> data, we need to check its <strong>receive buffer</strong>, a “mailbox” or an array of recently received bytes. <code class="pj-code language-arduino">Serial.available()</code> will return an <code class="pj-code language-arduino">int</code>, the number of bytes currently in the UART buffer. If the number is zero, nothing has been received.</li>
 				<li class="list-group-item">If the UART buffer <i>does</i> have data in it, you will read the byte at the front of the buffer using <code class="pj-code language-arduino">Serial.read()</code>, which returns an <code class="pj-code language-arduino">int</code>.</li>
@@ -236,7 +233,7 @@ SoftwareSerial mySerial(rxPin, txPin);
 				The solution is what we call a <strong>pull-up resistor</strong>. The input pin is connected to a high-value resistor R1 whose other terminal is attached to VCC (as depicted below). 
 			</p>
 			<div class="mb-5">
-				<img class="img-fluid my-3 me-5 float-end" src="./assets/images/project_5/ops_project_5_pull_up_explanation.png" width = "350">
+				<img class="pj-img-fluid-end" src="./assets/images/project_5/ops_project_5_pull_up_explanation.png" width = "350">
 				<p class="mb-3">
 					The intent is to set the input pin to the HIGH voltage. We often use a 10kΩ resistor to do so. Now, the input pin has an effective resistance in the range of 100 MΩ. That’s right: mega-ohms.
 				</p>
@@ -252,10 +249,7 @@ SoftwareSerial mySerial(rxPin, txPin);
 				<p class="mb-3">
 					With this circuit, the input pin will either be VCC or GND (HIGH or LOW). Let’s see how it would look on a breadboard:
 				</p>
-				<div style= "text-align: center;" class="mb-3">
-					<img class="img-fluid my-3 me-5"
-						src="./assets/images/project_5/ops23_project5_breadboardA.png" width = "500">
-				</div>
+				<img class="pj-img-fluid mx-auto mb-3" src="./assets/images/project_5/ops23_project5_breadboardA.png" width = "500">
 				<p>
 					In the layout above, the pushbutton is connected to an external pullup resistor. Its state (HIGH or LOW) is read from pin D2 of the Arduino Nano.
 				</p>
@@ -283,7 +277,7 @@ SoftwareSerial mySerial(rxPin, txPin);
 				The Arduino Nano has too little memory to load and play audio files. Instead, we use a separate device to store and manage the audio media: The DFPlayer Mini is a small MP3 module that connects to an Arduino board (or other microcontrollers) over UART. 
 			</p>
 			<div class="mb-5">
-				<img class="img-fluid my-3 me-5 float-end" src="./assets/images/project_5/ops23_project5_dfplayermini.png" width = "150">
+				<img class="pj-img-fluid mx-auto mb-3" src="./assets/images/project_5/ops23_project5_dfplayermini.png" width = "150">
 				<p class="mb-3">
 					Though it supports a variety of control modes, we will use the module's serial mode. In serial mode, we need only connect the module's TX/RX, Power, Ground, and speaker pins. Using UART, the Arduino will send commands to the DFPlayer Mini to playback songs, pause, change volume, etc. This is facilitated by a custom Arduino library.
 				</p>
@@ -309,15 +303,17 @@ SoftwareSerial mySerial(rxPin, txPin);
 			</p>
 			<h4 class="mb-3 fw-light">Using the DFPLayer Mini with Arduino</h4>
 			<p class="mb-3">
-				You can download the DFPlayer Mini library <a class="link-primary"
-				href="https://drive.google.com/uc?export=download&id=1tc4KY-tViCPWNbc8Z_jIsfigmyeKCzg4" target="_blank"
-				rel="noopener noreferrer">here</a>. It can be used in your code with the following include:
+				You can download the DFPlayer Mini library v1.0.5 
+				<a class="link-primary"href="assets\libraries\DFRobotDFPlayerMini-1.0.5.zip">here</a>. 
+				We recommend this version as newer ones have produced errors in our testing.
+				It can be used in your code with the following include:
 			</p>
 			<p class="mb-3">
 				<code class="pj-code language-arduino"> #include &lt;DFRobotDFPlayerMini.h&gt;</code>
 			</p>
 			<p class="mb-3">
-				Below is sample code that demonstrates the module in serial mode. The program plays a audio file named “0001.mp3” for five seconds, then pauses it for five seconds, then resumes. Use this as a <strong>reference for the commands to send to the MP3 module</strong>.
+				Below is sample code that demonstrates the module in serial mode. The program plays a audio file named “0001.mp3” for five seconds, then pauses it for five seconds, then resumes.
+				Then, in the loop, it cycles through songs every 5 seconds. Use this as a <strong>reference for the commands to send to the MP3 module</strong>.
 			</p>
 			<p class="alert alert-warning mt-2" role="alert">
 				Do not blindly copy-paste the sample code to your project deliverables. Read it, understand it, then adapt it to your own code.
@@ -343,40 +339,46 @@ void setup() {
 	// Initialize software serial port for DFPlayer Mini
 	softwareSerial.begin(9600);
 				
-	// Start communication with DFPlayer Mini using player.begin
-	if (player.begin(softwareSerial)) {
-				
-		// Set the player volume to maximum (0 to 30).
-		player.volume(30);
-				
-		// Play the "0001.mp3" file in the "mp3" folder on the microSD card.
-		player.play(1);
-				
-		// Delay the next command by 5 seconds.
-		delay(5000);
-
-		// Pause the playback.
-		player.pause();
-	
-		// Delay the next command by 5 seconds.
-		delay(5000);
-	
-		// Resume the playback.
-		player.start();
-	
-		// Here are some useful debugging functions
-		Serial.println(player.readState()); // Returns some debugging info
-		Serial.println(player.readFileCounts()); // Returns number of files in microSD 
-		Serial.println(player.readCurrentFileNumber()); // Returns current file number being played
-	
-	} else {
+	// Start communication with DFPlayer Mini using player.begin  
+	// player.begin returns true if the connection was a success
+	// and false if it failed
+	if (!player.begin(softwareSerial))  {
 		Serial.println("Connecting to DFPlayer Mini failed!");
 	}
+
+	// Set the player volume to maximum (0 to 30).
+	player.volume(30);
+
+	// Play the "0001.mp3" file in the "mp3" folder on the microSD card.
+	player.play(1);
+
+	// Delay the next command by 5 seconds.
+	delay(5000);
+
+	// Pause the playback.
+	player.pause();
+
+	// Delay the next command by 2 seconds.
+	delay(2000);
+
+	// Resume the playback from pause.
+	player.start();
+
+	// Here are some useful debugging functions
+	// Sometimes they don't return valid values. In that case, ignore them.
+	Serial.println(player.readFileCounts()); // Returns number of files in microSD 
+	Serial.println(player.readCurrentFileNumber()); // Returns current file number being played
 }
-	
+
+// Change songs every 5 seconds.
 void loop() {
-	// We didn't need to use the loop here because the program was to only execute once.
-}</code></pre>
+	// Delay the next command by 5 seconds.
+	delay(5000);
+
+	// Skip to the next song.
+	player.next();
+}
+	</code></pre>
 
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-arduino-libraries">Installing Arduino Libraries</h2>
@@ -396,10 +398,7 @@ void loop() {
 					Select the <strong>.zip</strong> of the library and click <strong>Open</strong>.
 				</li>
 			</ol>
-			<div style= "text-align: center;" class="mb-3">
-				<img class="img-fluid my-3 me-5"
-					src=".\assets\images\ops_arduino_ide_zip_library.png" width = "500">
-			</div>
+			<img class="pj-img-fluid mx-auto mb-5" src=".\assets\images\ops_arduino_ide_zip_library.png" width = "500">
 			<p class="mb-3">
 				You're done! Just make sure to <code class="pj-code language-arduino">#include</code> the library header file so that your
 				code compiles.
@@ -410,7 +409,7 @@ void loop() {
 						<td>DFRobot DFPlayerMini</td>
 						<td>
 							<a class="btn btn-outline-success mx-3"
-								href="https://drive.google.com/uc?export=download&id=1tc4KY-tViCPWNbc8Z_jIsfigmyeKCzg4"
+								href="assets\libraries\DFRobotDFPlayerMini-1.0.5.zip"
 								role="button"><i class="bi bi-download"></i> Download</a>
 						</td>
 					</tr>
@@ -423,9 +422,7 @@ void loop() {
 				Thinking about using a pin but you don’t know what it does? Refer to the Arduino Nano pinout diagram, or scroll further to find the full datasheet.
 				<br><span class="text-blue">~</span> represents pins that are PWM capable.
 			</p>
-			<div class="mb-5 text-center">
-				<img class="img-fluid my-4" src=".\assets\images\pinouts\ops-pinout-arduino-nano.png" style="max-width: 700px;">
-			</div>
+			<img class="pj-img-fluid mx-auto mb-5" src=".\assets\images\pinouts\ops-pinout-arduino-nano.png"   width="800">
 
 
 			<h2 class="mb-3 fw-bolder" id="pj-heading-requirements">Requirements</h2>
@@ -540,11 +537,13 @@ void loop() {
 						<td>2</td>
 					</tr>
 					<tr>
-						<a class="pj-part"
-						data-bs-content="<img src='./assets/images/project_5/ops_project5_speakers.jpg' height='150px' width='auto'>"
-						data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
-						Speaker, 0.5W, 8Ω
-						</a>
+						<td>
+							<a class="pj-part"
+							data-bs-content="<img src='./assets/images/project_5/ops_project5_speakers.jpg' height='150px' width='auto'>"
+							data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
+							Speaker, 0.5W, 8Ω
+							</a>
+						</td>
 						<td>1</td>
 					</tr>
 					<tr>
@@ -593,7 +592,7 @@ void loop() {
 					<div id="schemCollapse1" class="accordion-collapse collapse show"
 						data-bs-parent="#schemAccordian">
 						<div class="accordion-body text-center">
-							<img src='assets/images/project_5/ops23_project5_schemA.png' class="pj-schem">
+							<img class="pj-img-fluid mx-auto" src='assets/images/project_5/ops23_project5_schemA.png' width="400px">
 						</div>
 					</div>
 				</div>
@@ -607,8 +606,7 @@ void loop() {
 					<!--Pin to page?-->
 					<div id="schemCollapse2" class="accordion-collapse collapse" data-bs-parent="#schemAccordian">
 						<div class="accordion-body text-center">
-							<img src='assets/images/project_5/ops23_project5_schemB.png' class="pj-schem"
-								style="max-width: 500px;">
+							<img class="pj-img-fluid mx-auto" src='assets/images/project_5/ops23_project5_schemB.png' width="400px">
 						</div>
 					</div>
 				</div>
@@ -622,8 +620,7 @@ void loop() {
 					<!--Pin to page?-->
 					<div id="schemCollapse3" class="accordion-collapse collapse" data-bs-parent="#schemAccordian">
 						<div class="accordion-body text-center">
-							<img src='assets/images/project_5/ops_23_project5_schemC.png' class="pj-schem"
-								style="max-width: 1000px;">
+							<img class="pj-img-fluid mx-auto" src='assets/images/project_5/ops_23_project5_schemC.png'>
 						</div>
 					</div>
 				</div>
@@ -677,15 +674,17 @@ void loop() {
 
 
 			<h3 class="mb-3" id="pj-heading-checkpoint4">Checkpoint 4</h3>
-			<ol class="mb-4 list-group list-group-numbered">
+			<ol class="mb-5 list-group list-group-numbered">
 				<li class="list-group-item">
 					Build the circuit from Schematic C (iPoduino) on your breadboard. Use the sample code provided in the Concepts sections to guide your Arduino program.
-					<br><br>If you get stuck on breadboard layout, open the hint below:
+					<div class="alert alert-info mt-2" role="alert">
+						Carefully implement the code so that each button triggers an action <i>only</i> when first pressed. Ask for help if you get stuck.
+					</div>
+					If you get stuck on breadboard layout, open the hint below:
 					<div>
 						<script src="./js/collapsible.js" title="Click to Reveal Hint 1"
-							content='Our team used the following layout for the main components. No jumper wires are shown. 						<div class="accordion-body text-center">
-								<img src="./assets/images/project_5/ops23_project5_breadboardMain.png" class="pj-schem"
-									style="max-width: 500px;">'></script>
+							content='Our team used the following layout for the main components. No jumper wires are shown. Take advantage of all available strips, even the unused ones in between button leads. 						<div class="accordion-body text-center">
+								<img src="./assets/images/project_5/ops23_project5_breadboardMain.png" class="pj-img-fluid mx-auto" width="400px">'></script>
 					</div>
 				</li>
 				<li class="list-group-item">
@@ -720,7 +719,7 @@ void loop() {
 			<p class="mb-3">
 				<strong>Compress</strong> the folder to a <strong>zip</strong> file and rename the file using the
 				format
-				“<strong>ops_project#_lastname_firstname.zip</strong>” Then, submit the <strong>zip</strong> file to
+				“<strong>ops_project5_lastname_firstname.zip</strong>” Then, submit the <strong>zip</strong> file to
 				the Project 5 Canvas
 				assignment.
 			</p>
