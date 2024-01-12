@@ -33,7 +33,7 @@ function createHashMapOfFiles(directoryPath, fileExtension) {
     const files = fs.readdirSync(directoryPath);
 
     // make sure the fileExtension does not start with a dot. If so, remove it.
-    if (fileExtension.startsWith(".")) {
+    if (fileExtension.at(0) === ".") {
         fileExtension = fileExtension.slice(1);
     }
 
