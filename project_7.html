@@ -799,147 +799,66 @@ Serial.println("The interrupt has been handled");
 				<h3 class="mb-3" id="pj-heading-checkpoint1">Checkpoint 1</h3>
 				<ol class="mb-5 list-group list-group-numbered">
 					<li class="list-group-item">
-						Build the circuit in <strong>Schematic A</strong> on one breadboard.
+						Build the circuit in <strong>Schematic A</strong> (Toggle-able LED Circuit) on your breadboard.
 						<div class="alert alert-info mt-2" role="alert">
-							You will test the DHT11 and light sensor, outputting their data to the serial monitor.
-							<div>
-					</li>
-					<li class="list-group-item">
-						Program the Arduino board to print the following information to the serial monitor <strong>every
-							10
-							seconds</strong>:
-						<ul>
-							<li>Temperature</li>
-							<li>Humidity</li>
-							<li>Whether it is day or night</li>
-						</ul>
+							Use the built-in LED connected to the Arduino Nano's D13 pin
+						</div>
+						<div class="alert alert-info mt-2" role="alert">
+							Don't forget to use INPUT_PULLUP when setting the pinmode of the pushbutton pin.
+						</div>
 					</li>
 					<li class="list-group-item">
 						Upload your sketch to the board, and verify that the system executes as expected.
-						You should see an output similar to the following on the serial monitor:
-						<pre class="mt-3"><code class="pj-code language-plaintext">Temp: 34C
-Humidity: 80%
-Time: Day
-
-Temp: 35C
-Humidity: 81%
-Time: Day
-
-Temp: 36C
-Humidity: 79%
-Time: Night</code></pre>
-
-						<div class="alert alert-warning" role="alert">
-							<strong>Don’t expect the same exact values</strong>; any value within reason is acceptable.
-							The formatting doesn’t have to be exactly the same either.
-						</div>
 					</li>
 				</ol>
 
-
-
-				<h3 class="mb-3" id="pj-heading-checkpoint3">Checkpoint 3</h3>
+				<h3 class="mb-3" id="pj-heading-checkpoint2">Checkpoint 2</h3>
 				<ol class="mb-5 list-group list-group-numbered">
 					<li class="list-group-item">
-						Build the circuit in <strong>Schematic C</strong>, which extends Schematic A (Checkpoint 1).
-						<div class="alert alert-warning mt-2" role="alert">
-							<strong>Do not disassemble anything. </strong>Just add to the existing breadboard.
-						</div>
-						<div class="alert alert-info" role="alert">
-							You will design the weather station or transmitter, which will send weather reports to the
-							receiver board with the LCD.
-						</div>
-						<div class="alert alert-info" role="alert">
-							Connect the NRF24 radios to the breadboard using the dupont jumper wire.
-						</div>
-						<div class="alert alert-info" role="alert">
-							This circuit will be powered by the 9V battery. <strong>No USB power is required.</strong>
-						</div>
+						Build the circuit in <strong>Schematic B</strong> (Digital Stopwatch) on your breadboard.
 					</li>
 					<li class="list-group-item">
-						Program the transmitter Arduino board to send a
-						<code class="pj-code language-arduino">WeatherReport</code> container over radio <strong>every
-							10
-							seconds</strong>.
-					</li>
-					<li class="list-group-item">
-						Build the circuit in <strong>Schematic D</strong>, which extends Schematic B (Checkpoint 2).
-						<div class="alert alert-warning mt-2" role="alert">
-							<strong>Do not disassemble anything. </strong>Just add to the existing breadboard.
-						</div>
-						<div class="alert alert-info" role="alert">
-							You will design the receiver board, which will display the weather report on the LCD.
-						</div>
-					</li>
-					<li class="list-group-item">
-						Program the receiver Arduino board to display a
-						<code class="pj-code language-arduino">WeatherReport</code>on the LCD upon receiving one.
-						<div class="alert alert-info mt-2" role="alert">
-							You may set a delay since you only expect a report to be sent every 10 seconds.
-						</div>
-					</li>
-					<li class="list-group-item">
-						Upload your transmitter and receiver sketches to the respective board, and verify that the
-						system
-						executes as expected.
-						The receiver will display any newly received weather reports on its LCD, which should look like
-						the
-						following (but not necessarily identical):
-						<div class="alert alert-info mt-2" role="alert">
-							Every 10 seconds, the transmitting weather station will send a new weather report to the
-							receiver.
-						</div>
-						<img class="img-fluid m-2 d-block" src=".\assets\images\ops_img_proj6_1.png">
+						Upload your sketch to the Arduino Nano, and verify that the program executes as expected.
 					</li>
 				</ol>
-
 
 				<h2 class="mb-3 fw-bold" id="pj-heading-deliverables">Deliverables <span class="fw-light">(Enrolled
 						Students
 						Only)</span></h2>
 				<p class="mb-3">
 					Students enrolled in the course must submit the following deliverables to the corresponding Canvas
-					course assignment:
+					course assignment.
+				</p>
+
+				<p class="mb-3">
+					Place the following files in a single folder:
 				</p>
 
 				<ul class="mb-4 list-group">
 					<li class="list-group-item">
 						<i class="bi bi-check2-square me-2"></i>
-						Photo of the weather station/transmitter Arduino board
+						Video of the Digital stopwatch Arduino board
 						<div class="alert alert-info mt-2" role="alert">
-							This photo should include the DHT11, light sensor, NRF24 transceiver, and one Arduino
-							correctly
+							This video should include the TM1637, two pushbuttons, piezo buzzer and Arduino correctly
 							wired together.
 						</div>
+						<div class="alert alert-info mt-2" role="alert">
+							Demonstrate that seconds and minutes are properly displayed by the stopwatch. Show the
+							display update from 50 seconds to
+							1 minute and 10 seconds elapsed.
+						</div>
+						<div class="alert alert-info mt-2" role="alert">
+							Start, pause, resume, and stop the stopwatch in the video. Then, start the stopwatch one
+							more time to demonstrate all
+							features of the stopwatch.
+						</div>
 					</li>
 					<li class="list-group-item">
 						<i class="bi bi-check2-square me-2"></i>
-						Photo of the receiver Arduino board
-						<div class="alert alert-info mt-2" role="alert">
-							This photo should include the NRF24 transceiver, LCD, and one Arduino correctly wired
-							together.
-						</div>
-						<div class="alert alert-info mt-2" role="alert">
-							The LCD should clearly display the temperature, humidity, and time of day (day or night).
-						</div>
-					</li>
-					<li class="list-group-item">
-						<i class="bi bi-check2-square me-2"></i>
-						Transmitter Arduino sketch file
+						Digital stopwatch Arduino sketch file
 						<div class="alert alert-info mt-2" role="alert">
 							This file should include all of the code you have written for the Arduino Nano acting as the
-							transmitter. Name it “<code
-								class="pj-code language-plaintext">project6_transmitter.ino</code>”.
-
-						</div>
-					</li>
-					<li class="list-group-item">
-						<i class="bi bi-check2-square me-2"></i>
-						Receiver Arduino sketch file
-						<div class="alert alert-info mt-2" role="alert">
-							This file should include all of the code you have written for the Arduino Nano acting as the
-							transmitter. Name it “<code
-								class="pj-code language-plaintext">project6_receiver.ino</code>”.
+							transmitter. Name it “<strong>ops_project7.ino</strong>".
 						</div>
 					</li>
 				</ul>
