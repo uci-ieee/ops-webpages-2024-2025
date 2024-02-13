@@ -74,7 +74,7 @@
 								<a class="nav-link" href="#pj-heading-interrupts">Interrupts</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#pj-heading-nrf24l01">NRF24L01 Transceiver</a>
+								<a class="nav-link" href="#pj-heading-tm1637">TM1637 7-Segment Display</a>
 							</li>
 						</ul>
 					</li>
@@ -369,6 +369,158 @@
 				</p>
 
 				<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">Interrupt Handlers</h4>
+
+				<p class="mb-3">
+					After initializing an interrupt, we ought to define an interrupt handler. This will be like defining
+					any other function,
+					except there are no parameters and no return value.
+				</p>
+				<p class="mb-3">
+					Here is an example definition:
+				</p>
+
+				<pre class="mb-3">
+					<code class="pj-code language-arduino" style="white-space: pre-wrap;">
+void interruptHandler()
+{
+Serial.println("The interrupt has been handled");
+}
+					</code>
+				</pre>
+
+				<p class="mb-3">
+					We will pass the name of this function, <code
+						class="pj-code language-arduino">interruptHandler</code>, as the argument <code
+						class="pj-code language-arduino">ISR</code> in <code
+						class="pj-code language-arduino">attachInterrupt</code>.
+				</p>
+
+				<h3 class="mb-3" id="pj-heading-tm1637">TM1637 7-Segment Display</h3>
+				<p class="mb-3">
+					If you have ever used a digital clock or watch, you have seen a seven-segment display! Each digit is
+					composed of seven
+					LEDs arranged into segments (as shown in the image below).
+				</p>
+				<!-- TODO: ADD IMAGE -->
+				<p class="mb-3">
+					Activating a combination of the LEDs displays the desired number or character. It’s very simple;
+					however, the number of
+					signal lines quickly grows for each additional digit. The TM1637 chip is designed to alleviate this
+					exact problem. The
+					IC interfaces with a 4-digit display and can be controlled via I2C protocol by the Arduino.
+				</p>
+
+				<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">TM1637 Pinout Diagram</h4>
+
+				<p class="mb-3">
+					Below is a pinout of the TM1637. There are just four pins labeled on the side of the module.
+				</p>
+
+				<!-- TODO: ADD IMAGE -->
+
+				<p class="mb-3">
+					Once again, you may recognize the two I<sup>2</sup>C pins: <span class="text-green">DIO</span> and
+					<span class="text-blue">CLK</span>. Although their names differ from the
+					traditional <span class="text-green">SDA</span> and
+					<span class="text-green">SCL</span>, they serve the same purpose. These pins should be connected to
+					any two digital pins on the
+					Arduino board.
+				</p>
+
+				<p class="mb-3">
+					Of course, we also need to power the module with the <span class="text-gray">GND</span> and <span
+						class="text-red">VCC</span>
+					pins. Note that the <span class="text-red">VCC</span> pin accepts
+					5V, so <strong>connect it
+						to the 5V pin</strong> of the Arduino board.
+				</p>
+
+				<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">Using the TM1637 Library</h4>
+				<p class="mb-3">
+					<!-- TODO: ADD ZIP FILE -->
+					Download the library here. Make sure to include the header file:
+				</p>
+
+				<p class="mb-3">
+					<code class="pj-code language-arduino">
+						#include &lt;TM1637Display.h&gt;
+					</code>
+				</p>
+
+				<p class="mb-3">
+					First thing's first: Instantiate an object of the TM1637 class, declaring it in the global scope.
+					Its two parameters are
+					the digital pin numbers which have been connected to the module's <span
+						class="text-green">DIO</span> and <span class="text-blue">CLK</span> lines.
+				</p>
+
+				<p class="mb-3">
+					<code class="pj-code language-arduino">
+						TM1637Display display(int CLK, int DIO);
+					</code>
+				</p>
+
+				<p class="mb-3">
+					You will call lcd's <code class="pj-code language-arduino">clear()</code> and <code
+						class="pj-code language-arduino">setBrightness(int brightness)</code> functions just once to
+					initialize the display. Place this
+					code in your <code class="pj-code language-arduino">setup()</code> function.
+				</p>
+
+				<p class="mb-3">
+					<code class="pj-code language-arduino">display.clear();</code>
+				</p>
+				<p class="mb-3">
+					<code class="pj-code language-arduino">display.setBrightness(7);</code>
+				</p>
+
+				<p class="mb-3">
+					Note that the <code class="pj-code language-arduino">setBrightness(int brightness)</code> function
+					changes the module's brightness and accepts a value between <code
+						class="pj-code language-arduino">0</code> (dim) and <code
+						class="pj-code language-arduino">7</code> (bright).
+				</p>
+
+				<p class="mb-3">
+					The next order of business is to display numbers! We will use the function below, which has three
+					parameters of
+					interest.
+				</p>
+
+				<p class="mb-3">
+					<code
+						class="pj-code language-arduino">display.showNumberDecEx(int num, 0x40, bool leading_zero);</code>
+				</p>
+
+				<p class="mb-3">
+					The first parameter, <code class="pj-code language-arduino">num</code>, is the number that will be
+					displayed. The second parameter we will pass
+					<code class="pj-code language-arduino">0x40</code>, which enables
+					the colon on the module. Lastly, <code class="pj-code language-arduino">leading_zero</code> turns on
+					or off the leading zeroes on numbers which
+					are less than four
+					digits.
+				</p>
+
+				<p class="mb-3">
+					<code class="pj-code language-arduino">display.showNumberDecEx(123, 0x40, true);</code> displays the
+					following to the module:
+				</p>
+
+				<!-- TODO: Add image -->
+
+				<p class="mb-3">
+					The digits populate right to left, and since <code
+						class="pj-code language-arduino">leading_zero</code> was set to <code
+						class="pj-code language-arduino">true</code>, the leftmost, unused
+					digit is a zero.
+				</p>
+
+				<p class="mb-3">
+					To learn more about what this library can do, check out the full documentation <a
+						class="link-primary" href="https://github.com/avishorp/TM1637/tree/master" target="_blank"
+						rel="noreferrer">here</a>.
+				</p>
 
 				<h4 class="mb-3 fw-light" id="pj-heading-dht11" style="display: inline;">Using the DHT11 Library</h4>
 				<p class="mb-3">
