@@ -393,9 +393,9 @@ Serial.println("The interrupt has been handled");
 					composed of seven
 					LEDs arranged into segments (as shown in the image below).
 				</p>
-				<!-- TODO: ADD IMAGE -->
+				<img class="img-fluid mb-4" src=".\assets\images\project_7\ops_seven_segment_display.webp">
 				<p class="mb-3">
-					Activating a combination of the LEDs displays the desired number or character. It’s very simple;
+					Activating a combination of the LEDs displays the desired number or character. It's very simple;
 					however, the number of
 					signal lines quickly grows for each additional digit. The TM1637 chip is designed to alleviate this
 					exact problem. The
@@ -408,8 +408,7 @@ Serial.println("The interrupt has been handled");
 					Below is a pinout of the TM1637. There are just four pins labeled on the side of the module.
 				</p>
 
-				<!-- TODO: ADD IMAGE -->
-
+				<img class="img-fluid mb-4" src=".\assets\images\project_7\ops_TM1637_annotated.png">
 				<p class="mb-3">
 					Once again, you may recognize the two I<sup>2</sup>C pins: <span class="text-green">DIO</span> and
 					<span class="text-blue">CLK</span>. Although their names differ from the
@@ -499,8 +498,7 @@ Serial.println("The interrupt has been handled");
 					following to the module:
 				</p>
 
-				<!-- TODO: Add image -->
-
+				<img class="img-fluid mb-4" src=".\assets\images\project_7\ops_project7_seven_segment1.png">
 				<p class="mb-3">
 					The digits populate right to left, and since <code
 						class="pj-code language-arduino">leading_zero</code> was set to <code
@@ -518,7 +516,10 @@ Serial.println("The interrupt has been handled");
 
 				<p class="mb-3">
 					A <strong>piezoelectric buzzer</strong> is a component used to emit sound.
+					<img class="img-fluid my-3 me-lg-5 me-3 float-end" style="max-width: 200px;"
+						src="./assets/images/project_2/ops_piezo.webp">
 				</p>
+
 
 				<p class="mb-3">
 					Piezo buzzers come in two varieties: active and passive. <strong>Active</strong> buzzers have a
@@ -760,8 +761,7 @@ Serial.println("The interrupt has been handled");
 						<div id="schemCollapse1" class="accordion-collapse collapse show"
 							data-bs-parent="#schemAccordian">
 							<div class="accordion-body text-center">
-								<!-- TODO: UPDATE SCHEMATIC -->
-								<img src='./assets/images/schematics/ops_schem_proj6_a.png' class="pj-schem">
+								<img src='./assets/images/schematics/ops_schem_proj7_a.png' class="pj-schem">
 							</div>
 						</div>
 					</div>
@@ -776,8 +776,7 @@ Serial.println("The interrupt has been handled");
 						<!--Pin to page?-->
 						<div id="schemCollapse2" class="accordion-collapse collapse" data-bs-parent="#schemAccordian">
 							<div class="accordion-body text-center">
-								<!-- TODO: UPDATE SCHEMATIC -->
-								<img src='./assets/images/schematics/ops_schem_proj6_b.png' class="pj-schem">
+								<img src='./assets/images/schematics/ops_schem_proj7_b.png' class="pj-schem">
 							</div>
 						</div>
 					</div>
