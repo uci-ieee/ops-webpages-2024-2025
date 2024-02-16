@@ -96,9 +96,6 @@
 							<li class="nav-item">
 								<a class="nav-link" href="#pj-heading-checkpoint2">Checkpoint 2</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#pj-heading-checkpoint3">Checkpoint 3</a>
-							</li>
 						</ul>
 					</li>
 					<li class="nav-item">
@@ -120,8 +117,8 @@
 					</div>
 					<div class="alert alert-light" role="alert">
 						<i class="bi bi-calendar-event me-1"></i>
-						Updated 2024.02.12 <br>
-						By Dylan Vu
+						Updated 2024.02.15 <br>
+						By Benjamen Bielecki
 					</div>
 				</div>
 
@@ -151,7 +148,7 @@
 						Select the <strong>.zip</strong> of the library and click <strong>Open</strong>.
 					</li>
 				</ol>
-				<img class="img-fluid mb-4" src=".\assets\images\ops_arduino_ide_zip_library.png">
+				<img class="pj-img-fluid mx-auto mb-4" src=".\assets\images\ops_arduino_ide_zip_library.png">
 
 				<p class="mb-4">
 					Make sure to <code class="pj-code language-arduino">#include</code> the library header file so that
@@ -180,7 +177,7 @@
 
 				<h2 class="mb-3 fw-bold" id="pj-heading-concepts">Concepts</h2>
 				<h3 class="mb-3" id="pj-heading-measuring-time">Measuring Time</h3>
-				<p class="mb-3">
+				<p class="mb-5">
 					We will record the time elapsed between a start and stop point. To do so requires a device within
 					the Arduino board
 					called the… wait for it… timer! The Arduino Nano conveniently has three timers, only one of which we
@@ -192,8 +189,7 @@
 
 
 
-				<h4 class="mb-3 fw-light" style="display: inline;" id="pj-heading-measuring-time">Using the Time Library
-				</h4>
+				<h4 class="mb-3 fw-light">Using the Time Library</h4>
 
 				<p class="mb-3">
 					You can download the Time library <a class="link-primary"
@@ -201,57 +197,58 @@
 					the header file:
 				</p>
 				<p class="mb-3">
-					<code class="pj-code language-arduino">#include &lt;Time.h&gt;</code>
+					<code class="pj-code language-arduino">#include &lt;Timer.h&gt;</code>
 				</p>
 				<p class="mb-3">
 					You will first instantiate a Timer object, declaring it in the global scope. This will control the
 					timer device.
 				</p>
 				<p class="mb-3">
-					<code class="pj-code language-arduino">Timer timer();</code>
+					<code class="pj-code language-arduino">Timer timer;</code>
 				</p>
 				<p class="mb-3">
 					Examine the table below for a overview of its member functions:
-				<table class="table pj-download-table mb-5">
+				<table class="table mb-5">
 					<tr>
 						<th>Function</th>
 						<th>Summary</th>
 					</tr>
 					<tr>
 						<td>
-							<code class="pj-code language-arduino">timer.start()</code>
+							<code class="pj-code language-arduino">timer.start();</code>
 						</td>
 						<td>Starts the timer</td>
 					</tr>
 					<tr>
 						<td>
-							<code class="pj-code language-arduino">timer.pause()</code>
+							<code class="pj-code language-arduino">timer.pause();</code>
 						</td>
-						<td>Pauses the timer</td>
+						<td>Pauses the timer; this is the <code class="pj-code language-arduino">PAUSED</code> state </td>
 					</tr>
 					<tr>
 						<td>
-							<code class="pj-code language-arduino">timer.resume()</code>
+							<code class="pj-code language-arduino">timer.resume();</code>
 						</td>
 						<td>Resumes the timer when paused</td>
 					</tr>
 					<tr>
 						<td>
-							<code class="pj-code language-arduino">timer.stop()</code>
+							<code class="pj-code language-arduino">timer.stop();</code>
 						</td>
-						<td>Stops the timer; the next call to <code class="pj-code language-arduino">timer.stop()</code>
+						<td>Stops the timer; ; in this <code class="pj-code language-arduino">PAUSED</code> state,
+							the next call to <code class="pj-code language-arduino">timer.stop()</code>
 							resets the timer</td>
 					</tr>
 					<tr>
 						<td>
-							<code class="pj-code language-arduino">timer.read()</code>
+							<code class="pj-code language-arduino">timer.read();</code>
 						</td>
-						<td>Returns the time elapsed since <code class="pj-code language-arduino">timer.start()</code>
+						<td>Returns the time elapsed since (in <strong>milliseconds</strong>) <code class="pj-code language-arduino">timer.start()</code>
 							was called</td>
 					</tr>
 					<tr>
 						<td>
-							<code class="pj-code language-arduino">timer.state()</code>
+							<code class="pj-code language-arduino">timer.state();</code>
 						</td>
 						<td>Returns the state of the timer as one of three constants: <code
 								class="pj-code language-arduino">RUNNING</code>, <code
@@ -262,16 +259,16 @@
 				</p>
 
 				<h3 class="mb-3" id="pj-heading-interrupts">Interrupts</h3>
-				<p class="mb-3">
-					An interrupt is a request to the Arduino's CPU to halt the currently executing code when an event
+				<p class="mb-4">
+					An <strong>interrupt request</strong> (<strong>IRQ</strong>) is a request to the Arduino's CPU to halt the currently executing code when an event
 					occurs. After the
 					request (or IRQ) is sent, the CPU will call another function to handle the event; it's called an
-					interrupt handler or
-					interrupt service routine (ISR). This is particularly useful in embedded systems for handling
+					<strong>interrupt handler</strong> or
+					<strong>interrupt service routine</strong> (<strong>ISR</strong>). This is particularly useful in embedded systems for handling
 					external interrupts, which
 					are triggered by devices external to the CPU. For example, a button press may trigger an interrupt…
 				</p>
-				<p class="mb-3">
+				<p class="mb-5">
 					In a previous project, you may have implemented a program with pushbutton switches using a loop.
 					Every iteration of the
 					loop, you read the pushbutton's state, waiting to see if it was pressed. What an ordeal! Instead, we
@@ -281,7 +278,7 @@
 					instructions follow the button press.
 				</p>
 
-				<h4 class="mb-3 fw-light" style="display: inline;" id="pj-heading-interrupts">attachInterrupt</h4>
+				<h4 class="mb-3 fw-light">attachInterrupt</h4>
 				<p class="mb-3">
 					We will use a built-in Arduino function to initialize an interrupt. A digital pin will serve as the
 					line in which IRQs
@@ -293,24 +290,23 @@
 				</div>
 
 				<p class="mb-3">
-					<code class="pj-code language-arduino">int attachInterrupt(interrupt, ISR, mode)</code>
+					<code class="pj-code language-arduino">attachInterrupt(interrupt, ISR, mode);</code>
 				</p>
 
 				<p class="mb-3">
-					Let's discuss the parameter in the function above:
+					Let's discuss the parameters in the function above:
 				</p>
 
-				<p class="mb-3">
-				<ul>
-					<li>
+				<ul class="list-group mb-3">
+					<li class="list-group-item">
 						<code class="pj-code language-arduino">interrupt</code> is the desired number; it is <i>not</i>
 						a pin number
 					</li>
-					<li>
+					<li class="list-group-item">
 						<code class="pj-code language-arduino">ISR</code> is the name of the function which will be
 						called as the interrupt handler
 					</li>
-					<li>
+					<li class="list-group-item">
 						<code class="pj-code language-arduino">mode</code> configures the timing of the IRQ; the
 						constants you may pass here are as follows:
 						<ul>
@@ -334,16 +330,15 @@
 						</ul>
 					</li>
 				</ul>
-				</p>
 
 				<p class="mb-3">
-					You will call this function for each interrupt you wish to initialize in <code
-						class="pj-code language-arduino">setup()</code>. But how do you find the corresponding interrupt
+					<strong>You will call this function in</strong> <code
+						class="pj-code language-arduino">setup()</code> for each interrupt you wish to initialize. But how do you find the corresponding interrupt
 					number of the digital pin?
 				</p>
 
 				<p class="mb-3">
-					<code class="pj-code language-arduino">int digitalPinToInterrupt(pin)</code>
+					<code class="pj-code language-arduino">digitalPinToInterrupt(pin);</code>
 				</p>
 
 				<p class="mb-3">
@@ -355,19 +350,19 @@
 					The recommended approach to calling these functions is to perform them all in one line:
 				</p>
 
-				<p class="mb-3">
+				<p class="mb-5">
 					<code
 						class="pj-code language-arduino">attachInterrupt(digitalPinToInterrupt(pin), ISR, mode);</code>
 				</p>
 
-				<h4 class="mb-3 fw-light" id="pj-heading-interrupts" style="display: inline;">Interrupt Handlers</h4>
+				<h4 class="mb-3 fw-light">Interrupt Handlers</h4>
 
 				<p class="mb-3">
 					After initializing an interrupt, we ought to define an interrupt handler. This will be like defining
 					any other function,
 					except there are no parameters and no return value.
 				</p>
-				<p class="mb-3">
+				<p class="">
 					Here is an example definition:
 				</p>
 
@@ -380,8 +375,8 @@ Serial.println("The interrupt has been handled");
 					</code>
 				</pre>
 
-				<p class="mb-3">
-					We will pass the name of this function, <code
+				<p class="mb-5">
+					We will <strong>pass the name of this function</strong>, <code
 						class="pj-code language-arduino">interruptHandler</code>, as the argument <code
 						class="pj-code language-arduino">ISR</code> in <code
 						class="pj-code language-arduino">attachInterrupt</code>.
@@ -393,8 +388,8 @@ Serial.println("The interrupt has been handled");
 					composed of seven
 					LEDs arranged into segments (as shown in the image below).
 				</p>
-				<img class="img-fluid mb-4" src=".\assets\images\project_7\ops_seven_segment_display.webp">
-				<p class="mb-3">
+				<img class="pj-img-fluid mx-auto mb-4" src=".\assets\images\project_7\ops_seven_segment_display.webp">
+				<p class="mb-5">
 					Activating a combination of the LEDs displays the desired number or character. It's very simple;
 					however, the number of
 					signal lines quickly grows for each additional digit. The TM1637 chip is designed to alleviate this
@@ -402,13 +397,13 @@ Serial.println("The interrupt has been handled");
 					IC interfaces with a 4-digit display and can be controlled via I2C protocol by the Arduino.
 				</p>
 
-				<h4 class="mb-3 fw-light" id="pj-heading-tm1637" style="display: inline;">TM1637 Pinout Diagram</h4>
+				<h4 class="mb-3 fw-light" id="pj-heading-tm1637">TM1637 Pinout Diagram</h4>
 
 				<p class="mb-3">
 					Below is a pinout of the TM1637. There are just four pins labeled on the side of the module.
 				</p>
 
-				<img class="img-fluid mb-4" src=".\assets\images\project_7\ops_TM1637_annotated.png">
+				<img class="pj-img-fluid mx-auto mb-4" src=".\assets\images\project_7\ops_TM1637_annotated.png" width="500px">
 				<p class="mb-3">
 					Once again, you may recognize the two I<sup>2</sup>C pins: <span class="text-green">DIO</span> and
 					<span class="text-blue">CLK</span>. Although their names differ from the
@@ -418,7 +413,7 @@ Serial.println("The interrupt has been handled");
 					Arduino board.
 				</p>
 
-				<p class="mb-3">
+				<p class="mb-5">
 					Of course, we also need to power the module with the <span class="text-gray">GND</span> and <span
 						class="text-red">VCC</span>
 					pins. Note that the <span class="text-red">VCC</span> pin accepts
@@ -426,7 +421,7 @@ Serial.println("The interrupt has been handled");
 						to the 5V pin</strong> of the Arduino board.
 				</p>
 
-				<h4 class="mb-3 fw-light" id="pj-heading-tm1637" style="display: inline;">Using the TM1637 Library</h4>
+				<h4 class="mb-3 fw-light">Using the TM1637 Library</h4>
 				<p class="mb-3">
 					Download the library <a class="link-primary" href="#pj-heading-arduino-libraries">here</a>. Make
 					sure to include the header file:
@@ -445,14 +440,14 @@ Serial.println("The interrupt has been handled");
 						class="text-green">DIO</span> and <span class="text-blue">CLK</span> lines.
 				</p>
 
-				<p class="mb-3">
+				<p class="mb-5">
 					<code class="pj-code language-arduino">
 						TM1637Display display(int CLK, int DIO);
 					</code>
 				</p>
 
 				<p class="mb-3">
-					You will call lcd's <code class="pj-code language-arduino">clear()</code> and <code
+					You will call the display's <code class="pj-code language-arduino">clear()</code> and <code
 						class="pj-code language-arduino">setBrightness(int brightness)</code> functions just once to
 					initialize the display. Place this
 					code in your <code class="pj-code language-arduino">setup()</code> function.
@@ -465,7 +460,7 @@ Serial.println("The interrupt has been handled");
 					<code class="pj-code language-arduino">display.setBrightness(7);</code>
 				</p>
 
-				<p class="mb-3">
+				<p class="mb-5">
 					Note that the <code class="pj-code language-arduino">setBrightness(int brightness)</code> function
 					changes the module's brightness and accepts a value between <code
 						class="pj-code language-arduino">0</code> (dim) and <code
@@ -506,7 +501,7 @@ Serial.println("The interrupt has been handled");
 					digit is a zero.
 				</p>
 
-				<p class="mb-3">
+				<p class="mb-5">
 					To learn more about what this library can do, check out the full documentation <a
 						class="link-primary" href="https://github.com/avishorp/TM1637/tree/master" target="_blank"
 						rel="noreferrer">here</a>.
@@ -516,12 +511,12 @@ Serial.println("The interrupt has been handled");
 
 				<p class="mb-3">
 					A <strong>piezoelectric buzzer</strong> is a component used to emit sound.
-					<img class="img-fluid my-3 me-lg-5 me-3 float-end" style="max-width: 200px;"
+					<img class="pj-img-fluid-end" style="max-width: 200px;"
 						src="./assets/images/project_2/ops_piezo.webp">
 				</p>
 
 
-				<p class="mb-3">
+				<p class="mb-5">
 					Piezo buzzers come in two varieties: active and passive. <strong>Active</strong> buzzers have a
 					built-in oscillator with a set frequency
 					that cannot be changed. <strong>Passive</strong> buzzers do not; they have to be fed an oscillating
@@ -530,9 +525,7 @@ Serial.println("The interrupt has been handled");
 					buzzer.
 				</p>
 
-				<h4 class="mb-3 fw-light" id="pj-heading-piezoelectric-buzzer" style="display: inline;">Using the Buzzer
-					with Arduino
-				</h4>
+				<h4 class="mb-3 fw-light">Using the Buzzer with Arduino</h4>
 
 				<p class="mb-3">
 					We will use a built-in Arduino function to send a PWM signal of specific frequency to the piezo
@@ -545,7 +538,7 @@ Serial.println("The interrupt has been handled");
 				</p>
 
 				<p class="mb-3">
-					<code class="pj-code language-arduino">void tone(int pin, int frequency, long duration)</code>
+					<code class="pj-code language-arduino">tone(int pin, int frequency, long duration);</code>
 				</p>
 
 				<div class="alert alert-info" role="info">
@@ -556,7 +549,7 @@ Serial.println("The interrupt has been handled");
 
 				<p class="mb-3">
 					Here are some music notes translated to frequencies:
-				<table class="table pj-download-table mb-5">
+				<table class="table pj-download-table mb-3">
 					<tr>
 						<th>Music Note</th>
 						<th>Frequency (Hz)</th>
@@ -604,7 +597,7 @@ Serial.println("The interrupt has been handled");
 				</table>
 				</p>
 
-				<p class="mb-3">
+				<p class="mb-5">
 					Try it out! Play note C5 for 1 second with <code
 						class="pj-code language-arduino">tone(6, 523, 1000);</code> where the buzzer is connected to pin
 					D6.
@@ -625,7 +618,7 @@ Serial.println("The interrupt has been handled");
 					submission,
 					make sure it meets the following <strong>minimum requirements</strong>.
 				</p>
-				<h3 class="mb-3" id="requirements">Toggle-able LED Circuit</h3>
+				<h3 class="mb-3">Toggle-able LED Circuit</h3>
 				<ul class="mb-5 list-group">
 					<li class="list-group-item">
 						You must write a program in which the Arduino board toggles the state of its built-in LED (D13)
@@ -645,8 +638,8 @@ Serial.println("The interrupt has been handled");
 							class="pj-code language-arduino">attachInterrupt</code>.
 					</li>
 					<li class="list-group-item">
-						<strong>No loops may be used</strong> (that includes the <code
-							class="pj-code language-arduino">main</code> loop).
+						<strong>No loops may be used</strong> (that includes the main<code
+							class="pj-code language-arduino">loop()</code>).
 					</li>
 					<li class="list-group-item">
 						The circuit must be built on a breadboard.
@@ -670,6 +663,17 @@ Serial.println("The interrupt has been handled");
 						</ul>
 					</li>
 					<li class="list-group-item">
+						The second button one serves as a “Stop” button.
+						<ul>
+							<li>
+								When this button is pressed, the stopwatch stops, 
+								and the display freezes on the time elapsed. 
+								The next press of the “Start/Pause/Resume” button resets the display 
+								to zero stopwatch and starts the stopwatch.
+							</li>
+						</ul>
+					</li>
+					<li class="list-group-item">
 						When the stopwatch is active, the TM1637 must display the number of minutes and seconds elapsed.
 						<ul>
 							<li>
@@ -682,7 +686,8 @@ Serial.println("The interrupt has been handled");
 								The two digits to the right elapsed should display the number of seconds elapsed in the
 								current minute.
 							</li>
-							<!-- TODO: add image -->
+							<img class="pj-img-fluid mx-auto mb-3" src=".\assets\images\project_7\ops_project7_seven_segment1.png">
+
 						</ul>
 					</li>
 					<li class="list-group-item">
@@ -694,6 +699,10 @@ Serial.println("The interrupt has been handled");
 					<li class="list-group-item">
 						Buttons must be implemented with <code class="pj-code language-arduino">attachInterrupt</code>.
 					</li>
+					<li class="list-group-item">
+						You may use the main <code class="pj-code language-arduino">loop()</code> only for time conversion and updating the display.
+					</li>
+
 					<li class="list-group-item">
 						The circuit must be built on a breadboard.
 					</li>
@@ -712,9 +721,11 @@ Serial.println("The interrupt has been handled");
 					<tbody>
 						<tr>
 							<td>
-								<a class="pj-part"
+								<a class="pj-part pj-part-link"
 									data-bs-content="<img src='./assets/images/parts/ops_part_arduino_nano.png' height='150px' width='auto'>"
-									data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
+									data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0"
+									href="./assets/datasheets/ops_datasheet_arduino_nano.pdf" target="_blank"
+									rel="noopener noreferrer">
 									Arduino Nano
 								</a>
 							</td>
@@ -725,19 +736,54 @@ Serial.println("The interrupt has been handled");
 							<td>1</td>
 						</tr>
 						<tr>
-							<td>Micro USB Cable</td>
+							<td>
+								<a class="pj-part"
+									data-bs-content="<img src='./assets/images/project_4/ops_micro_usb.jpg' height='150px' width='auto'>"
+									data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0">
+									Nano-compatible USB Cable
+								</a>
+							</td>
 							<td>1</td>
 						</tr>
 						<tr>
-							<td>TM1637, 7 Segment Display</td>
+							<td>
+								<a class="pj-part"
+									data-bs-content="<img src='assets\images\project_7\ops_TM1637_physical.png' height='150px' width='auto'>"
+									data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0" a
+									class="link-primary"
+									href=""
+									target="_blank" rel="noopener noreferrer">
+									TM1637, 7 Segment Display
+								</a>
+
+
+							</td>
 							<td>1</td>
 						</tr>
 						<tr>
-							<td>Pushbutton Switch</td>
+							<td>
+								<a class="pj-part"
+								data-bs-content="<img src='assets/images/parts/ops_part_tactileSwitch.png' height='150px' width='auto'>"
+								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0" a
+								class="link-primary"
+								href="https://drive.google.com/file/d/123mnk9r7DJ4KZHwoDXeP770cfP8593oN/view?usp=sharing"
+								target="_blank" rel="noopener noreferrer">
+									Switch, Tactile
+								</a>
+							</td>
 							<td>2</td>
 						</tr>
 						<tr>
-							<td>Buzzer, Piezo, 1.5V</td>
+							<td>
+								<a class="pj-part"
+								data-bs-content="<img src='assets/images/parts/ops_part_buzzer.webp' height='150px' width='auto'>"
+								data-bs-trigger="hover focus" data-bs-toggle="popover" tabindex="0" a
+								class="link-primary"
+								href=""
+								target="_blank" rel="noopener noreferrer">
+									Piezo Buzzer, 1.5V
+								</a>
+							</td>
 							<td>1</td>
 						</tr>
 						<tr>
@@ -761,7 +807,7 @@ Serial.println("The interrupt has been handled");
 						<div id="schemCollapse1" class="accordion-collapse collapse show"
 							data-bs-parent="#schemAccordian">
 							<div class="accordion-body text-center">
-								<img src='./assets/images/schematics/ops_schem_proj7_a.png' class="pj-schem">
+								<img src='./assets/images/schematics/ops_schem_proj7_a.png' class="pj-img-fluid mx-auto"  width="800px">
 							</div>
 						</div>
 					</div>
@@ -776,7 +822,7 @@ Serial.println("The interrupt has been handled");
 						<!--Pin to page?-->
 						<div id="schemCollapse2" class="accordion-collapse collapse" data-bs-parent="#schemAccordian">
 							<div class="accordion-body text-center">
-								<img src='./assets/images/schematics/ops_schem_proj7_b.png' class="pj-schem">
+								<img src='./assets/images/schematics/ops_schem_proj7_b.png' class="pj-img-fluid mx-auto" width="400px">
 							</div>
 						</div>
 					</div>
@@ -849,6 +895,12 @@ Serial.println("The interrupt has been handled");
 						</div>
 					</li>
 				</ul>
+
+				<p class="mb-3">
+					<strong>Compress</strong> the folder to a <strong>zip</strong> file and rename the file using the format 
+					“<strong>ops_project7_lastname_firstname.zip</strong>” Then, submit the <strong>zip</strong> file to the Project 6 Canvas assignment.
+				</p>
+
 			</div>
 		</main>
 	</div>
