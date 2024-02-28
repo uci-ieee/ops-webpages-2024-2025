@@ -64,16 +64,7 @@
 							<li class="nav-item">
 								<a class="nav-link" href="#pj-heading-pcb-design-overview">PCB Design Overview</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#pj-heading-tm1637">TM1637 7-Segment Display</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#pj-heading-piezoelectric-buzzer">Piezoelectric Buzzer</a>
-							</li>
 						</ul>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#pj-heading-arduino-nano-pinout">Arduino Nano Pinout</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-requirements">Requirements</a>
@@ -92,6 +83,9 @@
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="#pj-heading-checkpoint2">Checkpoint 2</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#pj-heading-checkpoint3">Checkpoint 3</a>
 							</li>
 						</ul>
 					</li>
@@ -143,8 +137,8 @@
 					circuit design. Above all, they are easy to mass produce.
 				</p>
 				<p class="mb-3">
-					To learn more about PCBs and how they are constructed, view the lecture material <a
-						class="link-primary" href="./lectures.html" target="_blank" rel="noreferrer">here</a>.
+					To learn more about PCBs and how they are constructed, view the lecture material
+					<a class="link-primary" href="./lectures.html" target="_blank" rel="noreferrer">here</a>.
 				</p>
 
 				<!-- TODO: ADD IMAGE -->
@@ -189,7 +183,7 @@
 					</tbody>
 				</table>
 
-				<ol class="list-group-numbered mb-5">
+				<ol class="list-group list-group-numbered mb-5">
 					<li class="list-group-item">
 						Download the installer from the link appropriate to your OS.
 					</li>
@@ -325,600 +319,226 @@
 				</table>
 				<!-- End Part Table -->
 
-
-
-
-
-
-				<h4 class="mb-3 fw-light">Using the Time Library</h4>
-
-				<p class="mb-3">
-					You can download the Time library <a class="link-primary"
-						href="#pj-heading-arduino-libraries">here</a>. Make sure to include
-					the header file:
-				</p>
-				<p class="mb-3">
-					<code class="pj-code language-arduino">#include &lt;Timer.h&gt;</code>
-				</p>
-				<p class="mb-3">
-					You will first instantiate a Timer object, declaring it in the global scope. This will control the
-					timer device.
-				</p>
-				<p class="mb-3">
-					<code class="pj-code language-arduino">Timer timer;</code>
-				</p>
-				<p class="mb-3">
-					Examine the table below for a overview of its member functions:
-				<table class="table mb-5">
-					<tr>
-						<th>Function</th>
-						<th>Summary</th>
-					</tr>
-					<tr>
-						<td>
-							<code class="pj-code language-arduino">timer.start();</code>
-						</td>
-						<td>Starts the timer</td>
-					</tr>
-					<tr>
-						<td>
-							<code class="pj-code language-arduino">timer.pause();</code>
-						</td>
-						<td>Pauses the timer; this is the <code class="pj-code language-arduino">PAUSED</code> state
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<code class="pj-code language-arduino">timer.resume();</code>
-						</td>
-						<td>Resumes the timer when paused</td>
-					</tr>
-					<tr>
-						<td>
-							<code class="pj-code language-arduino">timer.stop();</code>
-						</td>
-						<td>Stops the timer; ; in this <code class="pj-code language-arduino">PAUSED</code> state,
-							the next call to <code class="pj-code language-arduino">timer.stop()</code>
-							resets the timer</td>
-					</tr>
-					<tr>
-						<td>
-							<code class="pj-code language-arduino">timer.read();</code>
-						</td>
-						<td>Returns the time elapsed since (in <strong>milliseconds</strong>) <code
-								class="pj-code language-arduino">timer.start()</code>
-							was called</td>
-					</tr>
-					<tr>
-						<td>
-							<code class="pj-code language-arduino">timer.state();</code>
-						</td>
-						<td>Returns the state of the timer as one of three constants: <code
-								class="pj-code language-arduino">RUNNING</code>, <code
-								class="pj-code language-arduino">PAUSED</code>, and <code
-								class="pj-code language-arduino">STOPOPED</code></td>
-					</tr>
-				</table>
-				</p>
-
-				<h3 class="mb-3" id="pj-heading-interrupts">Interrupts</h3>
-				<p class="mb-4">
-					An <strong>interrupt request</strong> (<strong>IRQ</strong>) is a request to the Arduino's CPU to
-					halt the currently executing code when an event
-					occurs. After the
-					request (or IRQ) is sent, the CPU will call another function to handle the event; it's called an
-					<strong>interrupt handler</strong> or
-					<strong>interrupt service routine</strong> (<strong>ISR</strong>). This is particularly useful in
-					embedded systems for handling
-					external interrupts, which
-					are triggered by devices external to the CPU. For example, a button press may trigger an interrupt…
-				</p>
-				<p class="mb-5">
-					In a previous project, you may have implemented a program with pushbutton switches using a loop.
-					Every iteration of the
-					loop, you read the pushbutton's state, waiting to see if it was pressed. What an ordeal! Instead, we
-					can use an
-					interrupt to let the Arduino know when the button is pressed. Then, the interrupt handler will
-					perform whichever
-					instructions follow the button press.
-				</p>
-
-				<h4 class="mb-3 fw-light">attachInterrupt</h4>
-				<p class="mb-3">
-					We will use a built-in Arduino function to initialize an interrupt. A digital pin will serve as the
-					line in which IRQs
-					are sent. That same pin is where the external device, such as a pushbutton, should be connected.
-				</p>
-
-				<div class="alert alert-warning" role="alert">
-					Only the Arduino Nano's <strong>digital pins D2 and D3</strong> can be used for external interrupts.
-				</div>
-
-				<p class="mb-3">
-					<code class="pj-code language-arduino">attachInterrupt(interrupt, ISR, mode);</code>
-				</p>
-
-				<p class="mb-3">
-					Let's discuss the parameters in the function above:
-				</p>
-
-				<ul class="list-group mb-3">
-					<li class="list-group-item">
-						<code class="pj-code language-arduino">interrupt</code> is the desired number; it is <i>not</i>
-						a pin number
-					</li>
-					<li class="list-group-item">
-						<code class="pj-code language-arduino">ISR</code> is the name of the function which will be
-						called as the interrupt handler
-					</li>
-					<li class="list-group-item">
-						<code class="pj-code language-arduino">mode</code> configures the timing of the IRQ; the
-						constants you may pass here are as follows:
-						<ul>
-							<li>
-								<code class="pj-code language-arduino">LOW</code> triggers the IRQ when the pin is at a
-								LOW voltage
-
-							</li>
-							<li>
-								<code class="pj-code language-arduino">CHANGE</code> triggers the IRQ when the pin when
-								it changes value
-							</li>
-							<li>
-								<code class="pj-code language-arduino">FALLING</code> triggers the IRQ when the pin
-								voltage changes from HIGH to LOW
-							</li>
-							<li>
-								<code class="pj-code language-arduino">RISING</code> triggers the IRQ when the pin
-								voltage changes from LOW to HIGH
-							</li>
-						</ul>
-					</li>
-				</ul>
-
-				<p class="mb-3">
-					<strong>You will call this function in</strong> <code
-						class="pj-code language-arduino">setup()</code> for each interrupt you wish to initialize. But
-					how do you find the corresponding interrupt
-					number of the digital pin?
-				</p>
-
-				<p class="mb-3">
-					<code class="pj-code language-arduino">digitalPinToInterrupt(pin);</code>
-				</p>
-
-				<p class="mb-3">
-					Using the function above, simply pass the digital pin number and it will return the interrupt
-					number.
-				</p>
-
-				<p class="mb-3">
-					The recommended approach to calling these functions is to perform them all in one line:
-				</p>
-
-				<p class="mb-5">
-					<code
-						class="pj-code language-arduino">attachInterrupt(digitalPinToInterrupt(pin), ISR, mode);</code>
-				</p>
-
-				<h4 class="mb-3 fw-light">Interrupt Handlers</h4>
-
-				<p class="mb-3">
-					After initializing an interrupt, we ought to define an interrupt handler. This will be like defining
-					any other function,
-					except there are no parameters and no return value.
-				</p>
-				<p class="">
-					Here is an example definition:
-				</p>
-
-				<pre class="mb-3">
-					<code class="pj-code language-arduino" style="white-space: pre-wrap;">
-void interruptHandler()
-{
-Serial.println("The interrupt has been handled");
-}
-					</code>
-				</pre>
-
-				<p class="mb-5">
-					We will <strong>pass the name of this function</strong>, <code
-						class="pj-code language-arduino">interruptHandler</code>, as the argument <code
-						class="pj-code language-arduino">ISR</code> in <code
-						class="pj-code language-arduino">attachInterrupt</code>.
-				</p>
-
-				<h3 class="mb-3" id="pj-heading-tm1637">TM1637 7-Segment Display</h3>
-				<p class="mb-3">
-					If you have ever used a digital clock or watch, you have seen a seven-segment display! Each digit is
-					composed of seven
-					LEDs arranged into segments (as shown in the image below).
-				</p>
-				<img class="pj-img-fluid mx-auto mb-4" src=".\assets\images\project_7\ops_seven_segment_display.webp">
-				<p class="mb-5">
-					Activating a combination of the LEDs displays the desired number or character. It's very simple;
-					however, the number of
-					signal lines quickly grows for each additional digit. The TM1637 chip is designed to alleviate this
-					exact problem. The
-					IC interfaces with a 4-digit display and can be controlled via I2C protocol by the Arduino.
-				</p>
-
-				<h4 class="mb-3 fw-light" id="pj-heading-tm1637">TM1637 Pinout Diagram</h4>
-
-				<p class="mb-3">
-					Below is a pinout of the TM1637. There are just four pins labeled on the side of the module.
-				</p>
-
-				<img class="pj-img-fluid mx-auto mb-4" src=".\assets\images\project_7\ops_TM1637_annotated.png"
-					width="500px">
-				<p class="mb-3">
-					Once again, you may recognize the two I<sup>2</sup>C pins: <span class="text-green">DIO</span> and
-					<span class="text-blue">CLK</span>. Although their names differ from the
-					traditional <span class="text-green">SDA</span> and
-					<span class="text-green">SCL</span>, they serve the same purpose. These pins should be connected to
-					any two digital pins on the
-					Arduino board.
-				</p>
-
-				<p class="mb-5">
-					Of course, we also need to power the module with the <span class="text-gray">GND</span> and <span
-						class="text-red">VCC</span>
-					pins. Note that the <span class="text-red">VCC</span> pin accepts
-					5V, so <strong>connect it
-						to the 5V pin</strong> of the Arduino board.
-				</p>
-
-				<h4 class="mb-3 fw-light">Using the TM1637 Library</h4>
-				<p class="mb-3">
-					Download the library <a class="link-primary" href="#pj-heading-arduino-libraries">here</a>. Make
-					sure to include the header file:
-				</p>
-
-				<p class="mb-3">
-					<code class="pj-code language-arduino">
-						#include &lt;TM1637Display.h&gt;
-					</code>
-				</p>
-
-				<p class="mb-3">
-					First thing's first: Instantiate an object of the TM1637 class, declaring it in the global scope.
-					Its two parameters are
-					the digital pin numbers which have been connected to the module's <span
-						class="text-green">DIO</span> and <span class="text-blue">CLK</span> lines.
-				</p>
-
-				<p class="mb-5">
-					<code class="pj-code language-arduino">
-						TM1637Display display(int CLK, int DIO);
-					</code>
-				</p>
-
-				<p class="mb-3">
-					You will call the display's <code class="pj-code language-arduino">clear()</code> and <code
-						class="pj-code language-arduino">setBrightness(int brightness)</code> functions just once to
-					initialize the display. Place this
-					code in your <code class="pj-code language-arduino">setup()</code> function.
-				</p>
-
-				<p class="mb-3">
-					<code class="pj-code language-arduino">display.clear();</code>
-				</p>
-				<p class="mb-3">
-					<code class="pj-code language-arduino">display.setBrightness(7);</code>
-				</p>
-
-				<p class="mb-5">
-					Note that the <code class="pj-code language-arduino">setBrightness(int brightness)</code> function
-					changes the module's brightness and accepts a value between <code
-						class="pj-code language-arduino">0</code> (dim) and <code
-						class="pj-code language-arduino">7</code> (bright).
-				</p>
-
-				<p class="mb-3">
-					The next order of business is to display numbers! We will use the function below, which has three
-					parameters of
-					interest.
-				</p>
-
-				<p class="mb-3">
-					<code
-						class="pj-code language-arduino">display.showNumberDecEx(int num, 0x40, bool leading_zero);</code>
-				</p>
-
-				<p class="mb-3">
-					The first parameter, <code class="pj-code language-arduino">num</code>, is the number that will be
-					displayed. The second parameter we will pass
-					<code class="pj-code language-arduino">0x40</code>, which enables
-					the colon on the module. Lastly, <code class="pj-code language-arduino">leading_zero</code> turns on
-					or off the leading zeroes on numbers which
-					are less than four
-					digits.
-				</p>
-
-				<p class="mb-3">
-					<code class="pj-code language-arduino">display.showNumberDecEx(123, 0x40, true);</code> displays the
-					following to the module:
-				</p>
-
-				<img class="img-fluid mb-4" src=".\assets\images\project_7\ops_project7_seven_segment1.png">
-				<p class="mb-3">
-					The digits populate right to left, and since <code
-						class="pj-code language-arduino">leading_zero</code> was set to <code
-						class="pj-code language-arduino">true</code>, the leftmost, unused
-					digit is a zero.
-				</p>
-
-				<p class="mb-5">
-					To learn more about what this library can do, check out the full documentation <a
-						class="link-primary" href="https://github.com/avishorp/TM1637/tree/master" target="_blank"
-						rel="noreferrer">here</a>.
-				</p>
-
-				<h3 class="mb-3" id="pj-heading-piezoelectric-buzzer">Piezoelectric Buzzer</h3>
-
-				<p class="mb-3">
-					A <strong>piezoelectric buzzer</strong> is a component used to emit sound.
-					<img class="pj-img-fluid-end" style="max-width: 200px;"
-						src="./assets/images/project_2/ops_piezo.webp">
-				</p>
-
-
-				<p class="mb-5">
-					Piezo buzzers come in two varieties: active and passive. <strong>Active</strong> buzzers have a
-					built-in oscillator with a set frequency
-					that cannot be changed. <strong>Passive</strong> buzzers do not; they have to be fed an oscillating
-					signal. We will
-					use a passive piezo
-					buzzer.
-				</p>
-
-				<h4 class="mb-3 fw-light">Using the Buzzer with Arduino</h4>
-
-				<p class="mb-3">
-					We will use a built-in Arduino function to send a PWM signal of specific frequency to the piezo
-					buzzer. Instead of using
-					<code class="pj-code language-arduino">analogWrite</code>, we will try <code
-						class="pj-code language-arduino">tone</code>, which allows you to set
-					the frequency and duration (in milliseconds)
-					of the PWM signal.
-					This is perfect for playing music notes!
-				</p>
-
-				<p class="mb-3">
-					<code class="pj-code language-arduino">tone(int pin, int frequency, long duration);</code>
-				</p>
-
-				<div class="alert alert-info" role="info">
-					<code class="pj-code language-arduino">tone</code> is a <strong>non-blocking</strong> function. The
-					program will not
-					pause for the duration of the note; it will continue to execute.
-				</div>
-
-				<p class="mb-3">
-					Here are some music notes translated to frequencies:
-				<table class="table pj-download-table mb-3">
-					<tr>
-						<th>Music Note</th>
-						<th>Frequency (Hz)</th>
-					</tr>
-					<tr>
-						<td>
-							C5
-						</td>
-						<td>
-							523
-						</td>
-					</tr>
-					<tr>
-						<td>
-							D5
-						</td>
-						<td>
-							587
-						</td>
-					</tr>
-					<tr>
-						<td>
-							E5
-						</td>
-						<td>
-							659
-						</td>
-					</tr>
-					<tr>
-						<td>
-							F5
-						</td>
-						<td>
-							698
-						</td>
-					</tr>
-					<tr>
-						<td>
-							G5
-						</td>
-						<td>
-							783
-						</td>
-					</tr>
-				</table>
-				</p>
-
-				<p class="mb-5">
-					Try it out! Play note C5 for 1 second with <code
-						class="pj-code language-arduino">tone(6, 523, 1000);</code> where the buzzer is connected to pin
-					D6.
-				</p>
-
-				<h2 class="mb-3 fw-bold" id="pj-heading-arduino-nano-pinout">Arduino Nano Pinout</h2>
-				<p class="mb-5">
-					Thinking about using a pin but you don't know what it does? Refer to the Arduino Nano pinout
-					diagram. The full datasheet is linked in the <a href="#pj-heading-parts">Parts</a> section.
-					<br>
-					<span class="text-blue">~</span> represents pins that are PWM capable.
-					<img class="img-fluid my-4" src=".\assets\images\pinouts\ops-pinout-arduino-nano.png">
-				</p>
-
-				<h2 class="mb-3 fw-bolder" id="pj-heading-requirements">Requirements</h2>
-				<p class="mb-3">
-					For readers who are enrolled in the course: In order to receive full marks on your project
-					submission,
-					make sure it meets the following <strong>minimum requirements</strong>.
-				</p>
-				<h3 class="mb-3">Toggle-able LED Circuit</h3>
-				<ul class="mb-5 list-group">
-					<li class="list-group-item">
-						You must write a program in which the Arduino board toggles the state of its built-in LED (D13)
-						when a button is
-						pressed.
-					</li>
-					<li class="list-group-item">
-						The state of the LED must toggle only once for each button press
-						<ul>
-							<li>
-								Meaning… The LED should not flicker ON and OFF if the button is held down.
-							</li>
-						</ul>
-					</li>
-					<li class="list-group-item">
-						This program must be implemented with <code
-							class="pj-code language-arduino">attachInterrupt</code>.
-					</li>
-					<li class="list-group-item">
-						<strong>No loops may be used</strong> (that includes the main<code
-							class="pj-code language-arduino">loop()</code>).
-					</li>
-					<li class="list-group-item">
-						The circuit must be built on a breadboard.
-					</li>
-				</ul>
-				<h3 class="mb-3" id="requirements">Digital Stopwatch</h3>
-				<ul class="mb-5 list-group">
-					<li class="list-group-item">
-						You must build a digital stopwatch with two buttons, the TM1637, and a piezo buzzer.
-					</li>
-					<li class="list-group-item">
-						One button one serves as a “Start/Pause/Resume” button.
-						<ul>
-							<li>
-								When this button is first pressed, the stopwatch begins.
-							</li>
-							<li>
-								A second press of this button should pause the stopwatch. Another press should resume
-								it.
-							</li>
-						</ul>
-					</li>
-					<li class="list-group-item">
-						The second button one serves as a “Stop” button.
-						<ul>
-							<li>
-								When this button is pressed, the stopwatch stops,
-								and the display freezes on the time elapsed.
-								The next press of the “Start/Pause/Resume” button resets the display
-								to zero stopwatch and starts the stopwatch.
-							</li>
-						</ul>
-					</li>
-					<li class="list-group-item">
-						When the stopwatch is active, the TM1637 must display the number of minutes and seconds elapsed.
-						<ul>
-							<li>
-								The colon must be displayed
-							</li>
-							<li>
-								The two digits to the left of the colon should display the number of minutes elapsed.
-							</li>
-							<li>
-								The two digits to the right elapsed should display the number of seconds elapsed in the
-								current minute.
-							</li>
-							<img class="pj-img-fluid mx-auto mb-3"
-								src=".\assets\images\project_7\ops_project7_seven_segment1.png">
-
-						</ul>
-					</li>
-					<li class="list-group-item">
-						Each time a button is pressed, the buzzer must play at least one note.
-					</li>
-					<li class="list-group-item">
-						Each time a minute elapses, the buzzer must play at least one note.
-					</li>
-					<li class="list-group-item">
-						Buttons must be implemented with <code class="pj-code language-arduino">attachInterrupt</code>.
-					</li>
-					<li class="list-group-item">
-						You may use the main <code class="pj-code language-arduino">loop()</code> only for time
-						conversion and updating the display.
-					</li>
-
-					<li class="list-group-item">
-						The circuit must be built on a breadboard.
-					</li>
-				</ul>
-
-
-
 				<h2 class="mb-3 fw-bold" id="pj-heading-schematics">Schematics</h2>
 				<div class="accordion mb-5" id="schemAccordian">
 					<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button" type="button" data-bs-toggle="collapse"
 								data-bs-target="#schemCollapse1" aria-expanded="true" aria-controls="schemCollapse1">
-								Schematic A (Toggle-able LED Circuit)
+								Schematic A
 							</button>
 						</h2>
 						<!--Pin to page?-->
 						<div id="schemCollapse1" class="accordion-collapse collapse show"
 							data-bs-parent="#schemAccordian">
 							<div class="accordion-body text-center">
+								<!-- TODO: Update Image -->
 								<img src='./assets/images/schematics/ops_schem_proj7_a.png' class="pj-img-fluid mx-auto"
 									width="400px">
-							</div>
-						</div>
-					</div>
-
-					<div class="accordion-item">
-						<h2 class="accordion-header">
-							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-								data-bs-target="#schemCollapse2" aria-expanded="true" aria-controls="schemCollapse2">
-								Schematic B (Digital Stopwatch)
-							</button>
-						</h2>
-						<!--Pin to page?-->
-						<div id="schemCollapse2" class="accordion-collapse collapse" data-bs-parent="#schemAccordian">
-							<div class="accordion-body text-center">
-								<img src='./assets/images/schematics/ops_schem_proj7_b.png' class="pj-img-fluid mx-auto"
-									width="800px">
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<h2 class="mb-3 fw-bold" id="pj-heading-instructions">Instructions</h2>
+				<p class="mb-3">
+					Each checkpoint guides you through the process of designing the 555 Blinker circuit, which should
+					look something like
+					this upon completion:
+				</p>
+				<!-- TOOD: Add Image -->
+				<p class="mb-3">
+					<strong>Make sure to save your progress frequently.</strong> Nothing is more infuriating than trying
+					to recover lost data and lost time.
+				</p>
+				<p class="mb-3">
+					<strong>You should also do yourself the favor of using a mouse.</strong> Suffice to say, KiCad is
+					unkind to touchpad users (and if you are using a pointing stick, something is wrong with you.)
+				</p>
+				<p class="mb-3">
+					And with that, let's get started!
+				</p>
 				<h3 class="mb-3" id="pj-heading-checkpoint1">Checkpoint 1</h3>
 				<ol class="mb-5 list-group list-group-numbered">
 					<li class="list-group-item">
-						Build the circuit in <strong>Schematic A</strong> (Toggle-able LED Circuit) on your breadboard.
-						<div class="alert alert-info mt-2" role="alert">
-							Use the built-in LED connected to the Arduino Nano's D13 pin
-						</div>
-						<div class="alert alert-info mt-2" role="alert">
-							Don't forget to use INPUT_PULLUP when setting the pinmode of the pushbutton pin.
+						Open <strong>KiCad 7.0</strong> to launch the <strong>Project Manager</strong> and create a new
+						project. Name the
+						project file using the following format:
+						<strong>“ops_project8_lastname_firstname.kicad_pro”</strong>
+						<!-- TODO: Insert Gif here -->
+					</li>
+					<li class="list-group-item">
+						Now that you have created a project, open the <strong>Schematic Editor</strong> (or press
+						<strong>Ctrl+E</strong>, Mac: <strong>⌘+E</strong>) to launch the schematic
+						capture application.
+						<!-- TODO: Insert Gif here -->
+					</li>
+					<li class="list-group-item">
+						Click on <strong>Add Power Symbol</strong> (or press <strong>P</strong>) to add the
+						<strong>+9V</strong> (VCC) and <strong>Earth</strong> schematic symbols.
+						<!-- TODO: Insert images and Gif here -->
+						<div class="alert alert-info" role="info">
+							Need to zoom in or out? Use the mouse scroll wheel or select one of the following options
+							from the menu bar at the top
+							of the application:
+							<!-- TODO: Insert image here -->
 						</div>
 					</li>
 					<li class="list-group-item">
-						Upload your sketch to the board, and verify that the system executes as expected.
+						Click on <strong>Add Symbol</strong> (or press <strong>A</strong>) and add each of the schematic
+						symbols listed in the <a class="link-primary" href="#pj-heading-parts">Parts</a> section of the
+						project
+						specification.
+						<!-- TODO: Insert images and Gif here -->
+						<div class="alert alert-info" role="info">
+							Moving Symbols: You can move symbols by selecting them, then holding down the left mouse
+							button, and moving the cursor.
+							You can also select the symbol, press M, then move the cursor.
+						</div>
+					</li>
+					<li class="list-group-item">
+						For each valued component (resistors, capacitor, LED), right click on the component, and select
+						<strong>Properties</strong> (or press <strong>E</strong>).
+						<br><br>
+						Edit the <strong>Value</strong> field in the Symbol Properties dialog to be the corresponding
+						component value in
+						Ohms, Farads, etc.
+						<!-- TODO: Insert images and Gif here -->
+						<div class="alert alert-info" role="info">
+							The value scheme is as follows:
+							<br>
+							{<strong>base value</strong>} {<strong>scale</strong>} {<strong>unit</strong>}
+							<br>
+							<strong>scale</strong> (power of 10): p: -12, n: -9, u: -6, m: -3, k: 3, M: 6, G: 9
+							<br>
+							<strong>unit</strong>: Capacitors: F, Inductors: H, Resistors: None
+						</div>
+					</li>
+					<li class="list-group-item">
+						Open the <strong>Footprint Assignment</strong> tool. For each component symbol, assign a
+						footprint. The symbols' footprints (and their
+						footprint libraries) are defined in the <a class="link-primary"
+							href="#pj-heading-parts">Parts</a> section of the project specification.
+						<br><br>
+						After assigning each component, select <strong>Apply, Save Schematic & Continue</strong> to save
+						your progress.
+						<!-- TODO: Insert images and Gif here -->
+						<div class="alert alert-info" role="info">
+							After footprints are assigned to symbols, you can <strong>copy</strong>
+							(<strong>Ctrl+C</strong>, Mac: <strong>⌘+E</strong>) and <strong>paste</strong>
+							(<strong>Ctrl+V</strong>,
+							Mac: <strong>⌘+V</strong>) symbols and their
+							footprint assignments will be copied over as well
+						</div>
+					</li>
+					<li class="list-group-item">
+						Move symbols and rotate them in preparation to connect them with wires. If a symbol is in the
+						wrong orientation right
+						click on the component and select <strong>Rotate Counterclockwise</strong> (or press
+						<strong>R</strong>) to rotate it 90 degrees
+						counterclockwise.
+						<!-- TODO: Insert images and Gif here -->
+					</li>
+					<li class="list-group-item">
+						Add <strong>net labels</strong> to avoid crossing wires. Net labels are basically invisible
+						connections; they help clean up the
+						schematic.
+						<!-- TODO: Insert images and Gif here -->
+					</li>
+					<li class="list-group-item">
+						Add <strong>no-connection flags</strong> to indicate which pins/leads are to be left
+						unconnected. This is important for when we run
+						verification tools later.
+						<br><br>
+						<!-- TODO: Insert images and Gif here -->
+						<br><br>
+						Run the Annotate Schematic tool
 					</li>
 				</ol>
 
 				<h3 class="mb-3" id="pj-heading-checkpoint2">Checkpoint 2</h3>
-				<ol class="mb-5 list-group list-group-numbered">
+				<ol class="mb-5 list-group list-group-numbered" start="10">
 					<li class="list-group-item">
-						Build the circuit in <strong>Schematic B</strong> (Digital Stopwatch) on your breadboard.
+						Open the <strong>Annotate Schematic</strong> tool and select <strong>Annotate</strong> to name
+						the remaining symbols which have been marked erroneously
+						with “?”.
+						<!-- TODO: Insert images and Gif here -->
 					</li>
 					<li class="list-group-item">
-						Upload your sketch to the Arduino Nano, and verify that the program executes as expected.
+						You will now verify the schematic. Open the <strong>Electrical Rules Check (ERC)</strong> tool
+						and select <strong>Run ERC</strong>
+						<!-- TODO: Insert images and Gif here -->
+						<div class="alert alert-info" role="info">
+							There should be no violations except for Error: Input Power pin not driven by any Output
+							Power pins.
+						</div>
+					</li>
+				</ol>
+
+				<h3 class="mb-3" id="pj-heading-checkpoint3">Checkpoint 3</h3>
+				<ol class="mb-5 list-group list-group-numbered" start="10">
+					<li class="list-group-item">
+						Return to the <strong>Project Manager</strong> window and open the <strong>PCB Editor</strong>
+						(or press <strong>Ctrl+P</strong>, Mac: <strong>⌘+P</strong>).
+						<!-- TODO: Insert images and Gif here -->
+					</li>
+					<li class="list-group-item">
+						Though this step is not required for your project, you can configure the stackup and add
+						manufacturer design constraints
+						by selecting <strong>File → Board settings</strong>
+						<!-- TODO: Insert images and Gif here -->
+					</li>
+					<li class="list-group-item">
+						To generate the components specified by your schematic, open the <strong>Update PCB</strong>
+						tool (or press <strong>F8</strong>) and select <strong>Update PCB</strong>
+						<br><br>
+						The component footprints will then be generated and follow your cursor until you left click to
+						confirm their initial
+						placement.
+						<!-- TODO: Insert images and Gif here -->
+					</li>
+					<li class="list-group-item">
+						Now, you need to set the track and via sizes. Disable the <strong>Use Existing Track
+							Width</strong>.. option by
+						selecting the button until it is no longer highlighted. Then, open the <strong>Track use
+							netclass width</strong>
+						dropdown and select <strong>Edit Pre-defined Sizes</strong>
+						<br><br>
+						Add the following pre-defined sizes:
+						<table class="table pj-part-table mb-5">
+							<thead>
+								<td>Tracks (Width)</td>
+								<td>Vias (Diameter/Hole)</td>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										40 mil
+									</td>
+									<td>
+										30mil/20mil
+									</td>
+								</tr>
+								<tr>
+									<td>
+										30 mil
+									</td>
+									<td>
+
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<br><br>
+						Traces with <strong>40 mil width</strong> must be used for <strong>power and ground
+							lines</strong>.
+						<br>
+						Traces with <strong>30 mil width</strong> must be used for <strong>signal lines</strong>
+						<br><br>
+						Vist the <strong>Track use netclass width</strong> and <strong>Via use netclass
+							sizes</strong>ropdowns and select one of the newly populated options.
+						(Change between the options as necessary when you route the traces.)
+						<!-- TODO: Insert images and Gif here -->
 					</li>
 				</ol>
 
