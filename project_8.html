@@ -540,6 +540,61 @@
 						(Change between the options as necessary when you route the traces.)
 						<!-- TODO: Insert images and Gif here -->
 					</li>
+					<li class="list-group-item">
+						Create the board outline. Select the <strong>Edge.Cuts</strong> layer then use one of the shapes
+						tools to create the outline. Remember to
+						return to the <strong>F.Cu</strong> (Front Copper) layer when done.
+						<!-- TODO: Insert images and Gif here -->
+					</li>
+					<li class="list-group-item">
+						Create the traces. Select <strong>Route Tracks</strong> (or press <strong>X</strong>) and begin
+						drawing traces between pads which are connected via the
+						ratsnets.
+						<!-- TODO: Insert images and Gif here -->
+						<div class="alert alert-warning" role="alert">
+							Remember to change the trace width according its use case. Power/Ground lines should be
+							larger width than signal lines.
+						</div>
+						<div class="alert alert-warning" role="alert">
+							Leave the ground pads <strong>unconnected</strong>.
+						</div>
+					</li>
+					<li class="list-group-item">
+						In the event two traces on the same layer must cross paths, you may instead create one of the
+						traces on the <strong>B.Cu</strong> (Back
+						Copper) layer.
+						<br><br>
+						Use the <strong>Add Via</strong> tool (or press <strong>Ctrl+Shift+V</strong>, Mac:
+						<strong>⌘+Shift+V</strong>) to place vias which may connect traces of different layers.
+						<!-- TODO: Insert images and Gif here -->
+					</li>
+					<li class="list-group-item">
+						With all but the ground pads connected, you will create the ground fill. Select <strong>Add Fill
+							Zone</strong>
+						(or press <strong>Ctrl+Shift+Z</strong>
+						Mac: <strong>⌘+Shift+Z</strong>). A dialog will appear:
+						<br><br>
+						Select both the <strong>F.Cu</strong> and <strong>B.Cu</strong> layers as well as the
+						<strong>Earth</strong> net.
+						Then, select <strong>Ok</strong>.
+						<br><br>
+						Now, left click to draw the <i>closed</i> area in which the fill will be created.
+						<br><br>
+						When the fill zone is created, press <strong>B</strong> to fill.
+						<!-- TODO: Insert images and Gif here -->
+					</li>
+					<li class="list-group-item">
+						If you wish to add text to the PCB, select the <strong>F.Silkscreen</strong> layer. Then, use
+						the <strong>Add Text Item</strong>
+						tool (or press
+						<strong>Ctrl+Shift+T</strong>, Mac: <strong>⌘+Shift+T</strong>) to generate and place textboxes
+						on the silkscreen.
+						<br><br>
+						Alternatively, you may write text to the back of the PCB by selecting the
+						<strong>B.Silkscreen</strong>ayer
+						instead.
+						<!-- TODO: Insert images and Gif here -->
+					</li>
 				</ol>
 
 				<h2 class="mb-3 fw-bold" id="pj-heading-deliverables">Deliverables <span class="fw-light">(Enrolled
