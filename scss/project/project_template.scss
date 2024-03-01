@@ -145,7 +145,7 @@ li .nav-item {
 
 .pj-img-fluid {
     display: block;
-    
+
     /* Make it effectively the same as .img-fluid from Bootstrap */
     max-width: 100%;
     height: auto;
@@ -205,7 +205,7 @@ li .nav-item {
 
 /* For responsive, mobile screens (Bootstrap: md) */
 @media (max-width: 768px) {
-    
+
     /* Forces p elements below left or right floated elements (usually images) */
     .pj-main p {
         clear: both;
@@ -221,7 +221,7 @@ li .nav-item {
         float: left;
 
     }
-    
+
     .pj-img-fluid-end {
         @extend .pj-img-fluid;
         float: left;

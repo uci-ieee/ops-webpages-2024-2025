@@ -159,8 +159,8 @@
 					placing components and
 					routing conductive tracks in a virtual layout of your PCB. You can learn exactly how this process
 					works in the KiCad EDA
-					software by viewing our PCB Design with KiCad workshop material the lecture material <a
-						class="link-primary" href="./workshops.html" target="_blank" rel="noreferrer">here</a>.
+					software by viewing our PCB Design with KiCad workshop material <a class="link-primary"
+						href="./workshops.html" target="_blank" rel="noreferrer">here</a>.
 				</p>
 
 				<h2 class="mb-3 fw-bold" id="pj-heading-installing-kicad">Installing KiCAD 7.0</h2>
@@ -222,13 +222,50 @@
 					</li>
 				</ol>
 
+				<h2 class="mb-3 fw-bolder" id="pj-heading-requirements">Requirements</h2>
+				<p class="mb-3">
+					For readers who are enrolled in the course: In order to receive full marks on your project
+					submission,
+					make sure it meets the following <strong>minimum requirements</strong>.
+				</p>
+				<ul class="mb-5 list-group">
+					<li class="list-group-item">
+						You must create a full schematic that replicates the provided 555 Blinker Circuit diagram
+						<ul>
+							<li>
+								The schematic must pass the Electronic Rules Check (ERC) for all but the error: “Input
+								Power pin not driven by any
+								Output Power pins.”
+							</li>
+						</ul>
+					</li>
+					<li class="list-group-item">
+						You must design a PCB from the 555 Blinker Circuit schematic you create
+						<ul>
+							<li>
+								The PCB layout must pass the Design Rules Check (DRC)
+							</li>
+						</ul>
+					</li>
+					<li class="list-group-item">
+						The symbols and footprints used in the schematic and PCB must match those listed in the <a
+							class="link-primary" href="#pj-heading-parts">Parts</a>
+						section of the project
+						specification
+					</li>
+					<li class="list-group-item">
+						Optional Challenge: The PCB must have no traces on the bottom copper layer and no vias
+					</li>
+				</ul>
+
 				<h2 class="mb-3 fw-bold" id="pj-heading-parts">Parts</h2>
 				<p class="mb-3">
 					This is not a physical parts list. The followig parts will be used in the PCB EDA application.
 				</p>
 
 				<!-- ======= Part Table ======= -->
-				<table class="table pj-part-table mb-5">
+
+				<table class="table pj-part-table mb-5 w-50">
 					<thead>
 						<tr>
 							<th scope="col"></th>
@@ -236,12 +273,11 @@
 							<th scope="col">Symbol</th>
 							<th scope="col">Footprint Library</th>
 							<th scope="col">Footprint</th>
-
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td>x1</td>
+							<td>x2</td>
 							<td>
 								Header, 2.54mm, Female, 1x2
 							</td>
@@ -270,7 +306,6 @@
 								DIP-8_W7.62mm
 							</td>
 						</tr>
-
 						<tr>
 							<td>x1</td>
 							<td>
@@ -282,7 +317,7 @@
 							<td>
 								Resistor_THT
 							</td>
-							<td>
+							<td style="font-size: 14px">
 								R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal
 							</td>
 						</tr>
@@ -297,7 +332,7 @@
 							<td>
 								Resistor_THT
 							</td>
-							<td>
+							<td style="font-size: 14px">
 								R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal
 							</td>
 						</tr>
@@ -333,6 +368,7 @@
 						</tr>
 					</tbody>
 				</table>
+
 				<!-- End Part Table -->
 
 				<h2 class="mb-3 fw-bold" id="pj-heading-schematics">Schematics</h2>
