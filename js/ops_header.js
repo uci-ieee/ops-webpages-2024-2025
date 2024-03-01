@@ -30,6 +30,7 @@ document.write(`
                             <li><a class="dropdown-item" href="./project_5.html">Project 5: iPoduino v2.0</a></li>
                             <li><a class="dropdown-item" href="./project_6.html">Project 6: Weather Station</a></li>
                             <li><a class="dropdown-item" href="./project_7.html">Project 7: Digital Stopwatch</a></li>
+                            <li><a class="dropdown-item" href="./project_8.html">Project 8: PCB Design with KiCad</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
