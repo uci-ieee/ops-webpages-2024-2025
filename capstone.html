@@ -332,14 +332,15 @@
 			</ol>
 
 			<h2 class="mb-3 fw-bold" id="pj-heading-analog-joystick">Analog Joystick</h2>
-			<p class="mb-5">
+			<p class="mb-3">
 				The remote control will accept input via an <i>analog</i> joystick. The component outputs analog signals that 
 				the Arduino board will read and process. Much like a console controller, the joystick has two axes, 
 				horizontal and vertical.  The degree to which the joystick has pivoted along these axes determines the 
 				output of its data lines.
-				<img class="img-fluid my-3 me-lg-5 me-3 float-start" style="max-width: 400px;"
-					src="assets/images/capstone/ops_joystick_pinout.png">
+				
 			</p>
+			<img class="img-fluid my-3 me-lg-5 me-3 float-start" style="max-width: 400px;"
+				src="assets/images/capstone/ops_joystick_pinout.png">
 			<h4 class="mb-3 fw-light">Joystick Pinout</h4>
 			<p class="mb-5">
 				To the left is the pinout of the joystick. The GND and <span class="text-red">+5V</span> pins power the radio module. 
@@ -410,7 +411,7 @@
 					When the button is pressed, the voltage at the input pin is shorted to GND (LOW).
 				</p>
 			</div>
-			<p class="mb-5">
+			<p class="mb-3">
 				With this circuit, the input pin will either be VCC or GND (HIGH or LOW).
 				<br><br>
 				When you use a button or, in our case, the <span class="text-green">SW</span> pin of the joystick, you should use a pull-up resistor. 
@@ -424,7 +425,247 @@
 				There are also <b>pull-down resistors</b>, which we will not discuss here.
 			</p>
 			
-		
+			<h2 class="mb-3 fw-bold" id="pj-l293d-quadruple-half-h-driver">L293D Quadruple Half-H Driver</h2>
+			<p class="mb-5">
+				We will use an L293D chip to drive the two DC motors of the rover. The H-bridge should be familiar to you. This time, the L293D will do 
+				the heavy lifting. Within this IC are two H-bridges, making it possible to drive two motors bidirectionally.
+			</p>
+
+			<h4 class="mb-3 fw-light">Reading the Big Scary Manual</h4>
+			<p class="mb-3">
+				This time around, we will not thoroughly discuss the driver’s operation. You will have to read the datasheet, and figure it out yourself.
+				<br><br>
+				<a class="link-primary" href="https://drive.google.com/file/d/1XgJbA4hapVwiDeIkIh0e_JCzlX8x-nO8/view">L293D Quadruple Half-H Driver Datasheet.pdf</a>
+				<br><br>
+				Skim through the datasheet to familiarize yourself with the documentation. Some items you may recognize but the vast majority you may not. 
+				This is okay!
+				<br><br>
+				<b>Pay close attention to pages 3, 7, and 11-12.</b> These pages will help you the most in understanding the functions of the IC.
+				<br><br>
+				As you read, here are some things to note:
+			</p>
+			<ol class="mb-4 list-group list-group-numbered">
+				<li class="list-group-item">
+					The documentation refers to both the L293 and L293D, only the latter of which we will use. This version of the chip contains flyback diodes.
+				</li>
+				<li class="list-group-item">
+					Of the several system examples, we will use the <b>Bidirectional DC Motor Control</b>.
+				</li>
+				<li class="list-group-item">
+					The term “<b>logic</b>” refers to the binary HIGH and LOW output of the Arduino digital pins.
+				</li>
+			</ol>
+
+			<h4 class="mb-3 fw-light">L293D Pinout</h4>
+			<p class="mb-3">
+				Below you will find a pinout of the chip. Initially, it will seem overwhelming, but it will make more sense as you navigate the datasheet.
+			</p>
+			<img class="pj-img-fluid mx-auto mb-4" src="./assets/images/capstone/ops_L293D_pinout.png" width = "500">
+			<p class="mb-5">
+				Ensure that the Arduino board and L293D share a <b>ground connection</b>.
+				<br><br>
+				As you will learn in the datasheet, <span class="text-purple">1EN</span> and <span class="text-magenta">2EN</span> are enable pins, which you will 
+				need to set to HIGH to control the driver channels. Note that if you apply a PWM signal to these pins, you can control the speed of their respective 
+				channels.
+			</p>
+
+			<h2 class="mb-3 fw-bold" id="pj-heading-nrf24l01">NRF24L01 Transceiver Module</h2>
+			<p class="mb-3">
+				The NRF24 radio transceiver is a popular choice for wireless communication between microcontroller boards. We’ll use the NRF24L01 variation, 
+				which is a low-power, high-frequency radio module.
+			</p>
+			<p class="mb-5">
+				Here’s how we’ll transmit data: The Arduino board will transfer messages to and from the radio module using SPI protocol, and the radio module will handle the rest. 
+				It uses a radio protocol called <a class="link-primary" href= "https://devzone.nordicsemi.com/nordic/nordic-blog/b/blog/posts/intro-to-shockburstenhanced-shockburst">Enhanced ShockBurst™</a> (ESB) to transmit wirelessly to another NRF24. The beauty of it all is that we don’t need to know how ESB protocol works; 
+				we just need to get the data from the Arduino to the radio module.
+			</p>
+
+			<h4 class="mb-3 fw-light">Radio Frequency Bands and Channels</h4>
+			<p class="mb-3">
+				Remember that the NRF24 modules send information over radio waves, just like our mobile phones, satellites, and WiFi. But how do the <strong> radio waves </strong> emitted by a 
+				satellite not interfere with the radio waves of a WiFi router or iPhone? Let’s explain: Each signal belongs to a <strong>frequency band</strong> or range of contiguous frequencies specified 
+				by the International Telecommunication Union (ITU).
+			</p>
+
+			<img class="pj-img-fluid mx-auto mb-5" src="assets\images\ops_radio_frequency.png" width="1500">
+
+			<p class="mb-3">
+					FM radio is designated to a frequency band of 88-108 MHz, and WiFi exists in 2.4 GHz and 5 GHz bands. These bands are further divided into <strong>channels</strong>.
+					</p>
+
+			<p class="mb-3">
+				For example, FM radio has 100 channels, each with a different radio frequency within the larger frequency band. FM radio stations are assigned to unique channels, which is why you normally don’t hear 
+				Taylor Swift overlaid with the latest stock market report.
+				</p>
+			<p class="mb-3">
+				If multiple radio signals were to exist on the same frequency, a collision would occur. This is why the ITU takes special care to regulate the radio spectrum.
+					</p>				
+			<p class="mb-5">
+				The NRF24L01 operates on a 2.4 GHz frequency band, which it shares with WiFi. This band is subdivided into 125 channels from which we choose to emit a signal. 
+				<strong>You will have to manually select a channel</strong> for the two radio modules to operate on. Moreover, this channel will have to be different from any nearby pair of NRF24 modules to avoid collisions.
+					</p>	
+
+			<h4 class="mb-3" style="">NRF24L01 Pinout</h4>
+			<p class="mb-3">
+				Below, you’ll find a pinout of the NRF24L01. You should recognize some of the pins as the SPI protocol lines 
+				(i.e., <span class="text-yellow">CE/CS</span>, <span class="text-green">PICO</span>, <span class="text-purple">POCI</span>, <span class="text-blue">SCK</span>).
+			<p class="mb-3">
+				<img class="pj-img-fluid mx-auto mb-5" src="assets\images\ops_nrf24l01_annotated.png" width="600">
+			</p>
+			<p class="mb-3">	
+					The GND and <span class="text-red">VCC</span> pins power the radio module. <Strong> Make sure that <span class="text-red">VCC</span> is connected to a 3.3V</Strong> power source rather than 5V. Unlike other components we use, the NRF24 accepts only 3.3V power, 
+					which is an increasingly common voltage in modern digital circuits. Luckily, the module still tolerates 5V logic, meaning we can connect the other pins to the Arduino’s digital pins as we normally would.
+						</p>
+			<p class="mb-3">
+				The <span class="text-yellow">CSN</span> pin is the “Chip Select Not” pin, which disables SPI communication when <Strong>HIGH</Strong>. When we want the radio module to listen for SPI messages, the pin is set to <strong>LOW</strong>.  
+					</p>	
+			<p class="mb-5">
+				Last but not least is the <span class="text-gray">IRQ</span> pin for interrupts, which we will not use in this project. Make sure the <span class="text-gray">IRQ</span> pin is left disconnected.
+			</p>	
+
+			<h4 class="mb-3 fw-light" id="pj-heading-dht11">Wiring the Arduino to the Radio Module</h4>
+			<p class="mb-3">
+			Just like I<sup>2</sup>C, the Arduino is designed to handle SPI communication through certain pins on the board, which connect to the NRF24 as follows.
+				
+
+			<table class="table pj-download-table mb-5">
+				<tr>
+					<th>NRF24L01 Pins</th>
+					<th>Arduino Nano Pins</th>
+				</tr>
+				<tr>
+					<td>GND</td>
+					<td>GND</td>
+				</tr>
+				<tr>
+					<td><span class="text-red">VCC</span></td>
+					<td>3.3V</td>
+				</tr>
+				<tr>
+					<td><span class="text-yellow">CE/CS</span></td>
+					<td>D7</td>
+				</tr>
+				<tr>
+					<td><span class="text-orange">CSN</span></td>
+					<td>D8</td>
+				</tr>
+				<tr>
+					<td><span class="text-blue">SCK</span></td>
+					<td>D13</td>
+				</tr>
+				<tr>
+					<td><span class="text-green">PICO</span></td>
+					<td>D11</td>
+				</tr>
+				<tr>
+					<td><span class="text-purple">POCI</span></td>
+					<td>D12</td>
+				</tr>
+				<tr>
+					<td><span class="text-gray">IRQ</span></td>
+					<td>None</td>
+				</tr>
+
+
+			</table>
+
+			<h4 class="mb-3 fw-light" style="display: inline;">Using the NRF24L01_W Library</h4>
+			<p class="mb-3">
+				<br>
+				Once you wire the Arduino board to the radio module, it’s time to write code! Download the
+				library <a class="link-primary"
+					href="https://drive.google.com/file/d/1NOQYAHhi2zEvs3LF03NmtVruFnfNxvSp/view?usp=share_link">
+					here </a>.
+				Make sure to include the header file:
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">#include &lt;NRF24L01_W.h&gt;</code>
+			</p>
+			<p class="mb-3">
+				You will instantiate a global object of the NRF24L01_W class, which represents the radio
+				connected to the Arduino board.
+				The two arguments of the constructor are the <span class="text-yellow">CS</span> and <span
+					class="text-orange">CSN</span> pins of the board.
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">NRF24L01_W radio(int CS, int CSN); </code>
+			</p>
+			<p class="mb-3">
+				The next steps are to configure your newly created radio object. Place this code in your <code
+					class="pj-code language-arduino">setup()</code> function.
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">radio.begin();</code>
+			</p>
+			<p class="mb-3">
+				You will set the <code class="pj-code language-arduino">address</code> of your radio to a five
+				character string and pass it into the radio's <code
+					class="pj-code language-arduino">setReceiveAddress()</code> function.
+				For example, you could set the address to <code class="pj-code language-arduino">"B1440”</code>.
+				<strong>Make sure the address is unique</strong>.
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">radio.setReceiveAddress(char[] address);</code>
+			</p>
+			<p class="mb-3">
+				Now, enter the address of the radio to which you intend to transmit messages.
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">radio.setTransmitAddress(char[] address);</code>
+			</p>
+			<p class="mb-3">
+				You will also set the channel that your radios will operate on. <strong>Pick one at
+					random</strong> in the range of 0-124.
+				Make sure that both NRF24 modules are set to the <strong>same channel</strong>.
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">radio.setChannel(int channel);</code>
+			</p>
+			<p class="mb-3">
+				Let’s move on to the code that would appear in the <code
+					class="pj-code language-arduino">main()</code> loop. This is where radio messages will be
+				read and written (transmitted and received).
+				To facilitate the data transfer, you are provided with a special container <code
+					class="pj-code language-arduino">WeatherReport</code> with three member variables that are
+				initialized as follows.
+				Note that these variables are <code class="pj-code language-arduino">int</code> type.
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">WeatherReport report;</code>
+				<br>
+				<code class="pj-code language-arduino">report.temperature = 77;</code>
+				<br>
+				<code class="pj-code language-arduino">report.humidity = 89;</code>
+				<br>
+				<code class="pj-code language-arduino">report.light = 1;</code>
+			</p>
+			<p class="mb-3">
+				To send a report to the other radio, use the <code
+					class="pj-code language-arduino">write()</code> function, passing the
+				<code class="pj-code language-arduino">WeatherReport</code> container as an argument.
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">radio.write(WeatherReport report); </code>
+			</p>
+			<p class="mb-3">
+				You may check to see if the radio has incoming data with the following function, which returns
+				an <code class="pj-code language-arduino">int</code> greater than zero
+				<em>if</em> there is data available.
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">int payload = radio.available();</code>
+			</p>
+			<p class="mb-3">
+				To read incoming data, use the radio’s <code class="pj-code language-arduino">read()</code>
+				function, which returns a <code class="pj-code language-arduino">WeatherReport</code>
+			</p>
+			<p class="mb-3">
+				<code class="pj-code language-arduino">WeatherReport incomingReport = radio.read();</code>
+			</p>
+
+
+
+
 			<!--Finished up to here-->
 
 			<p class="mb-5">
