@@ -96,7 +96,7 @@
 				</div>
 				<div class="alert alert-light" role="alert">
 					<i class="bi bi-calendar-event me-1"></i>
-					Updated 2024.03.25 <br>
+					Updated 2024.03.26 <br>
 					By Colton Kaneria
 				</div>
 				
@@ -825,11 +825,230 @@
 			</ol>
 
 			<h4 class="mb-3 fw-light">PCB Assembly</h4>
+			<ol class="mb-4 list-group list-group-numbered">
+				<li class="list-group-item">
+					Place the headers on your newly manufactured PCB. Remember that you are not soldering the actual 
+					components to the board, just the headers.
+				</li>
+				<li class="list-group-item">
+					Solder the headers to the PCB.
+				</li>
+				<li class="list-group-item">
+					Place the components on the headers. Viola! You are done.
+				</li>
+			</ol>
 
+			<h4 class="mb-3 fw-light">Rover Assembly</h4>
+			<p class="mb-3">
+				You may customize the rover however you like, but it does need to work. Just in case, we offer 
+				instructions on how to build it.
+			</p>
+			<ol class="mb-1 list-group list-group-numbered">
+				<li class="list-group-item">
+					Collect the listed components, all of which are displayed below:
+					<ul>
+						<li>
+							Breadboard
+						</li>
+						<li>
+							9V Battery Holder
+						</li>
+						<li>
+							9V Battery
+						</li>
+						<li>
+							9V Battery Snap Connector with Dupont Terminals <b>or</b> JST Female Snap Connector with Male JST Header
+						</li>
+						<li>
+							Ball Caster Components (You may have a pre-assembled ball caster components in your kit… 
+							In which case, ignore the following.)
+							<ul>
+								<li>
+									Ball Caster Chassis Grip
+								</li>
+								<li>
+									Ball Caster
+								</li>
+								<li>
+									Metal Ball
+								</li>
+								<li>
+									Long Screws (2)
+								</li>
+								<li>
+									Hex Nuts (2)
+								</li>
+								<li>
+									Wheels (2)
+								</li>
+							</ul>
+						</li>
+						<li>
+							4”x4” Wood Plate (Chassis)
+						</li>
+						<li>
+							Gearbox Motors (2)
+						</li>
+					</ul>
+					<img class="pj-img-fluid mx-auto mb-0" src=".\assets\images\capstone\ops_capstone_rover_components.png" 
+					width="800">
+				</li>
+				<li class="list-group-item">
+					Adhere the 9V battery holder to one face of the wood plate. Center the battery holder along the edge of the plate. 
+					Make sure the open side of the battery holder is on the edge of the wood plate.
+					<br><br>
+					<span class="text-red"><b>Hot Tip</b>: Use a glue gun</span>
+					<img class="pj-img-fluid mx-auto mb-0" src=".\assets\images\capstone\ops_capstone_holder_glued.png" 
+					width="550">
+				</li>
+				<li class="list-group-item">
+					Adhere the two gearbox motors to the wood plate so that they sit on either side of the battery holder.
+					<img class="pj-img-fluid mx-auto mb-0" src=".\assets\images\capstone\ops_capstone_motors_glued.png" 
+					width="600">
+				</li>
+				<li class="list-group-item">
+					<b>If you have pre-assembled ball caster components, ignore this step</b>: Using the long screws and hex nuts, fasten 
+					the black ball caster to the chassis grip. To do so…
+					<ul>
+						<li>
+							Place the hex nuts in the hexagonal hole inside the clip.
+						</li>
+						<li>
+							Feed the screws through the caster’s holes and the holes at the bottom of the grip.
+						</li>
+						<li>
+							Tighten the screws until the hex nuts “catch” them and the ball caster is tightly bound.
+						</li>
+					</ul>
+					<img class="pj-img-fluid mx-auto mb-0" src=".\assets\images\capstone\ops_capstone_chassis_grip_parts.png" 
+					width="550">
+					<img class="pj-img-fluid mx-auto mb-0" src=".\assets\images\capstone\ops_capstone_chassis_grip_1.png" 
+					width="150" style="display: inline;">
+					<img class="pj-img-fluid mx-auto mb-5" src=".\assets\images\capstone\ops_capstone_chassis_grip_2.png" 
+					width="175" style="display: inline;">
+				</li>
+				<li class="list-group-item">
+					Clip the chassis grip to the edge of the plate opposite to the battery holder. Center align the chassis grip 
+					along the edge as well.
+					<img class="pj-img-fluid mx-auto mb-5" src=".\assets\images\capstone\ops_capstone_chassis_grip_attached.png" 
+					width="600">
+				</li>
+				<li class="list-group-item">
+					Attach the wheels to the gearbox motors, the metal ball to the caster, and the 9V battery to the battery holder. 
+					Note that the battery slides into the holder as shown below.<br>
+					<img class="pj-img-fluid mx-auto mb-5" src=".\assets\images\capstone\ops_capstone_battery_holder_and_rover.png" 
+					width="800">
+				</li>
+				<li class="list-group-item">
+					Attach the wheels to the gearbox motors, the metal ball to the caster, and the 9V battery to the battery holder. 
+					Note that the battery slides into the holder as shown below.<br>
+					<img class="pj-img-fluid mx-auto mb-5" src=".\assets\images\capstone\ops_capstone_breadboard_and_rover.png" 
+					width="800">
+				</li>
+				<li class="list-group-item">
+					The final step is to place and wire the electrical components on the breadboard. Remember that there is no 
+					schematic. You have to design the circuit yourself.
+					<br><br>
+					Try drawing up your own schematic on <a class="link-primary" href="https://www.tinkercad.com/circuits">Tinkercad</a> 
+					first. You can use all the same components and even simulate your circuit with code!
+					<br><br>
+					If you get stuck, <b>ask questions</b>.
+					<img class="pj-img-fluid mx-auto mb-0" src=".\assets\images\capstone\ops_capstone_rover_done.png" 
+					width="800">
+				</li>
+				<br>
+			</ol>
+			
+			<h4 class="mb-3 fw-light">Programming</h4>
+			<p class="mb-5">
+				How you write the code is all up to you. Just make sure there are two files, one for the rover and one for the remote control.
+				<br><br>
+				<b>Install the newest version</b> of the NRF24L01_W library as well.
+				<br><br>
+				As a final suggestion, look back at your old project submissions and reuse applicable code.
+			</p>
+
+			<h2 class="mb-3 fw-bold" id="pj-heading-references">References</h2>
+			<ul>
+				<li>
+					<a class="link-primary" 
+					href="https://drive.google.com/file/d/1w9haYGk6eka_TOTiymXVfK3o4RiIGU-8/view">NRF24L01 Datasheet.pdf</a>
+				</li>
+				<li>
+					<a class="link-primary" 
+					href="https://drive.google.com/file/d/1XgJbA4hapVwiDeIkIh0e_JCzlX8x-nO8/view">L293D Quadruple Half-H Driver Datasheet.pdf</a>
+				</li>
+				<li>
+					<a class="link-primary" 
+					href="https://drive.google.com/file/d/1cz1hD7DHxZB3xJh50DLlUIqBDYxhczFi/view">Arduino Nano Datasheet.pdf</a>
+				</li>
+				<li>
+					<a class="link-primary" 
+					href="https://drive.google.com/file/d/1MVRedo0v8xRIBDfJDWlC6YpZi6wRghAx/view">Resistor Color Code Chart.pdf</a>
+				</li>
+				<li>
+					<a class="link-primary" 
+					href="https://drive.google.com/file/d/1NOQYAHhi2zEvs3LF03NmtVruFnfNxvSp/view">NRF245L01_W Library</a>
+				</li>
+			</ul>
+
+			<h2 class="mb-3 fw-bold" id="pj-heading-deliverables">Deliverables</h2>
+			<h4 class="mb-3 fw-light">PCB Design</h4>
+			<p class="mb-3">
+				Compress the KiCad project folder as a <b>.zip</b>. It must contain the following:
+			</p>
+			<ul class="mb-4 list-group">
+				<li class="list-group-item">
+					<i class="bi bi-check2-square me-2"></i>
+					<b>KiCad Project File</b> (.kicad_pro)
+				</li>
+				<li class="list-group-item">
+					<i class="bi bi-check2-square me-2"></i>
+					<b>KiCad PCB File</b> (.kicad_pcb)
+				</li>
+				<li class="list-group-item">
+					<i class="bi bi-check2-square me-2"></i>
+					<b>KiCad Schematic File</b> (.kicad_sch)
+				</li>
+			</ul>
+			<p class="mb-4">
+				Then, submit the <b>.zip</b> file to the Capstone PCB Design Canvas assignment. Make sure that the file name follows the format: 
+				“<b>capstone_firstname_lastname.zip</b>”
+			</p>
+			<h4 class="mb-3 fw-light">Final Submission</h4>
+			<p class="mb-3">
+				Place the following files in a single Google Drive folder:
+			</p>
+			<ul class="mb-4 list-group">
+				<li class="list-group-item">
+					<i class="bi bi-check2-square me-2"></i>
+					<b>Video of your rover and the remote control</b>
+					<div class="alert alert-info mt-2" role="alert">
+						The video should include a demonstration of the rover moving forward, backward, left, and right. Make sure to show the remote as well.
+					</div>
+				</li>
+				<li class="list-group-item">
+					<i class="bi bi-check2-square me-2"></i>
+					<b>Rover Arduino sketch file</b>
+					<div class="alert alert-info mt-2" role="alert">
+						This file should include all of the code you have written for the rover. Name it “<b>capstone_rover.ino</b>”.
+					</div>
+				</li>
+				<li class="list-group-item">
+					<i class="bi bi-check2-square me-2"></i>
+					<b>Remote Control Arduino sketch file</b>
+					<div class="alert alert-info mt-2" role="alert">
+						This file should include all of the code you have written for the remote control. Name it “<b>capstone_remote.ino</b>”.
+					</div>
+				</li>
+			</ul>
+			<p class="mb-5">
+				Then, submit the <b>shareable folder link</b> to the Capstone Final Submission Canvas assignment. Make sure that the folder link is accessible 
+				to <b>Anyone with the link</b> or the <b>University of California, Irvine</b>.
+			</p>
 
 			<!--Finished up to here-->
 
-			
 		</div>
 		</main>
 	</div>
