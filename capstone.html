@@ -58,10 +58,10 @@
 						<a class="nav-link" href="#pj-heading-installing-kicad">Installing KiCAD 7.0</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#pj-analog-joystick">Analog Joystick</a>
+						<a class="nav-link" href="#pj-heading-analog-joystick">Analog Joystick</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#pj-l293d-quadruple-half-h-driver">L293D Quadruple Half-H Driver</a>
+						<a class="nav-link" href="#pj-heading-l293d-quadruple-half-h-driver">L293D Quadruple Half-H Driver</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#pj-heading-nrf24l01">NRF24L01 Transceiver Module</a>
@@ -425,7 +425,7 @@
 				There are also <b>pull-down resistors</b>, which we will not discuss here.
 			</p>
 			
-			<h2 class="mb-3 fw-bold" id="pj-l293d-quadruple-half-h-driver">L293D Quadruple Half-H Driver</h2>
+			<h2 class="mb-3 fw-bold" id="pj-heading-l293d-quadruple-half-h-driver">L293D Quadruple Half-H Driver</h2>
 			<p class="mb-5">
 				We will use an L293D chip to drive the two DC motors of the rover. The H-bridge should be familiar to you. This time, the L293D will do 
 				the heavy lifting. Within this IC are two H-bridges, making it possible to drive two motors bidirectionally.
@@ -435,7 +435,7 @@
 			<p class="mb-3">
 				This time around, we will not thoroughly discuss the driver’s operation. You will have to read the datasheet, and figure it out yourself.
 				<br><br>
-				<a class="link-primary" href="https://drive.google.com/file/d/1XgJbA4hapVwiDeIkIh0e_JCzlX8x-nO8/view">L293D Quadruple Half-H Driver Datasheet.pdf</a>
+				<a class="link-primary" href="assets/datasheets/ops_datasheet_l293d_quadruple_half-h_driver.pdf" download>L293D Quadruple Half-H Driver Datasheet.pdf</a>
 				<br><br>
 				Skim through the datasheet to familiarize yourself with the documentation. Some items you may recognize but the vast majority you may not. 
 				This is okay!
@@ -574,7 +574,7 @@
 				<br>
 				Once you wire the Arduino board to the radio module, it’s time to write code! Download the
 				library <a class="link-primary"
-					href="https://drive.google.com/file/d/1NOQYAHhi2zEvs3LF03NmtVruFnfNxvSp/view?usp=share_link">
+					href="assets/libraries/NRF24L01_W.zip" download>
 					here</a>.
 				Make sure to include the header file:
 			</p>
@@ -775,7 +775,7 @@
 				</li>
 				<li class="list-group-item">
 					Download this <a class="link-primary"
-					href="https://drive.google.com/file/d/1etEriny9ftGVAVvjwXtQCyGdDCfiyzdc/view">
+					href="assets/pcb/JLCPCB1ozExample.kicad_pcb" download>
 					file</a>. You will use it to import the manufacturer’s PCB constraints to your project.
 				</li>
 				<li class="list-group-item">
@@ -974,23 +974,27 @@
 			<ul>
 				<li>
 					<a class="link-primary" 
-					href="https://drive.google.com/file/d/1w9haYGk6eka_TOTiymXVfK3o4RiIGU-8/view">NRF24L01 Datasheet.pdf</a>
+					href="https://drive.google.com/file/d/1w9haYGk6eka_TOTiymXVfK3o4RiIGU-8/view"
+					target="_blank" rel="noopener noreferrer">NRF24L01 Datasheet.pdf</a>
 				</li>
 				<li>
 					<a class="link-primary" 
-					href="https://drive.google.com/file/d/1XgJbA4hapVwiDeIkIh0e_JCzlX8x-nO8/view">L293D Quadruple Half-H Driver Datasheet.pdf</a>
+					href="https://drive.google.com/file/d/1XgJbA4hapVwiDeIkIh0e_JCzlX8x-nO8/view"
+					target="_blank" rel="noopener noreferrer">L293D Quadruple Half-H Driver Datasheet.pdf</a>
 				</li>
 				<li>
 					<a class="link-primary" 
-					href="https://drive.google.com/file/d/1cz1hD7DHxZB3xJh50DLlUIqBDYxhczFi/view">Arduino Nano Datasheet.pdf</a>
+					href="https://drive.google.com/file/d/1cz1hD7DHxZB3xJh50DLlUIqBDYxhczFi/view"
+					target="_blank" rel="noopener noreferrer">Arduino Nano Datasheet.pdf</a>
 				</li>
 				<li>
 					<a class="link-primary" 
-					href="https://drive.google.com/file/d/1MVRedo0v8xRIBDfJDWlC6YpZi6wRghAx/view">Resistor Color Code Chart.pdf</a>
+					href="https://drive.google.com/file/d/1MVRedo0v8xRIBDfJDWlC6YpZi6wRghAx/view"
+					target="_blank" rel="noopener noreferrer">Resistor Color Code Chart.pdf</a>
 				</li>
 				<li>
 					<a class="link-primary" 
-					href="https://drive.google.com/file/d/1NOQYAHhi2zEvs3LF03NmtVruFnfNxvSp/view">NRF245L01_W Library</a>
+					href="assets/libraries/NRF24L01_W.zip" download>NRF24L01_W Library</a>
 				</li>
 			</ul>
 
