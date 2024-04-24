@@ -329,66 +329,66 @@
 				<h2 class="mb-3 fw-bold" id="pj-heading-l293d-quadruple-half-h-driver">L293D Quadruple Half-H Driver
 				</h2>
 				<p class="mb-3">
-					We will use an L293D chip to drive the two DC motors of the rover. The H-bridge should be familiar
-					to you. This time, the L293D will do
-					the heavy lifting. Within this IC are two H-bridges, making it possible to drive two motors
-					bidirectionally.
+					We will use an L293D chip to drive the two DC motors of the rover. To power a DC motor, all we need is to apply a voltage, 
+					but to change the direction the motor spins, we must do a little bit more. We apply the opposite voltage to change the 
+					direction of current passing through the motor. This changes the direction the motor spins as well…
+				</p>
+				<p class="mb-5">
+					The L293D IC makes it possible to drive two motors bidirectionally, and it does so by controlling the direction of current flow through each motor.
 				</p>
 
-				<p class="alert alert-warning mb-5" role="alert">
-					<i class="bi bi-cone-striped"></i> <strong>UNDER CONSTRUCTION</strong> <i
-						class="bi bi-cone-striped"></i> Come back later for new project information!
+				<h4 class="mb-3 fw-light">Reading the Big Scary Manual</h4>
+				<p class="mb-3">
+					This time around, we will not thoroughly discuss the driver’s operation. You will have to read
+					the datasheet, and figure it out yourself.
+					<br><br>
+					<a class="link-primary" href="assets/datasheets/ops_datasheet_l293d_quadruple_half-h_driver.pdf"
+						target="_blank" rel="noopener noreferrer">L293D Quadruple Half-H Driver Datasheet.pdf</a>
+					<br><br>
+					Skim through the datasheet to familiarize yourself with the documentation. Some items you may
+					recognize but the vast majority you may not.
+					This is okay!
+					<br><br>
+					<b>Pay close attention to pages 3, 7, and 11-12.</b> These pages will help you the most in
+					understanding the functions of the IC.
+					<br><br>
+					As you read, here are some things to note:
+				</p>
+				<ol class="mb-5 list-group list-group-numbered">
+					<li class="list-group-item">
+						The documentation refers to both the L293 and L293D, only the latter of which we will use.
+						This version of the chip contains flyback diodes.
+					</li>
+					<li class="list-group-item">
+						Of the several system examples, we will use the <b>Bidirectional DC Motor Control</b>.
+					</li>
+					<li class="list-group-item">
+						The term “<b>logic</b>” refers to the binary HIGH and LOW output of the Arduino digital
+						pins.
+					</li>
+				</ol>
+
+				<h4 class="mb-3 fw-light">L293D Pinout</h4>
+				<p class="mb-3">
+					Below you will find a pinout of the chip. Initially, it will seem overwhelming, but it will make
+					more sense as you navigate the datasheet.
+				</p>
+				<img class="pj-img-fluid mx-auto mb-4" src="./assets/images/capstone/ops_L293D_pinout.png"
+					width="500">
+				<p class="mb-3">
+					Ensure that the Arduino board and L293D share a <b>ground connection</b>.
+					<br><br>
+					As you will learn in the datasheet, <span class="text-indigo">1EN</span> and <span
+						class="text-pink">2EN</span> are enable pins, which you will
+					need to set to HIGH to control the driver channels. Note that if you apply a PWM signal to these
+					pins, you can control the speed of their respective
+					channels.
 				</p>
 
-				<template>
-					<h4 class="mb-3 fw-light">Reading the Big Scary Manual</h4>
-					<p class="mb-3">
-						This time around, we will not thoroughly discuss the driver’s operation. You will have to read
-						the datasheet, and figure it out yourself.
-						<br><br>
-						<a class="link-primary" href="assets/datasheets/ops_datasheet_l293d_quadruple_half-h_driver.pdf"
-							target="_blank" rel="noopener noreferrer">L293D Quadruple Half-H Driver Datasheet.pdf</a>
-						<br><br>
-						Skim through the datasheet to familiarize yourself with the documentation. Some items you may
-						recognize but the vast majority you may not.
-						This is okay!
-						<br><br>
-						<b>Pay close attention to pages 3, 7, and 11-12.</b> These pages will help you the most in
-						understanding the functions of the IC.
-						<br><br>
-						As you read, here are some things to note:
-					</p>
-					<ol class="mb-4 list-group list-group-numbered">
-						<li class="list-group-item">
-							The documentation refers to both the L293 and L293D, only the latter of which we will use.
-							This version of the chip contains flyback diodes.
-						</li>
-						<li class="list-group-item">
-							Of the several system examples, we will use the <b>Bidirectional DC Motor Control</b>.
-						</li>
-						<li class="list-group-item">
-							The term “<b>logic</b>” refers to the binary HIGH and LOW output of the Arduino digital
-							pins.
-						</li>
-					</ol>
-
-					<h4 class="mb-3 fw-light">L293D Pinout</h4>
-					<p class="mb-3">
-						Below you will find a pinout of the chip. Initially, it will seem overwhelming, but it will make
-						more sense as you navigate the datasheet.
-					</p>
-					<img class="pj-img-fluid mx-auto mb-4" src="./assets/images/capstone/ops_L293D_pinout.png"
-						width="500">
-					<p class="mb-5">
-						Ensure that the Arduino board and L293D share a <b>ground connection</b>.
-						<br><br>
-						As you will learn in the datasheet, <span class="text-indigo">1EN</span> and <span
-							class="text-pink">2EN</span> are enable pins, which you will
-						need to set to HIGH to control the driver channels. Note that if you apply a PWM signal to these
-						pins, you can control the speed of their respective
-						channels.
-					</p>
-				</template>
+				<div class="alert alert-warning mb-5" role="alert">
+					<b>The motors need to be powered directly by the 9V battery</b>, which is capable of supplying more power than the Arduino
+					board. 
+				</div>
 
 				<h3 class="mb-3 fw-bold" id="pj-heading-nrf24l01">NRF24L01 Transceiver Module</h3>
 				<p class="mb-3">
@@ -794,7 +794,7 @@
 				<h2 class="mb-3 fw-bold" id="pj-heading-procedure">Instructions</h2>
 				<h4 class="mb-3 fw-light">PCB Design</h4>
 
-				<ol class="mb-4 list-group list-group-numbered">
+				<ol class="mb-5 list-group list-group-numbered">
 					<li class="list-group-item">
 						Open KiCad 7.0 and create a new project.
 						<ul>
@@ -893,174 +893,168 @@
 					</li>
 				</ol>
 
-				<p class="alert alert-warning mb-5" role="alert">
-					<i class="bi bi-cone-striped"></i> <strong>UNDER CONSTRUCTION</strong> <i
-						class="bi bi-cone-striped"></i> Come back later for new project information!
+				<h4 class="mb-3 fw-light">PCB Assembly</h4>
+				<ol class="mb-5 list-group list-group-numbered">
+					<li class="list-group-item">
+						Place the headers on your newly manufactured PCB. Remember that you are not soldering the
+						actual
+						components to the board, just the headers.
+					</li>
+					<li class="list-group-item">
+						Solder the headers to the PCB.
+					</li>
+					<li class="list-group-item">
+						Place the components on the headers. Viola! You are done.
+					</li>
+				</ol>
+
+
+				<h4 class="mb-3 fw-light">Rover Assembly</h4>
+				<p class="mb-3">
+					You may customize the rover however you like, but it does need to work. Just in case, we offer
+					instructions on how to build it.
+				</p>
+				<ol class="mb-1 list-group list-group-numbered">
+					<li class="list-group-item">
+						Collect the listed components, all of which are displayed below:
+						<ul>
+							<li>
+								Breadboard
+							</li>
+							<li>
+								9V Battery Holder
+							</li>
+							<li>
+								9V Battery
+							</li>
+							<li>
+								9V Battery Snap Connector with Dupont Terminals <b>or</b> JST Female Snap Connector
+								with Male JST Header
+							</li>
+							<li>
+								Ball Caster Components (You may have a pre-assembled ball caster components in your
+								kit…
+								In which case, ignore the following.)
+								<ul>
+									<li>
+										Ball Caster Chassis Grip
+									</li>
+									<li>
+										Ball Caster
+									</li>
+									<li>
+										Metal Ball
+									</li>
+									<li>
+										Long Screws (2)
+									</li>
+									<li>
+										Hex Nuts (2)
+									</li>
+									<li>
+										Wheels (2)
+									</li>
+								</ul>
+							</li>
+							<li>
+								4”x4” Wood Plate (Chassis)
+							</li>
+							<li>
+								Gearbox Motors (2)
+							</li>
+						</ul>
+						<img class="pj-img-fluid mx-auto mb-0"
+							src=".\assets\images\capstone\ops_capstone_rover_components.png" width="800">
+					</li>
+					<li class="list-group-item">
+						Adhere the 9V battery holder to one face of the wood plate. Center the battery holder along
+						the edge of the plate.
+						Make sure the open side of the battery holder is on the edge of the wood plate.
+						<br><br>
+						<span class="text-red"><b>Hot Tip</b>: Use a glue gun</span>
+						<img class="pj-img-fluid mx-auto mb-0"
+							src=".\assets\images\capstone\ops_capstone_holder_glued.png" width="550">
+					</li>
+					<li class="list-group-item">
+						Adhere the two gearbox motors to the wood plate so that they sit on either side of the
+						battery holder.
+						<img class="pj-img-fluid mx-auto mb-0"
+							src=".\assets\images\capstone\ops_capstone_motors_glued.png" width="600">
+					</li>
+					<li class="list-group-item">
+						<b>If you have pre-assembled ball caster components, ignore this step</b>: Using the long
+						screws and hex nuts, fasten
+						the black ball caster to the chassis grip. To do so…
+						<ul>
+							<li>
+								Place the hex nuts in the hexagonal hole inside the clip.
+							</li>
+							<li>
+								Feed the screws through the caster’s holes and the holes at the bottom of the grip.
+							</li>
+							<li>
+								Tighten the screws until the hex nuts “catch” them and the ball caster is tightly
+								bound.
+							</li>
+						</ul>
+						<img class="pj-img-fluid mx-auto mb-0"
+							src=".\assets\images\capstone\ops_capstone_chassis_grip_parts.png" width="550">
+						<div style="text-align: center;">
+							<img class="pj-img-fluid mx-auto mb-0"
+								src=".\assets\images\capstone\ops_capstone_chassis_grip_1.png" width="150"
+								style="display: inline;">
+							<img class="pj-img-fluid mx-auto mb-5"
+								src=".\assets\images\capstone\ops_capstone_chassis_grip_2.png" width="175"
+								style="display: inline;">
+						</div>
+					</li>
+					<li class="list-group-item">
+						Clip the chassis grip to the edge of the plate opposite to the battery holder. Center align
+						the chassis grip
+						along the edge as well.
+						<img class="pj-img-fluid mx-auto mb-5"
+							src=".\assets\images\capstone\ops_capstone_chassis_grip_attached.png" width="600">
+					</li>
+					<li class="list-group-item">
+						Attach the wheels to the gearbox motors, the metal ball to the caster, and the 9V battery to
+						the battery holder.
+						Note that the battery slides into the holder as shown below.<br>
+						<img class="pj-img-fluid mx-auto mb-5"
+							src=".\assets\images\capstone\ops_capstone_battery_holder_and_rover.png" width="800">
+					</li>
+					<li class="list-group-item">
+						Attach the wheels to the gearbox motors, the metal ball to the caster, and the 9V battery to
+						the battery holder.
+						Note that the battery slides into the holder as shown below.<br>
+						<img class="pj-img-fluid mx-auto mb-5"
+							src=".\assets\images\capstone\ops_capstone_breadboard_and_rover.png" width="800">
+					</li>
+					<li class="list-group-item">
+						The final step is to place and wire the electrical components on the breadboard. Remember
+						that there is no
+						schematic. You have to design the circuit yourself.
+						<br><br>
+						Try drawing up your own schematic on <a class="link-primary"
+							href="https://www.tinkercad.com/circuits">Tinkercad</a>
+						first. You can use all the same components and even simulate your circuit with code!
+						<br><br>
+						If you get stuck, <b>ask questions</b>.
+						<img class="pj-img-fluid mx-auto mb-0"
+							src=".\assets\images\capstone\ops_capstone_rover_done.png" width="800">
+					</li>
+					<br>
+				</ol>
+
+				<h4 class="mb-3 fw-light">Programming</h4>
+				<p class="mb-5">
+					How you write the code is all up to you. Just make sure there are two files, one for the rover
+					and one for the remote control.
+					<br><br>
+					<b>Install the newest version</b> of the NRF24L01_W library as well.
+					<br><br>
+					As a final suggestion, look back at your old project submissions and reuse applicable code.
 				</p>
 
-				<template>
-					<h4 class="mb-3 fw-light">PCB Assembly</h4>
-					<ol class="mb-4 list-group list-group-numbered">
-						<li class="list-group-item">
-							Place the headers on your newly manufactured PCB. Remember that you are not soldering the
-							actual
-							components to the board, just the headers.
-						</li>
-						<li class="list-group-item">
-							Solder the headers to the PCB.
-						</li>
-						<li class="list-group-item">
-							Place the components on the headers. Viola! You are done.
-						</li>
-					</ol>
-
-
-					<h4 class="mb-3 fw-light">Rover Assembly</h4>
-					<p class="mb-3">
-						You may customize the rover however you like, but it does need to work. Just in case, we offer
-						instructions on how to build it.
-					</p>
-					<ol class="mb-1 list-group list-group-numbered">
-						<li class="list-group-item">
-							Collect the listed components, all of which are displayed below:
-							<ul>
-								<li>
-									Breadboard
-								</li>
-								<li>
-									9V Battery Holder
-								</li>
-								<li>
-									9V Battery
-								</li>
-								<li>
-									9V Battery Snap Connector with Dupont Terminals <b>or</b> JST Female Snap Connector
-									with Male JST Header
-								</li>
-								<li>
-									Ball Caster Components (You may have a pre-assembled ball caster components in your
-									kit…
-									In which case, ignore the following.)
-									<ul>
-										<li>
-											Ball Caster Chassis Grip
-										</li>
-										<li>
-											Ball Caster
-										</li>
-										<li>
-											Metal Ball
-										</li>
-										<li>
-											Long Screws (2)
-										</li>
-										<li>
-											Hex Nuts (2)
-										</li>
-										<li>
-											Wheels (2)
-										</li>
-									</ul>
-								</li>
-								<li>
-									4”x4” Wood Plate (Chassis)
-								</li>
-								<li>
-									Gearbox Motors (2)
-								</li>
-							</ul>
-							<img class="pj-img-fluid mx-auto mb-0"
-								src=".\assets\images\capstone\ops_capstone_rover_components.png" width="800">
-						</li>
-						<li class="list-group-item">
-							Adhere the 9V battery holder to one face of the wood plate. Center the battery holder along
-							the edge of the plate.
-							Make sure the open side of the battery holder is on the edge of the wood plate.
-							<br><br>
-							<span class="text-red"><b>Hot Tip</b>: Use a glue gun</span>
-							<img class="pj-img-fluid mx-auto mb-0"
-								src=".\assets\images\capstone\ops_capstone_holder_glued.png" width="550">
-						</li>
-						<li class="list-group-item">
-							Adhere the two gearbox motors to the wood plate so that they sit on either side of the
-							battery holder.
-							<img class="pj-img-fluid mx-auto mb-0"
-								src=".\assets\images\capstone\ops_capstone_motors_glued.png" width="600">
-						</li>
-						<li class="list-group-item">
-							<b>If you have pre-assembled ball caster components, ignore this step</b>: Using the long
-							screws and hex nuts, fasten
-							the black ball caster to the chassis grip. To do so…
-							<ul>
-								<li>
-									Place the hex nuts in the hexagonal hole inside the clip.
-								</li>
-								<li>
-									Feed the screws through the caster’s holes and the holes at the bottom of the grip.
-								</li>
-								<li>
-									Tighten the screws until the hex nuts “catch” them and the ball caster is tightly
-									bound.
-								</li>
-							</ul>
-							<img class="pj-img-fluid mx-auto mb-0"
-								src=".\assets\images\capstone\ops_capstone_chassis_grip_parts.png" width="550">
-							<div style="text-align: center;">
-								<img class="pj-img-fluid mx-auto mb-0"
-									src=".\assets\images\capstone\ops_capstone_chassis_grip_1.png" width="150"
-									style="display: inline;">
-								<img class="pj-img-fluid mx-auto mb-5"
-									src=".\assets\images\capstone\ops_capstone_chassis_grip_2.png" width="175"
-									style="display: inline;">
-							</div>
-						</li>
-						<li class="list-group-item">
-							Clip the chassis grip to the edge of the plate opposite to the battery holder. Center align
-							the chassis grip
-							along the edge as well.
-							<img class="pj-img-fluid mx-auto mb-5"
-								src=".\assets\images\capstone\ops_capstone_chassis_grip_attached.png" width="600">
-						</li>
-						<li class="list-group-item">
-							Attach the wheels to the gearbox motors, the metal ball to the caster, and the 9V battery to
-							the battery holder.
-							Note that the battery slides into the holder as shown below.<br>
-							<img class="pj-img-fluid mx-auto mb-5"
-								src=".\assets\images\capstone\ops_capstone_battery_holder_and_rover.png" width="800">
-						</li>
-						<li class="list-group-item">
-							Attach the wheels to the gearbox motors, the metal ball to the caster, and the 9V battery to
-							the battery holder.
-							Note that the battery slides into the holder as shown below.<br>
-							<img class="pj-img-fluid mx-auto mb-5"
-								src=".\assets\images\capstone\ops_capstone_breadboard_and_rover.png" width="800">
-						</li>
-						<li class="list-group-item">
-							The final step is to place and wire the electrical components on the breadboard. Remember
-							that there is no
-							schematic. You have to design the circuit yourself.
-							<br><br>
-							Try drawing up your own schematic on <a class="link-primary"
-								href="https://www.tinkercad.com/circuits">Tinkercad</a>
-							first. You can use all the same components and even simulate your circuit with code!
-							<br><br>
-							If you get stuck, <b>ask questions</b>.
-							<img class="pj-img-fluid mx-auto mb-0"
-								src=".\assets\images\capstone\ops_capstone_rover_done.png" width="800">
-						</li>
-						<br>
-					</ol>
-
-					<h4 class="mb-3 fw-light">Programming</h4>
-					<p class="mb-5">
-						How you write the code is all up to you. Just make sure there are two files, one for the rover
-						and one for the remote control.
-						<br><br>
-						<b>Install the newest version</b> of the NRF24L01_W library as well.
-						<br><br>
-						As a final suggestion, look back at your old project submissions and reuse applicable code.
-					</p>
-				</template>
 
 				<h2 class="mb-3 fw-bold" id="pj-heading-deliverables">Deliverables</h2>
 				<h4 class="mb-3 fw-light">PCB Design</h4>
@@ -1081,56 +1075,46 @@
 						<b>KiCad Schematic File</b> (.kicad_sch)
 					</li>
 				</ul>
-				<p class="mb-4">
+				<p class="mb-5">
 					Then, submit the <b>.zip</b> file to the Capstone PCB Design Canvas assignment. Make sure that the
 					file name follows the format:
 					“<b>capstone_firstname_lastname.zip</b>”
 				</p>
 
-
-				<p class="alert alert-warning mb-5" role="alert">
-					<i class="bi bi-cone-striped"></i> <strong>UNDER CONSTRUCTION</strong> <i
-						class="bi bi-cone-striped"></i> Come back later for new project information!
+				<h4 class="mb-3 fw-light">Final Submission</h4>
+				<p class="mb-3">
+					Place the following files in a single folder:
 				</p>
-
-				<template>
-					<h4 class="mb-3 fw-light">Final Submission</h4>
-					<p class="mb-3">
-						Place the following files in a single Google Drive folder:
-					</p>
-					<ul class="mb-4 list-group">
-						<li class="list-group-item">
-							<i class="bi bi-check2-square me-2"></i>
-							<b>Video of your rover and the remote control</b>
-							<div class="alert alert-info mt-2" role="alert">
-								The video should include a demonstration of the rover moving forward, backward, left,
-								and right. Make sure to show the remote as well.
-							</div>
-						</li>
-						<li class="list-group-item">
-							<i class="bi bi-check2-square me-2"></i>
-							<b>Rover Arduino sketch file</b>
-							<div class="alert alert-info mt-2" role="alert">
-								This file should include all of the code you have written for the rover. Name it
-								“<b>capstone_rover.ino</b>”.
-							</div>
-						</li>
-						<li class="list-group-item">
-							<i class="bi bi-check2-square me-2"></i>
-							<b>Remote Control Arduino sketch file</b>
-							<div class="alert alert-info mt-2" role="alert">
-								This file should include all of the code you have written for the remote control. Name
-								it “<b>capstone_remote.ino</b>”.
-							</div>
-						</li>
-					</ul>
-					<p class="mb-5">
-						Then, submit the <b>shareable folder link</b> to the Capstone Final Submission Canvas
-						assignment. Make sure that the folder link is accessible
-						to <b>Anyone with the link</b> or the <b>University of California, Irvine</b>.
-					</p>
-				</template>
-
+				<ul class="mb-4 list-group">
+					<li class="list-group-item">
+						<i class="bi bi-check2-square me-2"></i>
+						<b>Video of your rover and the remote control</b>
+						<div class="alert alert-info mt-2" role="alert">
+							The video should include a demonstration of the rover moving forward, backward, left,
+							and right. Make sure to show the remote as well.
+						</div>
+					</li>
+					<li class="list-group-item">
+						<i class="bi bi-check2-square me-2"></i>
+						<b>Rover Arduino sketch file</b>
+						<div class="alert alert-info mt-2" role="alert">
+							This file should include all of the code you have written for the rover. Name it
+							“<b>capstone_rover.ino</b>”.
+						</div>
+					</li>
+					<li class="list-group-item">
+						<i class="bi bi-check2-square me-2"></i>
+						<b>Remote Control Arduino sketch file</b>
+						<div class="alert alert-info mt-2" role="alert">
+							This file should include all of the code you have written for the remote control. Name
+							it “<b>capstone_remote.ino</b>”.
+						</div>
+					</li>
+				</ul>
+				<p class="mb-5">
+					<b>Compress</b> the folder to a <b>zip</b> file and rename the file using the format:  <b>“capstone_final_firstname_lastname.zip”.</b>
+					Then, submit the <b>.zip</b> file to the Capstone Final Submission Canvas assignment.
+				</p>
 			</div>
 		</main>
 	</div>
